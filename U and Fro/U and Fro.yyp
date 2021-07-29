@@ -1,7 +1,10 @@
 {
   "resources": [
-    {"id":{"name":"Note1","path":"notes/Note1/Note1.yy",},"order":0,},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"o_Player","path":"objects/o_Player/o_Player.yy",},"order":0,},
+    {"id":{"name":"spr_TempSquare","path":"sprites/spr_TempSquare/spr_TempSquare.yy",},"order":0,},
+    {"id":{"name":"n_NamingConventions","path":"notes/n_NamingConventions/n_NamingConventions.yy",},"order":0,},
+    {"id":{"name":"scr_InputHelper","path":"scripts/scr_InputHelper/scr_InputHelper.yy",},"order":0,},
+    {"id":{"name":"rm_TestingRoom","path":"rooms/rm_TestingRoom/rm_TestingRoom.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Amazon Fire","path":"options/amazonfire/options_amazonfire.yy",},
@@ -22,7 +25,7 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rm_TestingRoom","path":"rooms/rm_TestingRoom/rm_TestingRoom.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
