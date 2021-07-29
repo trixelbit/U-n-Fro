@@ -1,9 +1,10 @@
 {
   "resources": [
-    {"id":{"name":"o_Player","path":"objects/o_Player/o_Player.yy",},"order":0,},
+    {"id":{"name":"o_PlayerOne","path":"objects/o_PlayerOne/o_PlayerOne.yy",},"order":1,},
+    {"id":{"name":"o_PlayerParent","path":"objects/o_PlayerParent/o_PlayerParent.yy",},"order":0,},
     {"id":{"name":"spr_TempSquare","path":"sprites/spr_TempSquare/spr_TempSquare.yy",},"order":0,},
+    {"id":{"name":"scr_KeyToString","path":"scripts/scr_KeyToString/scr_KeyToString.yy",},"order":0,},
     {"id":{"name":"n_NamingConventions","path":"notes/n_NamingConventions/n_NamingConventions.yy",},"order":0,},
-    {"id":{"name":"scr_InputHelper","path":"scripts/scr_InputHelper/scr_InputHelper.yy",},"order":0,},
     {"id":{"name":"rm_TestingRoom","path":"rooms/rm_TestingRoom/rm_TestingRoom.yy",},"order":0,},
   ],
   "Options": [

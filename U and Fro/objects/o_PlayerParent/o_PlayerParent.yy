@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_TempSquare",
-    "path": "sprites/spr_TempSquare/spr_TempSquare.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -32,7 +29,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_Player",
+  "name": "o_PlayerParent",
   "tags": [],
   "resourceType": "GMObject",
 }

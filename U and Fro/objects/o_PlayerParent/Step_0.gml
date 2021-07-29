@@ -1,6 +1,6 @@
 // Input Checks
-hInput	=	KeyRight() - KeyLeft();
-vInput	=	KeyDown() - KeyUp();
+hInput	=	keyboard_check(right) - keyboard_check(left);
+vInput	=	keyboard_check(down) - keyboard_check(up);
 
 // Move Character
 x		+=	hInput * spd;
