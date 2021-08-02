@@ -35,9 +35,11 @@ function LoadObj(filename)
 	vertex_format_add_texcoord();
 	vertex_format_add_normal();
 	
-	objFormat = vertex_format_end();
+	var objFormat = vertex_format_end();
 	objBuffer = vertex_create_buffer();
 	var objFile = file_text_open_read(filename);
+	var i, a, c, j // incerementor vars
+	var vvData, vtData, vnData, vfData, vfdData, strCnt // arrays 
 	
 	vvData[0] = 0; // vertex position data (vec3 xyz)
 	vtData[0] = 0; // vertex texture data (vec2 uv)
@@ -56,72 +58,39 @@ function LoadObj(filename)
 		if ((string_char_at(str, 1) == "v") && string_char_at(str, 2) == " ") // vertex positions
 		{		
 			vvData[vvCount] = { x : 0, y : 0, z : 0};
-			strCnt[0] = 0; // array containing the length of each vector for splitting up the line
-			strCounter = 0; // the counter for the array
 			var strPos = string_copy(str, 3, string_length(str) - 3);
 			
-			for(j = 0; j < string_length(strPos); j++)
-			{
-				if(string_char_at(strPos, j + 1) == " ")
-				{
-					strCnt[strCounter] = j;
-					strCounter++;
-				}
-			}
+			strCnt = StringSplit(strPos, " ") // returns the split up vectors
 			
-			var xxx = string_copy(strPos, 1, strCnt[0]);
-			vvData[vvCount].x = real(xxx);						 
-			vvData[vvCount].y = real(string_copy(strPos, strCnt[0] + 1, strCnt[1]));		
-			vvData[vvCount].z = real(string_copy(strPos, strCnt[1] + 1, string_length(strPos)));	
+			vvData[vvCount].x = real(strCnt[0]);
+			vvData[vvCount].y = real(strCnt[1]);
+			vvData[vvCount].z = real(strCnt[2]);	
 			vvCount++;
-			array_resize(strCnt, 1);
 		}
 		
 		if (string_char_at(str, 1) == "v" && string_char_at(str, 2) == "t")   // vertex textures
 		{
 			vtData[vtCount] = { u: 0, v: 0 };
-			strCnt[0] = 0;
-			strCounter = 0;
 			var strPos = string_copy(str, 4, string_length(str) - 4);
 			
-			for(j = 0; j < string_length(strPos); j++)
-			{
-				if(string_char_at(strPos, j + 1) == " ")
-				{
-					strCnt[strCounter] = j;
-					strCounter++;
-				}
-			}
+			strCnt = StringSplit(strPos, " ");
 			
-			var u = string_copy(strPos, 1, strCnt[0]);
-			vtData[vtCount].u = real(u);
-			vtData[vtCount].v = real(string_copy(strPos, strCnt[0] + 1, string_length(strPos) - strCnt[0]));
+			vtData[vtCount].u = real(strCnt[0]);
+			vtData[vtCount].v = real(strCnt[1]);
 			vtCount++;
-			array_resize(strCnt, 1);
 		}
 		
 		if (string_char_at(str, 1) == "v" && string_char_at(str, 2) == "n")   // vertex normals
 		{
 			vnData[vnCount] = { x: 0, y: 0, z: 0 };
-			strCnt[0] = 0;
-			strCounter = 0;
 			var strPos = string_copy(str, 4, string_length(str) - 4);
 			
-			for(j = 0; j < string_length(strPos); j++)
-			{
-				if(string_char_at(strPos, j + 1) == " ")
-				{
-					strCnt[strCounter] = j;
-					strCounter++;
-				}
-			}
-			
-			var xxx = string_copy(strPos, 1, strCnt[0]);
-			vnData[vnCount].x = real(xxx);
-			vnData[vnCount].y = real(string_copy(strPos, strCnt[0] + 1, strCnt[1]));
-			vnData[vnCount].z = real(string_copy(strPos, strCnt[1] + 1, string_length(strPos)));	
+			strCnt = StringSplit(strPos, " ");
+
+			vnData[vnCount].x = real(strCnt[0]);
+			vnData[vnCount].y = real(strCnt[1]);
+			vnData[vnCount].z = real(strCnt[2]);
 			vnCount++;
-			array_resize(strCnt, 1);
 		}
 				
 		if(string_char_at(str, 1) == "f")  // face instructions
@@ -141,32 +110,26 @@ function LoadObj(filename)
 			vfCount++;
 			vfData[vfCount] = "";
 					
-		}
-				
-		// all the necessary data now has been collected :)
-		// now it is time to construct the model using the face instructions D:
-			
-	}
+		}	
+	} // end of file reading.
 
+	// vertex buffer construction
 	vertex_begin(objBuffer, objFormat);
 	
 	for(i = 0; i < array_length(vfData) - 1; i++)
 	{
 		//show_debug_message("TEST 1: " + string(i))
-		ftData = vfData[i]				
+		var ftData = vfData[i]				
 		{
-			for(c = 0; c < 3; c++)
+			for(c = 0; c < 3; c++) // 3 is the hard coded limit here as the importer only cares about vertex position, vertex texcoords, and the normals (3 things)
 			{
-				show_debug_message("TEST 2: " + string(ds_list_size(ftData)));
-				show_debug_message("TEST 3: " + string(c));
-				faceIndices = StringSplit(ftData[|c], "/");
+				var faceIndices = StringSplit(ftData[|c], "/");
 							
 				var vertPos = vvData[real(faceIndices[0]) - 1];
 				var vertTex = vtData[real(faceIndices[1]) - 1];
 				var vertNor = vnData[real(faceIndices[2]) - 1];
 							
 				vertex_position_3d(objBuffer, vertPos.x, vertPos.y, vertPos.z);
-				//show_debug_message(string(vertPos.x)+", "+string(vertPos.y)+", "+string(vertPos.z))
 				vertex_color(objBuffer, c_white, 1);
 				vertex_texcoord(objBuffer, vertTex.u, vertTex.v);
 				vertex_normal(objBuffer, vertNor.x, vertNor.y, vertNor.z);
@@ -175,7 +138,15 @@ function LoadObj(filename)
 	}
 				
 	vertex_end(objBuffer);
-				
+	
+	// this part deals with cleaning up the ds_lists created
+	
+	for(a = 0; a < array_length(vfData)-1; a++)
+		{
+			var listID = vfData[a]
+			ds_list_destroy(listID);
+		};
+	
 	return objBuffer;
 }
 
