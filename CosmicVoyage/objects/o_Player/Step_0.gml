@@ -18,5 +18,14 @@ if(keyboard_check_pressed(ord("D")))
 
 camera.x = origin;
 
+
+
+// commented out because 
+
+/*
 y -= spd;
 camera.y = y + 500;
+
+camera.targetX = x;
+camera.targetY = y;
+camera.targetZ = z;
