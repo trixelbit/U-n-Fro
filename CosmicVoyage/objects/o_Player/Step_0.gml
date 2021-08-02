@@ -1,22 +1,28 @@
 // Move Left
 if(keyboard_check_pressed(ord("A")))
 {
-	if(x != origin - 128)
+	if(currentLane > -1)
 	{
-		x -= 128;
+		targetX -= 128;
+		currentLane --;
+		o_Camera.targetTilt = lerp(o_Camera.targetTilt,1.50,0.030);
 	}
 }
 
 // Move Right
 if(keyboard_check_pressed(ord("D")))
 {
-	if(x != origin + 128)
+	if(currentLane < 1)
 	{
-		x += 128;
+		targetX += 128;
+		currentLane ++;
+		o_Camera.targetTilt = lerp(o_Camera.targetTilt,-1.50,0.030);
 	}
 }
 
-camera.x = origin;
+x = lerp(x,targetX,0.25)
+
+
 
 
 
@@ -25,7 +31,7 @@ camera.x = origin;
 /*
 y -= spd;
 camera.y = y + 500;
-
-camera.targetX = x;
-camera.targetY = y;
-camera.targetZ = z;
+*/
+//camera.targetX = x;
+//camera.targetY = y;
+//camera.targetZ = z;

@@ -5,3 +5,6 @@ camera.z = 20;
 camera.targetX = x;
 camera.targetY = y;
 camera.targetZ = z;
+
+targetX = x;
+currentLane = 0;
