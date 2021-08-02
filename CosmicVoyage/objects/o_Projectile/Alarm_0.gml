@@ -1,2 +1,2 @@
-// Destroy object after lifetime
+// Destroy instance
 instance_destroy();

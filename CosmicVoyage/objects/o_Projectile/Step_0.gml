@@ -1,12 +1,12 @@
 // Collision
 
-// Movement (From Player)
+
+// Movement
 if(parentObject == o_Player)
 {
-	y += 5;
+	y += 25;
 }
-// Movement (From Enemy)
 else
 {
-	y -= 5;
+	y -= 25;
 }

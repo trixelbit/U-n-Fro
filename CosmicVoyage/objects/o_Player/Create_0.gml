@@ -1,10 +1,14 @@
-origin = x;
-
+// Instance camera
 camera = instance_create_layer(x, (y + 100), "Camera", o_Camera);
-camera.z = 20;
-camera.targetX = x;
-camera.targetY = y;
-camera.targetZ = z;
+camera.z = 0;
+camera.targetObject = self;
 
+// Movement
 targetX = x;
 currentLane = 0;
+
+// For Multiplayer
+isPlayerOne = true;
+
+// For Debug
+isDebug = false;
