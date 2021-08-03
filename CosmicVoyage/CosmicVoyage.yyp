@@ -9,6 +9,7 @@
     {"id":{"name":"o_Projectile","path":"objects/o_Projectile/o_Projectile.yy",},"order":3,},
     {"id":{"name":"o_EnemyController","path":"objects/o_EnemyController/o_EnemyController.yy",},"order":4,},
     {"id":{"name":"spr_Train","path":"sprites/spr_Train/spr_Train.yy",},"order":0,},
+    {"id":{"name":"spr_player_left","path":"sprites/spr_player_left/spr_player_left.yy",},"order":6,},
     {"id":{"name":"sh_Billboard","path":"shaders/sh_Billboard/sh_Billboard.yy",},"order":0,},
     {"id":{"name":"spr_colors","path":"sprites/spr_colors/spr_colors.yy",},"order":5,},
     {"id":{"name":"o_Camera","path":"objects/o_Camera/o_Camera.yy",},"order":1,},
