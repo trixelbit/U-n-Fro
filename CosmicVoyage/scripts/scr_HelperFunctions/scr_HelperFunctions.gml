@@ -150,12 +150,21 @@ function LoadObj(filename)
 	return objBuffer;
 }
 
-/// @function						DrawSpriteBillboard(sprite, subimage, xx, yy, zz)
-function DrawSpriteBillboard(sprite, subimage, xx, yy, zz)
+/// @function						DrawSpriteBillboard(sprite, subimage, xx, yy, zz, flip)
+function DrawSpriteBillboard(sprite, subimage, xx, yy, zz, flip)
 {
 	shader_set(sh_Billboard);
-	matrix_set(matrix_world, matrix_build(xx, yy, zz, 0, 0, 0, 1, 1, 1));
-	draw_sprite(sprite, subimage, 0, 0);
+	var rot = 0;
+	if(flip)
+	{
+		rot = -1;
+	}
+	else
+	{
+		rot = 1;
+	}
+	matrix_set(matrix_world, matrix_build(xx, yy, zz, 0, 0, 0, -1, 1, 1));
+	draw_sprite_ext(sprite, subimage, 0, 0, rot, 1, 0, c_white, 1);
 	matrix_set(matrix_world, matrix_build_identity());
 	shader_reset();
 }
