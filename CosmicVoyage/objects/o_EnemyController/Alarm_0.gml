@@ -1,0 +1,1 @@
+hasSpawned = false;

@@ -11,6 +11,6 @@ if fireTick <= 0
 fireTick --;
 
 if _lives < 1
-	{
+{
 	instance_destroy(id);	
-	};
+};

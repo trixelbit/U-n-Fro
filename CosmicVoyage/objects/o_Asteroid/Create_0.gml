@@ -1,7 +1,5 @@
 /// @description Insert description here
 // Good huntin' to ya ^^
-
-hasSpawned = false;
-
-// 256 is the center ig
-
+ufoBuff = LoadObj("m_asteroid.obj");
+_lives = 1;
+alarm[0] = 300;
