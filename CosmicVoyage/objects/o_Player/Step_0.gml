@@ -1,4 +1,4 @@
-if(lives > 0)
+if(_lives > 0)
 {
 	// If singleplayer or player one in multiplayer
 	if(isPlayerOne)
@@ -28,8 +28,8 @@ if(lives > 0)
 		// Shoot projectile
 		if(keyboard_check_pressed(ord("W")))
 		{
-			var proj = instance_create_layer(x, y - 10, "Instances", o_Projectile);
-			proj.parentObject = self;
+			var proj = instance_create_layer(targetX, y - 10, "Instances", o_Projectile);
+			proj.parentObject = id;
 		}
 	}
 	// If player two in multiplayer
@@ -60,7 +60,7 @@ if(lives > 0)
 		// Shoot projectile
 		if(keyboard_check_pressed(vk_up))
 		{
-			var proj = instance_create_layer(x, y - 10, "Instances", o_Projectile);
+			var proj = instance_create_layer(targetX, y - 10, "Instances", o_Projectile);
 			proj.parentObject = self;
 		}
 	}
@@ -71,6 +71,6 @@ if(lives > 0)
 		isDebug = !isDebug;
 	}
 
-	x = lerp(x,targetX,0.25);
+	x = lerp(x,targetX,0.075);
 	y -= spd;
 }

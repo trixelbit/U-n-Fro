@@ -1,8 +1,11 @@
 {
   "resources": [
     {"id":{"name":"Sprite3","path":"sprites/Sprite3/Sprite3.yy",},"order":2,},
+    {"id":{"name":"o_Entity","path":"objects/o_Entity/o_Entity.yy",},"order":6,},
     {"id":{"name":"o_Hazard","path":"objects/o_Hazard/o_Hazard.yy",},"order":0,},
+    {"id":{"name":"o_EnemyUFO","path":"objects/o_EnemyUFO/o_EnemyUFO.yy",},"order":5,},
     {"id":{"name":"o_Projectile","path":"objects/o_Projectile/o_Projectile.yy",},"order":3,},
+    {"id":{"name":"o_EnemyController","path":"objects/o_EnemyController/o_EnemyController.yy",},"order":4,},
     {"id":{"name":"spr_Train","path":"sprites/spr_Train/spr_Train.yy",},"order":0,},
     {"id":{"name":"sh_Billboard","path":"shaders/sh_Billboard/sh_Billboard.yy",},"order":0,},
     {"id":{"name":"o_Camera","path":"objects/o_Camera/o_Camera.yy",},"order":1,},
