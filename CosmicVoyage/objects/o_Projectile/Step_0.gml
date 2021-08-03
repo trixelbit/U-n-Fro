@@ -1,10 +1,10 @@
 // Collision
 targetID = collision_circle(x,y,10,o_Entity,false,true)
 if targetID != noone && targetID.object_index != parentObject.object_index
-	{
-		targetID._lives --;
-		instance_destroy(id)
-	};
+{
+	targetID._lives --;
+	instance_destroy(id)
+}
 
 // Movement
 if(parentObject == o_Player.id)
@@ -15,3 +15,6 @@ else
 {
 	y += 25;
 }
+
+// Interpolate to X
+x = lerp(x, destX, 0.1);
