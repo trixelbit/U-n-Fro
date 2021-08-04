@@ -15,3 +15,7 @@ isPlayerOne = true;
 
 // For Debug
 isDebug = false;
+
+// Scoring
+flashTick = 0;
+oldKills = 0;

@@ -1,5 +1,8 @@
 if(_lives > 0)
 {
+	finalSpd = spd*(global.scoreDist/1000)+ 10;
+	
+	
 	// If singleplayer or player one in multiplayer
 	if(isPlayerOne)
 	{
@@ -31,6 +34,7 @@ if(_lives > 0)
 			var proj = instance_create_layer(x, y - 10, "Instances", o_Projectile);
 			proj.parentObject = id;
 			proj.destX = targetX;
+			proj.baseSpd = finalSpd
 		}
 	}
 	// If player two in multiplayer
@@ -64,6 +68,7 @@ if(_lives > 0)
 			var proj = instance_create_layer(x, y - 10, "Instances", o_Projectile);
 			proj.parentObject = self;
 			proj.destX = targetX;
+			proj.baseSpd = finalSpd;
 		}
 	}
 
@@ -73,6 +78,7 @@ if(_lives > 0)
 		isDebug = !isDebug;
 	}
 
+	global.scoreDist ++;
 	x = lerp(x,targetX,0.075);
-	y -= spd;
+	y -= finalSpd 
 }

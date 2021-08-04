@@ -4,3 +4,4 @@ ufoBuff = LoadObj("m_asteroid.obj");
 _lives = 1;
 fireTick = 0;
 alarm[0] = 300;
+spd = 1;

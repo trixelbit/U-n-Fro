@@ -1,3 +1,4 @@
+
 if(distance_to_point(targetX, y) > 10)
 {
 	sprite_index = spr_player_left;
