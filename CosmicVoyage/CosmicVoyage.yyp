@@ -20,6 +20,7 @@
     {"id":{"name":"o_Lanes","path":"objects/o_Lanes/o_Lanes.yy",},"order":9,},
     {"id":{"name":"spr_colors","path":"sprites/spr_colors/spr_colors.yy",},"order":5,},
     {"id":{"name":"o_Camera","path":"objects/o_Camera/o_Camera.yy",},"order":1,},
+    {"id":{"name":"spr_bullet","path":"sprites/spr_bullet/spr_bullet.yy",},"order":10,},
     {"id":{"name":"o_Player","path":"objects/o_Player/o_Player.yy",},"order":2,},
     {"id":{"name":"scr_HelperFunctions","path":"scripts/scr_HelperFunctions/scr_HelperFunctions.yy",},"order":0,},
     {"id":{"name":"rm_TestRoom","path":"rooms/rm_TestRoom/rm_TestRoom.yy",},"order":0,},

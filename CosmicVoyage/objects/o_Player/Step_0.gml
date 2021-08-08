@@ -31,7 +31,7 @@ if(_lives > 0)
 		// Shoot projectile
 		if(keyboard_check_pressed(ord("W")))
 		{
-			var proj = instance_create_layer(x, y - 10, "Instances", o_Projectile);
+			var proj = instance_create_layer(x, y - 20, "Instances", o_Projectile);
 			proj.parentObject = id;
 			proj.destX = targetX;
 			proj.baseSpd = finalSpd
@@ -65,7 +65,7 @@ if(_lives > 0)
 		// Shoot projectile
 		if(keyboard_check_pressed(vk_up))
 		{
-			var proj = instance_create_layer(x, y - 10, "Instances", o_Projectile);
+			var proj = instance_create_layer(x, y - 20, "Instances", o_Projectile);
 			proj.parentObject = self;
 			proj.destX = targetX;
 			proj.baseSpd = finalSpd;
@@ -83,10 +83,12 @@ if(_lives > 0)
 	
 	// distance incerementing
 	if o_GameManager.levelTrans == false
-		{
-	global.scoreDist++;
-		};
+	{
+		global.scoreDist++;
+	}
 	
 	if(y < -150000)
+	{
 		y = -500;
+	}
 }

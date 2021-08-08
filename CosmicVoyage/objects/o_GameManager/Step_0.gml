@@ -25,15 +25,16 @@ switch (currentState)
 		}
 		// level switches
 		// to-do: check in with trix about the order of levels
+		
 		if global.scoreDist >= goalDist
 			{
-			lvlCounter ++;
-			lvlCounter = wrap(lvlCounter, 0, 3);
-			currentLevel = levelArray[lvlCounter]
-			goalDist = global.scoreDist + goalInc;
-			levelTrans = true;
-			fadeOut = 0.0;
-			canSpawn = false;
+				lvlCounter ++;
+				lvlCounter = wrap(lvlCounter, 0, 3);
+				currentLevel = levelArray[lvlCounter]
+				goalDist = global.scoreDist + goalInc;
+				levelTrans = true;
+				fadeOut = 0.0;
+				canSpawn = false;
 			};
 
 		
