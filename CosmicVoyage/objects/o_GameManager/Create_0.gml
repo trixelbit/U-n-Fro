@@ -2,10 +2,12 @@
 
 enum GameState
 {
+	Intro,
 	Game,
+	Menu,
 	Multiplayer,
 }
-currentState = GameState.Game;
+currentState = GameState.Intro;
 
 // setup for different enviroments/levels
 enum levelState
@@ -19,7 +21,7 @@ enum levelState
 currentLevel = levelState.env_Space;
 currentSkybox = spr_skybox_space;
 
-goalInc = 500; // the incerement to set the goal dist to 
+goalInc = 2500; // the incerement to set the goal dist to 
 goalDist = goalInc;
 
 

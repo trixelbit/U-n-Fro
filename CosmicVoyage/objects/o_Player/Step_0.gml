@@ -1,4 +1,5 @@
-if(_lives > 0)
+
+if(_lives > 0) && o_GameManager.currentState == GameState.Game
 {
 	finalSpd = (global.scoreDist/5000) + 10;
 	

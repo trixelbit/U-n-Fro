@@ -23,4 +23,28 @@ switch (currentState)
 	case GameState.Multiplayer:
 	    // code here
 	    break;
+		
+	case GameState.Intro:
+		draw_set_halign(fa_center)
+		draw_text(browser_width*0.5,browser_height*0.5,"the among us crewmates have breached containment. Run.")
+		draw_text(browser_width*0.5,browser_height*0.75,"Press any key to start.")
+		if keyboard_check_pressed(vk_anykey)
+			{
+				currentState = GameState.Menu;	
+			};
+		draw_set_halign(fa_left)
+		break;
+		
+	case GameState.Menu:
+		draw_set_halign(fa_center)
+		draw_text(browser_width*0.5,browser_height*0.5,"A Lightspeed Odyssey")
+		draw_text(browser_width*0.5,browser_height*0.75,"Press SPACE to launch!")
+		draw_set_halign(fa_left);
+		if keyboard_check_pressed(vk_space)
+			{
+				currentState = GameState.Game;	
+				instance_destroy(o_Player)
+				instance_create_layer(256,room_height,"Instances",o_Player)
+			};
+		break;
 }

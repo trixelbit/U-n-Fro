@@ -112,7 +112,7 @@ function LoadObj(filename)
 					
 		}	
 	} // end of file reading.
-
+	file_text_close(objFile)
 	// vertex buffer construction
 	vertex_begin(objBuffer, objFormat);
 	
@@ -198,11 +198,15 @@ function run_reset()
 		
 		o_GameManager.currentLevel = levelState.env_Space
 		o_GameManager.lvlCounter = 0;
+		o_GameManager.levelTrans = false;
+		o_GameManager.canSpawn = true;
+		o_GameManager.currentState = GameState.Menu;
+		
 	
 		
 	};
 
 function drawButton(x,y,width,height,text)
 	{
-		
+	
 	};

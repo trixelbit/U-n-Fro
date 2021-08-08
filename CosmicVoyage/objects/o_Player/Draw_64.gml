@@ -17,7 +17,8 @@ if(isDebug)
 	draw_text_ext_transformed(25, 110, "Z: " + string(z), 10, 300, 0.75, 0.75, 0);
 }
 
-
+if o_GameManager.currentState == GameState.Game
+	{
 // Score Display
 finalScore = global.scoreTotal;
 
@@ -89,3 +90,5 @@ gpu_set_ztestenable(true);
 gpu_set_zwriteenable(true);
 
 oldKills = global.scoreKills
+	};
+

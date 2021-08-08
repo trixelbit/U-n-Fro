@@ -1,4 +1,7 @@
 
+if o_GameManager.currentState == GameState.Game
+	{
+
 if(distance_to_point(targetX, y) > 10)
 {
 	sprite_index = spr_player_left;
@@ -16,3 +19,4 @@ else
 	sprite_index = spr_player_idle;
 	DrawSpriteBillboard(sprite_index, image_index, x, y, z, false);
 }
+	};
