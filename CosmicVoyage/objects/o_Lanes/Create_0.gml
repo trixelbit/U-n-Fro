@@ -29,3 +29,4 @@ vertex_color(testPlane,c_white,1)
 vertex_texcoord(testPlane,1,0)
 
 vertex_end(testPlane);
+

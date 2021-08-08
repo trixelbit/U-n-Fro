@@ -168,3 +168,15 @@ function DrawSpriteBillboard(sprite, subimage, xx, yy, zz, flip)
 	matrix_set(matrix_world, matrix_build_identity());
 	shader_reset();
 }
+
+/// @function						wrap(val, min, max)
+/// @param {real} val				value to wrap
+/// @param {real} min				minimum value to wrap to
+/// @param {real} max				maximum value to wrap to
+function wrap(val, min, max)
+	{
+	if val > max { return min };
+	if val < min { return max };
+	return val;
+	}
+	

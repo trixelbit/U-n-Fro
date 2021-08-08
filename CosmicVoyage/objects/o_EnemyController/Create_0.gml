@@ -5,14 +5,10 @@ hasSpawned = false;
 global.scoreKills = 0;
 global.scoreDist = 0;
 // 256 is the center ig
+// spawnDist is how far away enemies spawn from the player
+spawnDist = 4096;
 
-// setup for different enviroments/levels
-#macro ENV_SPACE 0
-#macro ENV_PLANT 1
-#macro ENV_WARP  2
-
-global.levelState = ENV_SPACE;
-
+#region testPlane generation
 testPlane = vertex_create_buffer()
 
 vertex_format_begin()
@@ -44,3 +40,4 @@ vertex_color(testPlane,c_white,1)
 vertex_texcoord(testPlane,1,0)
 
 vertex_end(testPlane);
+#endregion 

@@ -1,10 +1,35 @@
 // Current State of the Game
+
 enum GameState
 {
 	Game,
 	Multiplayer,
 }
 currentState = GameState.Game;
+
+// setup for different enviroments/levels
+enum levelState
+	{
+		env_Space,
+		env_Planet,
+		env_Warp,
+		env_Asteroid
+	}
+
+currentLevel = levelState.env_Space;
+currentSkybox = spr_skybox_space;
+
+goalInc = 500; // the incerement to set the goal dist to 
+goalDist = goalInc;
+
+
+// level order (array)
+levelArray = [ levelState.env_Space, levelState.env_Asteroid, levelState.env_Space, levelState.env_Warp ]
+lvlCounter = 0
+
+// transitions
+levelTrans = false;
+
 
 // Spawn players
 if(currentState == GameState.Game)
@@ -29,3 +54,9 @@ inEvent = false;
 canSpawn = false;
 hasSpawned = false;
 alarm[0] = 300;
+
+// Enemy Spawning Distance
+spawnDist = 4096;
+
+// Skybox model
+skyboxBuff = LoadObj("m_skybox.obj")

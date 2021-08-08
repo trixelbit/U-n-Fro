@@ -3,6 +3,6 @@
 ufoBuff = LoadObj("m_asteroid.obj");
 _lives = 1;
 fireTick = 0;
-alarm[0] = 300;
+alarm[0] = 500;
 spd = 1;
 z = 0;

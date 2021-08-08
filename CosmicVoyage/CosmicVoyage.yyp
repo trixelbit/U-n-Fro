@@ -11,6 +11,7 @@
     {"id":{"name":"o_Projectile","path":"objects/o_Projectile/o_Projectile.yy",},"order":3,},
     {"id":{"name":"o_EnemyController","path":"objects/o_EnemyController/o_EnemyController.yy",},"order":4,},
     {"id":{"name":"spr_collision","path":"sprites/spr_collision/spr_collision.yy",},"order":8,},
+    {"id":{"name":"spr_skybox_space","path":"sprites/spr_skybox_space/spr_skybox_space.yy",},"order":9,},
     {"id":{"name":"rm_Game","path":"rooms/rm_Game/rm_Game.yy",},"order":1,},
     {"id":{"name":"spr_Train","path":"sprites/spr_Train/spr_Train.yy",},"order":0,},
     {"id":{"name":"o_Asteroid","path":"objects/o_Asteroid/o_Asteroid.yy",},"order":7,},
@@ -71,6 +72,7 @@
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"JapanTrainModel.obj","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_asteroid.obj","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_skybox.obj","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.3.574",

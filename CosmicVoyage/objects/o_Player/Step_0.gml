@@ -80,7 +80,12 @@ if(_lives > 0)
 
 	x = lerp(x,targetX,0.075);
 	y -= finalSpd;
+	
+	// distance incerementing
+	if o_GameManager.levelTrans == false
+		{
 	global.scoreDist++;
+		};
 	
 	if(y < -150000)
 		y = -500;
