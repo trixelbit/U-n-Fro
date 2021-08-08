@@ -30,6 +30,9 @@ lvlCounter = 0
 // transitions
 levelTrans = false;
 
+// enemy spawning chances
+enemy_chanceUFO = 5;
+enemy_spawnRate = 125;
 
 // Spawn players
 if(currentState == GameState.Game)
@@ -46,6 +49,11 @@ else
 // Global variables
 global.scoreKills = 0;
 global.scoreDist = 0;
+global.scoreTotal = 0;
+
+// high score (just the last highest recorded score for now
+scoreRecord = 0;
+scoreArray = array_create(10,0)
 
 // Is in Event?
 inEvent = false;

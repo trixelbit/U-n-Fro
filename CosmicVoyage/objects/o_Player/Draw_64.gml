@@ -19,17 +19,40 @@ if(isDebug)
 
 
 // Score Display
-finalScore = global.scoreDist + (500 * (global.scoreKills))
+finalScore = global.scoreTotal;
 
 // Death State
 if _lives < 1 // something in here is causing the HTML5 version to crash
 	{
+		var scArr = o_GameManager.scoreArray;
+		// setting the new highest score
+		if global.scoreTotal > o_GameManager.scoreRecord && newScore != true
+			{
+				o_GameManager.scoreRecord = global.scoreTotal;
+				newScore = true;	
+				array_insert(scArr,0,o_GameManager.scoreRecord)
+				
+			};
 		draw_set_halign(fa_center)
-		draw_text(browser_width*0.5,browser_height*0.25,"Your final score is: " + string(finalScore) + " points")
-		draw_text(browser_width*0.5,browser_height*0.35,"Press Space to Restart")
+		var hOffset = 20;
+		
+		draw_text(browser_width*0.5,browser_height*0.20,"High Scores!")
+		// draws the high score board
+		for(i = 0; i < array_length(scArr)-1; i++)
+			{
+				if newScore == true && i = 0 { draw_set_color(c_yellow) };
+				
+				draw_text(browser_width*0.5,browser_height*0.25+(i*hOffset),string(scArr[i])+ " points");	
+				draw_set_color(c_white)
+			};
+
+			
+		// restart text and resetting the run
+		draw_text(browser_width*0.5,browser_height*0.75,"Press Space to Restart")
 		if keyboard_check_pressed(vk_space)
 			{
-			game_restart(); // to-do: add in a proper run reset	
+			newScore = false;
+			run_reset();
 			};
 		draw_set_halign(fa_left)
 	};

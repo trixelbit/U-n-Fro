@@ -180,3 +180,29 @@ function wrap(val, min, max)
 	return val;
 	}
 	
+function run_reset()
+	{
+		global.scoreDist = 0;
+		global.scoreKills = 0;
+		global.scoreTotal = 0;
+		
+		o_Player.y = 0;
+		o_Player.x = 256;
+		o_Player._lives = 3;
+		o_Player.targetX = 256;
+		o_Player.currentLane = 0;
+		
+		instance_destroy(o_Asteroid);
+		instance_destroy(o_EnemyUFO);
+		instance_destroy(o_Projectile);
+		
+		o_GameManager.currentLevel = levelState.env_Space
+		o_GameManager.lvlCounter = 0;
+	
+		
+	};
+
+function drawButton(x,y,width,height,text)
+	{
+		
+	};
