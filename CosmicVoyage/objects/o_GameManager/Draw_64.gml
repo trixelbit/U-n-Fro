@@ -38,13 +38,13 @@ switch (currentState)
 	case GameState.Menu:
 		draw_set_halign(fa_center)
 		draw_text(browser_width*0.5,browser_height*0.5,"A Lightspeed Odyssey")
-		draw_text(browser_width*0.5,browser_height*0.75,"Press SPACE to launch!")
+		draw_text(browser_width*0.5,browser_height*0.75,"Press W to launch!")
 		draw_set_halign(fa_left);
-		if keyboard_check_pressed(vk_space)
+		if keyboard_check_pressed(ord("W"))
 			{
 				currentState = GameState.Game;	
-				instance_destroy(o_Player)
-				instance_create_layer(256,room_height,"Instances",o_Player)
+				if !instance_exists(o_Player) { instance_create_layer(256,room_height,"Instances",o_Player) }
+				
 			};
 		break;
 }

@@ -41,7 +41,7 @@ if(currentState == GameState.Game)
 {
 	instance_create_layer(room_width/2, room_height, "Instances", o_Player);
 }
-else
+else if currentState == GameState.Multiplayer
 {
 	var pOne = instance_create_layer(room_width/2, room_height, "Instances", o_Player);
 	var pTwo = instance_create_layer(room_width/2, room_height, "Instances", o_Player);

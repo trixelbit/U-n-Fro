@@ -20,3 +20,4 @@ isDebug = false;
 // Scoring
 flashTick = 0;
 oldKills = 0;
+newScore = 0;

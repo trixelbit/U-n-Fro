@@ -186,7 +186,7 @@ function run_reset()
 		global.scoreKills = 0;
 		global.scoreTotal = 0;
 		
-		o_Player.y = 0;
+		o_Player.y = room_height;
 		o_Player.x = 256;
 		o_Player._lives = 3;
 		o_Player.targetX = 256;
