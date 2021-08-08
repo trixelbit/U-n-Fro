@@ -9,6 +9,7 @@ camera.targetObject = self;
 // Movement
 targetX = x;
 currentLane = 0;
+z = 0;
 
 // For Multiplayer
 isPlayerOne = true;

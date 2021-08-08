@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_collision",
-    "path": "sprites/spr_collision/spr_collision.yy",
+    "name": "spr_enemy_spike",
+    "path": "sprites/spr_enemy_spike/spr_enemy_spike.yy",
   },
   "solid": false,
   "visible": true,

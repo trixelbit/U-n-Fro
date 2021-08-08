@@ -1,6 +1,6 @@
 if(_lives > 0)
 {
-	finalSpd = spd*(global.scoreDist/1000)+ 10;
+	finalSpd = (global.scoreDist/5000) + 10;
 	
 	
 	// If singleplayer or player one in multiplayer
@@ -78,7 +78,10 @@ if(_lives > 0)
 		isDebug = !isDebug;
 	}
 
-	global.scoreDist ++;
 	x = lerp(x,targetX,0.075);
-	y -= finalSpd 
+	y -= finalSpd;
+	global.scoreDist++;
+	
+	if(y < -150000)
+		y = -500;
 }
