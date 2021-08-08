@@ -15,6 +15,11 @@ switch (currentState)
 				}
 				else
 				{
+					index = random(10)
+					if index >= enemy_chanceUFO
+						{
+					instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_Asteroid);
+						};
 					show_debug_message("Asteroid");
 					instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_Asteroid);
 				}
@@ -38,9 +43,9 @@ switch (currentState)
 				
 				switch(currentLevel) // the spawning chances for UFOs, the higher the value, the less they spawn, and the lower the value, the more they spawn
 					{
-						case levelState.env_Space:		enemy_chanceUFO = 5; enemy_spawnRate = 125; break;
-						case levelState.env_Asteroid:   enemy_chanceUFO = 8; enemy_spawnRate = 75; break;
-						case levelState.env_Planet:		enemy_chanceUFO = 2; enemy_spawnRate = 75; break;
+						case levelState.env_Space:		enemy_chanceUFO = 5; enemy_spawnRate = 20; break;
+						case levelState.env_Asteroid:   enemy_chanceUFO = 8; enemy_spawnRate = 20; break;
+						case levelState.env_Planet:		enemy_chanceUFO = 2; enemy_spawnRate = 20; break;
 						case levelState.env_Warp:		enemy_chanceUFO = 10; break;
 					};
 			};

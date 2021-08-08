@@ -1,7 +1,7 @@
 
 if(_lives > 0) && o_GameManager.currentState == GameState.Game
 {
-	finalSpd = (global.scoreDist/5000) + 10;
+	finalSpd = 32
 	
 	
 	// If singleplayer or player one in multiplayer
@@ -85,7 +85,7 @@ if(_lives > 0) && o_GameManager.currentState == GameState.Game
 	// distance incerementing
 	if o_GameManager.levelTrans == false
 	{
-		global.scoreDist++;
+		global.scoreDist ++;
 	}
 	
 	if(y < -150000)
