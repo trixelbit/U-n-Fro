@@ -14,6 +14,7 @@
     {"id":{"name":"spr_skybox_space","path":"sprites/spr_skybox_space/spr_skybox_space.yy",},"order":9,},
     {"id":{"name":"rm_Game","path":"rooms/rm_Game/rm_Game.yy",},"order":1,},
     {"id":{"name":"spr_Train","path":"sprites/spr_Train/spr_Train.yy",},"order":0,},
+    {"id":{"name":"spr_Heart","path":"sprites/spr_Heart/spr_Heart.yy",},"order":11,},
     {"id":{"name":"o_Asteroid","path":"objects/o_Asteroid/o_Asteroid.yy",},"order":7,},
     {"id":{"name":"spr_player_left","path":"sprites/spr_player_left/spr_player_left.yy",},"order":6,},
     {"id":{"name":"sh_Billboard","path":"shaders/sh_Billboard/sh_Billboard.yy",},"order":0,},

@@ -64,6 +64,10 @@ if _lives > 0
 		if o_GameManager.levelTrans == false
 			{
 		draw_text(25,20,"Score: " + string(finalScore) + " pts.")
+		for(i = 0; i < _lives; i++)
+			{
+			draw_sprite(spr_Heart,0,25+(i*sprite_get_width(spr_Heart)),60);	
+			};
 		draw_set_halign(fa_center)
 		draw_text(browser_width*0.5,20,string(global.scoreDist) + "m");
 		draw_set_halign(fa_left);
