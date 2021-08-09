@@ -31,19 +31,16 @@ if(_lives > 0) && o_GameManager.currentState == GameState.Game
 		
 		if(keyboard_check_pressed(ord("S")))
 		{
-			if currentRow == 1
-				{
 				currentRow = 0	
-				};
-			else 
-				{
-				currentRow = 1;	
-				};
-			targetZ = currentRow*64;
 		};
+		if keyboard_check_pressed(ord("W"))
+			{
+				currentRow = 1
+			};
+		targetZ = currentRow*64;
 
 		// Shoot projectile
-		if(keyboard_check_pressed(ord("W")))
+		if(keyboard_check_pressed(vk_space))
 		{
 			var proj = instance_create_layer(x, y - 20, "Instances", o_Projectile);
 			proj.parentObject = id;
