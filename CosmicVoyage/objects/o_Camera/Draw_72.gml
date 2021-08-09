@@ -4,7 +4,7 @@ camera = camera_get_active();
 // the distance to follow our target from.
 xD = lengthdir_x(300,90)
 yD = lengthdir_y(150,90);
-currntTilt = lerp(targetTilt,0,0.075)
+currntTilt = lerp(currntTilt,targetTilt,0.05)
 targetTilt = lerp(targetTilt,0,0.075)
 
 // Enable z-testing
