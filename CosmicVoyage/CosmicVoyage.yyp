@@ -2,6 +2,7 @@
   "resources": [
     {"id":{"name":"spr_Lanes","path":"sprites/spr_Lanes/spr_Lanes.yy",},"order":2,},
     {"id":{"name":"o_Entity","path":"objects/o_Entity/o_Entity.yy",},"order":6,},
+    {"id":{"name":"t_asteroid_col","path":"sprites/t_asteroid_col/t_asteroid_col.yy",},"order":13,},
     {"id":{"name":"spr_enemy_spike","path":"sprites/spr_enemy_spike/spr_enemy_spike.yy",},"order":4,},
     {"id":{"name":"spr_player_idle","path":"sprites/spr_player_idle/spr_player_idle.yy",},"order":3,},
     {"id":{"name":"t_asteroid1","path":"sprites/t_asteroid1/t_asteroid1.yy",},"order":7,},
@@ -24,6 +25,7 @@
     {"id":{"name":"spr_bullet","path":"sprites/spr_bullet/spr_bullet.yy",},"order":10,},
     {"id":{"name":"o_Player","path":"objects/o_Player/o_Player.yy",},"order":2,},
     {"id":{"name":"scr_HelperFunctions","path":"scripts/scr_HelperFunctions/scr_HelperFunctions.yy",},"order":0,},
+    {"id":{"name":"t_asteroid_row","path":"sprites/t_asteroid_row/t_asteroid_row.yy",},"order":12,},
     {"id":{"name":"rm_TestRoom","path":"rooms/rm_TestRoom/rm_TestRoom.yy",},"order":0,},
   ],
   "Options": [
@@ -75,6 +77,9 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"JapanTrainModel.obj","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_asteroid.obj","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_skybox.obj","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_asteroid_column.obj","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_asteroid_row.obj","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_asteroid_cwasant.obj","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.3.574",
