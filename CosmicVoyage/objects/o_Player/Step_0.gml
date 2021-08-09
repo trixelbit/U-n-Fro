@@ -28,6 +28,19 @@ if(_lives > 0) && o_GameManager.currentState == GameState.Game
 				o_Camera.targetTilt = lerp(o_Camera.targetTilt, -1.50, 0.030);
 			}
 		}
+		
+		if(keyboard_check_pressed(ord("S")))
+		{
+			if currentRow == 1
+				{
+				currentRow = 0	
+				};
+			else 
+				{
+				currentRow = 1;	
+				};
+			targetZ = currentRow*64;
+		};
 
 		// Shoot projectile
 		if(keyboard_check_pressed(ord("W")))
@@ -35,6 +48,7 @@ if(_lives > 0) && o_GameManager.currentState == GameState.Game
 			var proj = instance_create_layer(x, y - 20, "Instances", o_Projectile);
 			proj.parentObject = id;
 			proj.destX = targetX;
+			proj.z		= targetZ
 			proj.baseSpd = finalSpd
 		}
 	}
@@ -69,6 +83,7 @@ if(_lives > 0) && o_GameManager.currentState == GameState.Game
 			var proj = instance_create_layer(x, y - 20, "Instances", o_Projectile);
 			proj.parentObject = self;
 			proj.destX = targetX;
+			proj.z		= z
 			proj.baseSpd = finalSpd;
 		}
 	}
@@ -78,7 +93,7 @@ if(_lives > 0) && o_GameManager.currentState == GameState.Game
 	{
 		isDebug = !isDebug;
 	}
-
+	z = lerp(z,targetZ,0.075);
 	x = lerp(x,targetX,0.075);
 	y -= finalSpd;
 	

@@ -10,3 +10,4 @@ oldY = y;
 alarm[0] = 120;
 
 baseSpd = 0;
+z = 0;

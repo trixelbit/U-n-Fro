@@ -7,6 +7,7 @@ if fireTick <= 0
 	var proj = instance_create_layer(x, y - 10, "Instances", o_Projectile);
 	proj.parentObject = id;
 	proj.baseSpd = spd;
+	proj.z = z;
 	fireTick = choose(50,100,350);
 };
 	
@@ -23,5 +24,5 @@ var col = collision_circle(x,y,10,o_Entity,false,true);
 if(col != noone && col.object_index != object_index)
 {
 	show_debug_message(string(col));
-	col._lives--;
+	//col._lives--; // to-do add in proper z-checking for this
 }

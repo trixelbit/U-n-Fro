@@ -15,7 +15,7 @@ gpu_set_zwriteenable(true);
 // Small note here: Z- is world space up, so in short: Z+ down, Z- Up
 
 projMat = matrix_build_projection_perspective_fov(60, window_get_width() / window_get_height(), 1, 32000);
-lookMat = matrix_build_lookat(targetObject.x - xD, targetObject.y - yD, -50, targetObject.x, targetObject.y, -50, currntTilt, 0, 1);
+lookMat = matrix_build_lookat(targetObject.x - xD, targetObject.y - yD, -50-(o_Player.z), targetObject.x, targetObject.y, -50-(o_Player.z), currntTilt, 0, 1);
 
 // Set perspective viewpoint
 camera_set_proj_mat(camera, projMat);

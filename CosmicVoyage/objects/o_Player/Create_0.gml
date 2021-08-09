@@ -10,7 +10,7 @@ camera.targetObject = self;
 targetX = x;
 currentLane = 0;
 z = 0;
-
+targetZ = z;
 // For Multiplayer
 isPlayerOne = true;
 
@@ -21,3 +21,4 @@ isDebug = false;
 flashTick = 0;
 oldKills = 0;
 newScore = 0;
+currentRow = 0;
