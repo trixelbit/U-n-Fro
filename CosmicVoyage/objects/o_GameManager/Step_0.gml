@@ -11,7 +11,7 @@ switch (currentState)
 				if(index >= enemy_chanceUFO)
 				{
 					show_debug_message("UFO");
-					//instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_EnemyUFO);
+					instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_EnemyUFO);
 				}
 				else
 				{
