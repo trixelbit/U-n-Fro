@@ -1,0 +1,3 @@
+// Lifespan
+
+instance_destroy();
