@@ -19,3 +19,11 @@ xSpin = 0;
 ySpin = 0;
 
 spinSpeed = random_range(1.0,3.25);
+
+
+t_AstSng = sprite_get_texture(t_asteroid1,0);
+t_AstRow = sprite_get_texture(t_asteroid_row,0)
+t_AstCol = sprite_get_texture(t_asteroid_col,0); 
+
+
+

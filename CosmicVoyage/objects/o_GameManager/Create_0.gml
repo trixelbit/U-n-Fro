@@ -70,14 +70,23 @@ spawnDist = 4096;
 
 // Model Loading
 
-// Asteroids
-m_AstSng = LoadObj("m_asteroid.obj");
-m_AstRow = LoadObj("m_asteroid_row.obj");
-m_AstCaw = LoadObj("m_asteroid_cwasant.obj");
-m_AstCol = LoadObj("m_asteroid_column.obj");
 
+	vertex_format_begin()
+	vertex_format_add_position_3d()
+	vertex_format_add_color()
+	vertex_format_add_texcoord()
+	vertex_format_add_normal()
+	 objFormat = vertex_format_end();
+
+// Asteroids
+m_AstSng = LoadObj("m_asteroid.obj",vertex_create_buffer());
+m_AstRow = LoadObj("m_asteroid_row.obj",vertex_create_buffer());
+m_AstCaw = LoadObj("m_asteroid_cwasant.obj",vertex_create_buffer());
+m_AstCol = LoadObj("m_asteroid_column.obj",vertex_create_buffer());
+
+//sprite_get_texture(t_asteroid1,0); break;
 
 
 
 // Skybox model
-skyboxBuff = LoadObj("m_skybox.obj")
+skyboxBuff = LoadObj("m_skybox.obj",vertex_create_buffer())

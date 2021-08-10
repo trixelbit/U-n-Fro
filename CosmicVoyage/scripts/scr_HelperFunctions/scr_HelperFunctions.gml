@@ -27,127 +27,111 @@ function StringSplit(str, seperator)
 
 /// @function						LoadObj(filename)
 /// @param {string} filename		Filename of the model .obj file
-function LoadObj(filename)
-{
-	vertex_format_begin();
-	vertex_format_add_position_3d();
-	vertex_format_add_color();
-	vertex_format_add_texcoord();
-	vertex_format_add_normal();
+function LoadObj(filename,buffer)
+    {
+    var objBuffer = buffer;
 	
-	var objFormat = vertex_format_end();
-	objBuffer = vertex_create_buffer();
-	var objFile = file_text_open_read(filename);
-	var i, a, c, j // incerementor vars
-	var vvData, vtData, vnData, vfData, vfdData, strCnt // arrays 
-	
-	vvData[0] = 0; // vertex position data (vec3 xyz)
-	vtData[0] = 0; // vertex texture data (vec2 uv)
-	vnData[0] = 0; // vertex normal data (vec3 xyz)
-	vfData[0] = 0; // face data (complex);
-	vfdData[0] = 0; // face indices
-	
-	var vvCount = 0;
-	var vtCount = 0;
-	var vnCount = 0;
-	var vfCount = 0;
-	
-	while(!file_text_eof(objFile))
-	{
-		var str = file_text_readln(objFile);
-		if ((string_char_at(str, 1) == "v") && string_char_at(str, 2) == " ") // vertex positions
-		{		
-			vvData[vvCount] = { x : 0, y : 0, z : 0};
-			var strPos = string_copy(str, 3, string_length(str) - 3);
-			
-			strCnt = StringSplit(strPos, " ") // returns the split up vectors
-			
-			vvData[vvCount].x = real(strCnt[0]);
-			vvData[vvCount].y = real(strCnt[1]);
-			vvData[vvCount].z = real(strCnt[2]);	
-			vvCount++;
-		}
-		
-		if (string_char_at(str, 1) == "v" && string_char_at(str, 2) == "t")   // vertex textures
-		{
-			vtData[vtCount] = { u: 0, v: 0 };
-			var strPos = string_copy(str, 4, string_length(str) - 4);
-			
-			strCnt = StringSplit(strPos, " ");
-			
-			vtData[vtCount].u = real(strCnt[0]);
-			vtData[vtCount].v = real(strCnt[1]);
-			vtCount++;
-		}
-		
-		if (string_char_at(str, 1) == "v" && string_char_at(str, 2) == "n")   // vertex normals
-		{
-			vnData[vnCount] = { x: 0, y: 0, z: 0 };
-			var strPos = string_copy(str, 4, string_length(str) - 4);
-			
-			strCnt = StringSplit(strPos, " ");
 
-			vnData[vnCount].x = real(strCnt[0]);
-			vnData[vnCount].y = real(strCnt[1]);
-			vnData[vnCount].z = real(strCnt[2]);
-			vnCount++;
-		}
-				
-		if(string_char_at(str, 1) == "f")  // face instructions
-		{
-			var faceStr = string_copy(str, 3, string_length(str) - 2);
+	var objFile = 0;
+    var objFile = file_text_open_read(filename);
+    
+	var vpCollection, vtCollection, vnCollection, fgCollection
+	
+    vpCollection[0] = 0; // vertex position
+    vtCollection[0] = 0; // vertex texcoord
+    vnCollection[0] = 0; // vertex normals
+    fgCollection[0] = 0; // face groups 
+	
+	array_resize(vpCollection,1)
+	array_resize(vtCollection,1)
+	array_resize(vnCollection,1)
+	array_resize(fgCollection,1)
+
+    while(!file_text_eof(objFile))
+        {
+            var str = file_text_readln(objFile);
+            
+            if string_char_at(str,1) == "v" && string_char_at(str,2) == " " // vertex position
+                {
+                    var vpstr = string_copy(str,3,string_length(str));
+                    vpstr = StringSplit(vpstr," ");
+                    
+                    var vpData = { x: real(vpstr[0]), y: real(vpstr[1]), z: real(vpstr[2]) };
+                    array_push(vpCollection,vpData);
+                }
+            if string_char_at(str,1) == "v" && string_char_at(str,2) == "t" // vertex texcoords
+                {
+                    var vtstr = string_copy(str,4,string_length(str));
+                    vtstr = StringSplit(vtstr," ");
+                    
+                    var vtData = { u: real(vtstr[0]), v: real(vtstr[1]) };
+                    array_push(vtCollection,vtData);
+                    
+                }
+            if string_char_at(str,1) == "v" && string_char_at(str,2) == "n" // vertex normals
+                {
+                    var vnstr = string_copy(str,4,string_length(str));
+                    vnstr = StringSplit(vnstr," ");
+                    
+                    var vnData = { x: real(vnstr[0]), y: real(vnstr[1]), z: real(vnstr[2]) };
+                    array_push(vnCollection,vnData);
+                }
+            if string_char_at(str,1) == "f" && string_char_at(str,2) == " " // face groups
+                {
+                    var fgstr = string_copy(str,3,string_length(str));
+                    fgstr = StringSplit(fgstr," ");
+                    
+                    var fgData = { x: (fgstr[0]), y: (fgstr[1]), z: (fgstr[2]) };
+                    array_push(fgCollection,fgData);    
+                }    
+            
+        };
+	file_text_close(objFile);
+	
+    vertex_begin(objBuffer,objFormat)
+    var i = 1;
+    for(i = 1; i < array_length(fgCollection); i++) // vertex construction
+        {
+            var facegroup = fgCollection[i];
+            var faceset1 = 0;faceset2 = 0; faceset3 = 0;
+
+                                faceset1 = StringSplit(facegroup.x,"/");
+                                faceset2 = StringSplit(facegroup.y,"/");
+                                faceset3 = StringSplit(facegroup.z,"/");
+
+                    var vertexPos = vpCollection[faceset1[0]]
+                    var vertexTex = vtCollection[faceset1[1]]
+                    var vertexNor = vnCollection[faceset1[2]]
+                    
+                    vertex_position_3d(objBuffer,vertexPos.x,vertexPos.y,vertexPos.z);
+                    vertex_color(objBuffer,c_white,1);
+                    vertex_texcoord(objBuffer,vertexTex.u,vertexTex.v);
+                    vertex_normal(objBuffer,vertexNor.x,vertexNor.y,vertexNor.z);
 					
-			vfdData = 0;
-			vfdData = StringSplit(faceStr, " ");
-			vfd2 = ds_list_create();
-			
-			for(j = 0; j < array_length(vfdData); j++)
-			{
-				ds_list_add(vfd2, vfdData[j]);
-			}
-			
-			vfData[vfCount] = vfd2;
-			vfCount++;
-			vfData[vfCount] = "";
+					var vertexPos = vpCollection[faceset2[0]]
+                    var vertexTex = vtCollection[faceset2[1]]
+                    var vertexNor = vnCollection[faceset2[2]]
+                    
+                    vertex_position_3d(objBuffer,vertexPos.x,vertexPos.y,vertexPos.z);
+                    vertex_color(objBuffer,c_white,1);
+                    vertex_texcoord(objBuffer,vertexTex.u,vertexTex.v);
+                    vertex_normal(objBuffer,vertexNor.x,vertexNor.y,vertexNor.z);
 					
-		}	
-	} // end of file reading.
-	file_text_close(objFile)
-	// vertex buffer construction
-	vertex_begin(objBuffer, objFormat);
-	
-	for(i = 0; i < array_length(vfData) - 1; i++)
-	{
-		//show_debug_message("TEST 1: " + string(i))
-		var ftData = vfData[i]				
-		{
-			for(c = 0; c < 3; c++) // 3 is the hard coded limit here as the importer only cares about vertex position, vertex texcoords, and the normals (3 things)
-			{
-				var faceIndices = StringSplit(ftData[|c], "/");
-							
-				var vertPos = vvData[real(faceIndices[0]) - 1];
-				var vertTex = vtData[real(faceIndices[1]) - 1];
-				var vertNor = vnData[real(faceIndices[2]) - 1];
-							
-				vertex_position_3d(objBuffer, vertPos.x, vertPos.y, vertPos.z);
-				vertex_color(objBuffer, c_white, 1);
-				vertex_texcoord(objBuffer, vertTex.u, vertTex.v);
-				vertex_normal(objBuffer, vertNor.x, vertNor.y, vertNor.z);
-			}
-		}		
-	}
-				
-	vertex_end(objBuffer);
-	
-	// this part deals with cleaning up the ds_lists created
-	
-	for(a = 0; a < array_length(vfData)-1; a++)
-		{
-			var listID = vfData[a]
-			ds_list_destroy(listID);
-		};
-	return objBuffer;
-}
+					var vertexPos = vpCollection[faceset3[0]]
+                    var vertexTex = vtCollection[faceset3[1]]
+                    var vertexNor = vnCollection[faceset3[2]]
+                    
+                    vertex_position_3d(objBuffer,vertexPos.x,vertexPos.y,vertexPos.z);
+                    vertex_color(objBuffer,c_white,1);
+                    vertex_texcoord(objBuffer,vertexTex.u,vertexTex.v);
+                    vertex_normal(objBuffer,vertexNor.x,vertexNor.y,vertexNor.z);
+                   
+                
+        }
+        vertex_end(objBuffer)
+		vertex_freeze(objBuffer)
+        return objBuffer
+        };
 
 /// @function						DrawSpriteBillboard(sprite, subimage, xx, yy, zz, flip)
 function DrawSpriteBillboard(sprite, subimage, xx, yy, zz, flip)
