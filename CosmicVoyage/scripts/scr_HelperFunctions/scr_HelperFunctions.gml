@@ -146,7 +146,6 @@ function LoadObj(filename)
 			var listID = vfData[a]
 			ds_list_destroy(listID);
 		};
-	
 	return objBuffer;
 }
 

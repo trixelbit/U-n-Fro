@@ -1,6 +1,16 @@
 /// @description Insert description here
 // Good huntin' to ya ^^
-ufoBuff = LoadObj("m_asteroid.obj");
+
+enum asteroidTypes
+	{
+		single,
+		row,
+		column,
+		cwasant
+	};
+currentAsteroid = asteroidTypes.single;
+
+
 _lives = 1;
 alarm[0] = 500;
 z = 0;

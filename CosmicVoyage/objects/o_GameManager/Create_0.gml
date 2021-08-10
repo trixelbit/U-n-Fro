@@ -68,5 +68,16 @@ alarm[0] = 300;
 // Enemy Spawning Distance
 spawnDist = 4096;
 
+// Model Loading
+
+// Asteroids
+m_AstSng = LoadObj("m_asteroid.obj");
+m_AstRow = LoadObj("m_asteroid_row.obj");
+m_AstCaw = LoadObj("m_asteroid_cwasant.obj");
+m_AstCol = LoadObj("m_asteroid_column.obj");
+
+
+
+
 // Skybox model
 skyboxBuff = LoadObj("m_skybox.obj")

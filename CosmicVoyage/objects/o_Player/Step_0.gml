@@ -1,7 +1,7 @@
 
 if(_lives > 0) && o_GameManager.currentState == GameState.Game
 {
-	finalSpd = 32
+	finalSpd = 16
 	
 	
 	// If singleplayer or player one in multiplayer

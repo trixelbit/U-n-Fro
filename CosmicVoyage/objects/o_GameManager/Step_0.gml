@@ -11,17 +11,20 @@ switch (currentState)
 				if(index >= enemy_chanceUFO)
 				{
 					show_debug_message("UFO");
-					instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_EnemyUFO);
+					//instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_EnemyUFO);
 				}
 				else
 				{
 					index = random(10)
 					if index >= enemy_chanceUFO
 						{
+					var eID = instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_Asteroid);
+					eID.currentAsteroid = choose(asteroidTypes.single,asteroidTypes.row,asteroidTypes.column,asteroidTypes.cwasant);
+						}
+					else
+						{
 					instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_Asteroid);
-						};
-					show_debug_message("Asteroid");
-					instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_Asteroid);
+						}
 				}
 	
 				hasSpawned = true;
