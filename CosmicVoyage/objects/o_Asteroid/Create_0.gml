@@ -9,6 +9,10 @@ enum asteroidTypes
 		cwasant
 	};
 currentAsteroid = asteroidTypes.single;
+currentLane = 0;
+currentRow = 0;
+laneLength = 1;
+rowHeight = 1;
 
 
 _lives = 1;

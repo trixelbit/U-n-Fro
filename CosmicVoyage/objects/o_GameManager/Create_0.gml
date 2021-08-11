@@ -83,6 +83,8 @@ m_AstSng = LoadObj("m_asteroid.obj",vertex_create_buffer());
 m_AstRow = LoadObj("m_asteroid_row.obj",vertex_create_buffer());
 m_AstCaw = LoadObj("m_asteroid_cwasant.obj",vertex_create_buffer());
 m_AstCol = LoadObj("m_asteroid_column.obj",vertex_create_buffer());
+// test model
+m_testCube = LoadObj("m_cube.obj",vertex_create_buffer());
 
 //sprite_get_texture(t_asteroid1,0); break;
 
