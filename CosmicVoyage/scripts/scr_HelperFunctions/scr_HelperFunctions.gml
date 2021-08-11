@@ -189,7 +189,14 @@ function run_reset()
 		
 	};
 
-function drawButton(x,y,width,height,text)
+function drawTextBox(x,y,width,height,text)
 	{
-	
+		var textSpeed = 0.25;
+		var strTotal = "";
+		for(i = 0; i < string_length(text); i++)
+			{
+		
+		draw_text(x,y,strTotal)		
+			}
+
 	};

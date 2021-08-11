@@ -37,19 +37,19 @@ if _lives < 1 // something in here is causing the HTML5 version to crash
 		draw_set_halign(fa_center)
 		var hOffset = 20;
 		
-		draw_text(browser_width*0.5,browser_height*0.20,"High Scores!")
+		draw_text(browser_width*0.5,browser_height*0.20,"HIGH SCORES!")
 		// draws the high score board
 		for(i = 0; i < array_length(scArr)-1; i++)
 			{
 				if newScore == true && i = 0 { draw_set_color(c_yellow) };
 				
-				draw_text(browser_width*0.5,browser_height*0.25+(i*hOffset),string(scArr[i])+ " points");	
+				draw_text(browser_width*0.5,browser_height*0.25+(i*hOffset),string(scArr[i])+ " POINTS");	
 				draw_set_color(c_white)
 			};
 
 			
 		// restart text and resetting the run
-		draw_text(browser_width*0.5,browser_height*0.75,"Press Space to Restart")
+		draw_text(browser_width*0.5,browser_height*0.75,"PRESS SPACE TO RESTART")
 		if keyboard_check_pressed(vk_space)
 			{
 			newScore = false;
@@ -63,13 +63,13 @@ if _lives > 0
 	{
 		if o_GameManager.levelTrans == false
 			{
-		draw_text(25,20,"Score: " + string(finalScore) + " pts.")
+		draw_text(25,20,"SCORE: " + string(finalScore) + " PTS.")
 		for(i = 0; i < _lives; i++)
 			{
 			draw_sprite(spr_Heart,0,25+(i*sprite_get_width(spr_Heart)),60);	
 			};
 		draw_set_halign(fa_center)
-		draw_text(browser_width*0.5,20,string(global.scoreDist) + "m");
+		draw_text(browser_width*0.5,20,string(global.scoreDist) + "M");
 		draw_set_halign(fa_left);
 		if oldKills != global.scoreKills
 			{

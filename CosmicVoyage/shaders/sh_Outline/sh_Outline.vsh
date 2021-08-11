@@ -8,23 +8,12 @@ attribute vec2 in_TextureCoord;              // (u,v)
 
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
-varying float depth;
 
 void main()
 {
-
     vec4 object_space_pos = vec4( in_Position.x, in_Position.y, in_Position.z, 1.0);
-	
-
+    v_vColour.rgba = vec4(vec3(1.0),1.0);
     gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * object_space_pos;
-	mat4 viewMat = gm_Matrices[MATRIX_WORLD_VIEW];
-	
-	vec3 camPos = vec3(viewMat[3][0],viewMat[3][1],viewMat[3][2]);
-	vec3 objPos = vec3(in_Position.x,in_Position.y,in_Position.z);
-	
-	float dist = distance(camPos.xyz,objPos.xyz);
-	float maxDist = 1.;
-    depth = min(1024./dist,1.0);
+    
     v_vTexcoord = in_TextureCoord;
-	v_vColour = in_Colour;
 }
