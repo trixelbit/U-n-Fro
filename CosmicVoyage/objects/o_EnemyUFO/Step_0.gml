@@ -23,7 +23,7 @@ if(y = o_Player.id.y - 500)
 	{
 		var proj = instance_create_layer(x, y - 10, "Instances", o_Projectile);
 		proj.parentObject = id;
-		proj.baseSpd = spd;
+		proj.baseSpd = spd/4;
 		proj.z = z;
 		fireTick = choose(50,100,350);
 	};	
