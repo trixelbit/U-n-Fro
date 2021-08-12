@@ -1,7 +1,7 @@
 /// @description Insert description here
 // Good huntin' to ya ^^
 //ufoBuff = LoadObj("m_asteroid.obj");
-_lives = 1;
+_lives = 3;
 fireTick = 0;
 alarm[0] = 100;
 alarm[1] = 1800;
