@@ -1,8 +1,14 @@
 
 if(_lives > 0) && o_GameManager.currentState == GameState.Game
 {
+	if y > 0
+		{
+		finalSpd = lerp(finalSpd,16,0.0005);	
+		};
+	else
+		{
 	finalSpd = 16
-	
+		};
 	
 	// If singleplayer or player one in multiplayer
 	if(isPlayerOne)
@@ -29,18 +35,11 @@ if(_lives > 0) && o_GameManager.currentState == GameState.Game
 			}
 		}
 		
-		if(keyboard_check_pressed(ord("S")))
-		{
-				currentRow = 0	
-		};
-		if keyboard_check_pressed(ord("W"))
-			{
-				currentRow = 1
-			};
+
 		targetZ = currentRow*64;
 
 		// Shoot projectile
-		if(keyboard_check_pressed(vk_space))
+		if(keyboard_check_pressed(ord("W")))
 		{
 			var proj = instance_create_layer(x, y - 20, "Instances", o_Projectile);
 			proj.parentObject = id;
@@ -95,7 +94,7 @@ if(_lives > 0) && o_GameManager.currentState == GameState.Game
 	y -= finalSpd;
 	
 	// distance incerementing
-	if o_GameManager.levelTrans == false
+	if o_GameManager.levelTrans == false && y < 0 
 	{
 		global.scoreDist ++;
 	}

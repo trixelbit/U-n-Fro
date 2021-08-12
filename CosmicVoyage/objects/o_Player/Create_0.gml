@@ -9,6 +9,7 @@ camera.targetObject = self;
 // Movement
 targetX = x;
 currentLane = 0;
+finalSpd = 0;
 z = 0;
 targetZ = z;
 // For Multiplayer
@@ -22,3 +23,7 @@ flashTick = 0;
 oldKills = 0;
 newScore = 0;
 currentRow = 0;
+
+// skybox code
+fadeIn = 0;
+maxFade = 255;

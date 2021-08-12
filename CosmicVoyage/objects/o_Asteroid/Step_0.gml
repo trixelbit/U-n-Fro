@@ -7,7 +7,7 @@ if collision_rectangle(256-128,y+2,256+128,y+8,o_Player,false,true)
 			switch(currentAsteroid)
 				{
 					case asteroidTypes.single: 
-					if pRow == currentRow && pLane == currentLane
+					if pRow == currentRow-1 && pLane == currentLane
 						{
 							o_Player._lives --;
 						};

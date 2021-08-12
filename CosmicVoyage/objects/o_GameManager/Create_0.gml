@@ -87,17 +87,36 @@ m_AstCol = LoadObj("m_asteroid_column.obj",vertex_create_buffer());
 m_testCube = LoadObj("m_cube.obj",vertex_create_buffer());
 
 //sprite_get_texture(t_asteroid1,0); break;
+rawText = "In a time of great expansion across the cosmos, there was a legendary\nwell reowned team of bounty hunters...#" 
++"There's Jobo, the arms and brawn of this well renowned team, a man with\nan impressive phyisque and... highly dangerous 'guns'#"
++"Coco, the engineer... a brilliant mind from the halls of academia,\nhowever due to some drama, she was ousted out of academia and now\nfinds refugee in the bounty hunting business.#"
++"Simone, the accountant... Once had a great job, wonderful family and\nan all around good life...until he was framed in a scandal and\nbecame a criminal in many systems. Yet, he managed to make a\ndeal with the team with helping them avoid taxes.#"
++"Bunbi, the navigator... a veteran luxury cruiser captain, and the\nleader of this team, she decided to go into the business not for any\nserious reason but because she was bored of her\njob and wanted more action in her life.#"+
+"and finally Kat, the newest of the crew! A fresh recruit just boarded\non to perform mission critical tasks like...\ncleaning up the ship's hallways and systems.#"
++"One day, the WiFi on the ship suddenly goes out, annoyed that their\nintake of fresh cat videos ceased, they go orbit a planet\nin hopes of finding another WiFi signal...#"
++"A UFO suddenly comes out of the blue, begins to pull the ship in...#"
++"Alarms blare out, as the UFO not only pulled in the ship, \nbut the crew on board as well...#"
++"The crew had been all but sucked up except for Kat.\nwho had managed hold on for dear life amidst the chaos...#"
++"With the abduction concluding, she realizes that her\n mates had been kidnapped and decides to venture out to them...#"
++"And to bring justice to the aliens who had so ruthlessly taken her\n friends away without warning!"
+storyText = StringSplit(rawText,"#")
+
+
 // textboxes
 txtCount = 0;
 slideTime = 0;
 introTextInd = 0;
-introTexts = [ "Once upon a time, there was a bunch of nerds, who came together...\nThey were pretty stinky and smelly.", "Until one day they had their wifi shit broke, \nso they went out and they walked into their ship, rolls of fat shaking\n the ground quaked under their small feet and massive bellies.", "Hello My Name is Kieron and i cope by shitting peeing myself :(((", "They flew and shit, lookin' at Virgin Chad vs Chad Virgin memes \nthey done took a wrong turn somewhere...", "oh no they get SUCC'd, evil mark ZUCCKERBERG strikes again!", "[screaming sounds]", "[AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]" ];
+introTexts = storyText
 flavorText = introTexts[0];
 introSlideInd = 0;
-introSlides = [ spr_intro_1, spr_intro_2, spr_intro_3, spr_intro_4, spr_intro_5, spr_intro_6, spr_intro_7 ]
-	
+introSlides = [ spr_intro_1, spr_intro_2, spr_intro_3, spr_intro_4, spr_intro_5, spr_intro_6, spr_intro_7, spr_Intro_8, spr_Intro_9 ]
+loopCount = 0;
+introCharacters = [ spr_jobo, spr_coco, spr_simone, spr_bunbi ];
+charCount = 0;
+charProg = browser_width;
 // Skybox model
-skyboxBuff = LoadObj("m_skybox.obj",vertex_create_buffer())
+skyboxBuff = LoadObj("m_plane.obj",vertex_create_buffer())
 
 // hanger model
 m_Hangar = LoadObj("m_hanger.obj",vertex_create_buffer());
+t_skybox = sprite_get_texture(spr_skybox_space,0);

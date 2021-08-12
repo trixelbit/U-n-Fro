@@ -23,8 +23,8 @@
   "creationCodeFile": "",
   "inheritCode": false,
   "instanceCreationOrder": [
-    {"name":"inst_56463A3B","path":"rooms/rm_Game/rm_Game.yy",},
     {"name":"inst_284DE754","path":"rooms/rm_Game/rm_Game.yy",},
+    {"name":"inst_56463A3B","path":"rooms/rm_Game/rm_Game.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
