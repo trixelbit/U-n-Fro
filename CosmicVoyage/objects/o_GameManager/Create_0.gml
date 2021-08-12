@@ -87,18 +87,18 @@ m_AstCol = LoadObj("m_asteroid_column.obj",vertex_create_buffer());
 m_testCube = LoadObj("m_cube.obj",vertex_create_buffer());
 
 //sprite_get_texture(t_asteroid1,0); break;
-rawText = "In a time of great expansion across the cosmos, there was a legendary\nwell reowned team of bounty hunters...#" 
-+"There's Jobo, the arms and brawn of this well renowned team, a man with\nan impressive phyisque and... highly dangerous 'guns'#"
-+"Coco, the engineer... a brilliant mind from the halls of academia,\nhowever due to some drama, she was ousted out of academia and now\nfinds refugee in the bounty hunting business.#"
-+"Simone, the accountant... Once had a great job, wonderful family and\nan all around good life...until he was framed in a scandal and\nbecame a criminal in many systems. Yet, he managed to make a\ndeal with the team with helping them avoid taxes.#"
-+"Bunbi, the navigator... a veteran luxury cruiser captain, and the\nleader of this team, she decided to go into the business not for any\nserious reason but because she was bored of her\njob and wanted more action in her life.#"+
-"and finally Kat, the newest of the crew! A fresh recruit just boarded\non to perform mission critical tasks like...\ncleaning up the ship's hallways and systems.#"
-+"One day, the WiFi on the ship suddenly goes out, annoyed that their\nintake of fresh cat videos ceased, they go orbit a planet\nin hopes of finding another WiFi signal...#"
-+"A UFO suddenly comes out of the blue, begins to pull the ship in...#"
-+"Alarms blare out, as the UFO not only pulled in the ship, \nbut the crew on board as well...#"
-+"The crew had been all but sucked up except for Kat.\nwho had managed hold on for dear life amidst the chaos...#"
-+"With the abduction concluding, she realizes that her\n mates had been kidnapped and decides to venture out to them...#"
-+"And to bring justice to the aliens who had so ruthlessly taken her\n friends away without warning!"
+rawText = "In a time of great expansion across the cosmos, there was\na legendary team of bounty hunters... #" 
++"There's Jobo, the arms and brawn of this well renowned team, a man\nwith an impressive phyisque and... highly dangerous 'guns'#"
++"Coco, the engineer... a brilliant mind from the halls of academia,\nnow finds refuge in the bounty hunting business.#"
++"Simone, the accountant... Once held a prestigious job until he was\nframed in a scandal and became a criminal over night.#"
++"Bunbi, the navigator... a veteran luxury cruiser captain. Bunbi\n became a bounty hunter not out of need, but out of sheer boredom.#"+
+"and finally Kat, the newest of the crew! A fresh recruit brought on \nto perform extremely important and challenging tasks like... \ncleaning up the ship.#"
++"One day, while sitting in orbit..#"
++"a UFO suddenly warped over head...#"
++"Alarms blared out, as the UFO not only pulled in the ship, but the \ncrew on board as well...#"
++"The crew had been all but sucked up except for Kat, who held on \nfor dear life...#"
++"With the abduction concluding, and the realization that her crew \nwas gone, she brought it onto herself to find her friends...#"
++"and to bring justice to the aliens who had so ruthlessly taken them!"
 storyText = StringSplit(rawText,"#")
 
 

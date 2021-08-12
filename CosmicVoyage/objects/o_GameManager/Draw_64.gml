@@ -46,7 +46,7 @@ switch (currentState)
 			};
 		
 		
-		txtCount += 0.25;
+		txtCount += 0.4;
 			if introSlideInd != 1 // if not crewmate intro
 				{
 		draw_sprite_ext(introSlides[introSlideInd],0,browser_width*0.5,browser_height*0.40,4,4,0,c_white,1)
@@ -67,7 +67,7 @@ switch (currentState)
 			};
 		if charProg > (-256+(128*2)*charCount+1)-6 // slides the characters in
 			{
-		charProg = lerp(charProg,-256+((128*2)*charCount+1),0.015); // character position
+		charProg = lerp(charProg,-256+((128*2)*charCount+1),0.018); // character position
 			};
 		draw_sprite_ext(introCharacters[charCount],0,charProg,browser_height*0.20,3,3,0,c_white,1);
 
@@ -105,7 +105,7 @@ switch (currentState)
 		if drawTextPart(browser_width*0.15,browser_height*0.70,string_upper(flavorText),txtCount) == true
 			{
 		slideTime ++;
-		if slideTime > 300
+		if slideTime > 200
 				{
 					{
 						if introTextInd < 4
