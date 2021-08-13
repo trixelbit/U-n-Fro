@@ -44,6 +44,7 @@
     {"id":{"name":"spr_bullet","path":"sprites/spr_bullet/spr_bullet.yy",},"order":10,},
     {"id":{"name":"spr_bunbi","path":"sprites/spr_bunbi/spr_bunbi.yy",},"order":0,},
     {"id":{"name":"o_Player","path":"objects/o_Player/o_Player.yy",},"order":2,},
+    {"id":{"name":"spr_highscores_bg","path":"sprites/spr_highscores_bg/spr_highscores_bg.yy",},"order":2,},
     {"id":{"name":"spr_enemy_shoot","path":"sprites/spr_enemy_shoot/spr_enemy_shoot.yy",},"order":1,},
     {"id":{"name":"scr_HelperFunctions","path":"scripts/scr_HelperFunctions/scr_HelperFunctions.yy",},"order":0,},
     {"id":{"name":"t_asteroid_row","path":"sprites/t_asteroid_row/t_asteroid_row.yy",},"order":12,},
