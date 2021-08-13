@@ -4,19 +4,17 @@ switch (currentState)
     case GameState.Game:
         // code here
 		if levelTrans == true
-			{
+		{
 			fadeOut = lerp(	fadeOut, 1.0, 0.016);
 			draw_set_alpha(fadeOut)
 			draw_rectangle_color(0,0,browser_width,browser_height,c_white, c_white, c_white, c_white ,false)
 			draw_set_alpha(1);
 			if fadeOut >= 0.95
-				{
-					levelTrans = false;
-					canSpawn = true;
-				}
-			};
-		
-		
+			{
+				levelTrans = false;
+				canSpawn = true;
+			}
+		};
         break;
 	
 	// Multiplayer
@@ -25,6 +23,7 @@ switch (currentState)
 	    break;
 		
 	case GameState.Intro:
+		#region Intro
 		draw_set_font(f_Temp)
 		function drawTextPart(x,y, text, count)
 			{
@@ -47,11 +46,11 @@ switch (currentState)
 		
 		
 		txtCount += 0.45;
-			if introSlideInd != 1 // if not crewmate intro
-			{
-				draw_sprite_ext(introSlides[introSlideInd],0,view_wport[0]*0.5,view_hport[0]*0.40,4,4,0,c_white,1)
-				draw_sprite_ext(spr_textbox,0,view_wport[0]*0.5,view_hport[0]*0.80,4,4,0,c_white,1)
-			};
+		if introSlideInd != 1 // if not crewmate intro
+		{
+			draw_sprite_ext(introSlides[introSlideInd],0,view_wport[0]*0.5,view_hport[0]*0.40,4,4,0,c_white,1)
+			draw_sprite_ext(spr_textbox,0,view_wport[0]*0.5,view_hport[0]*0.80,4,4,0,c_white,1)
+		};
 			if introSlideInd == 1 // if crewmate intro
 			{
 				loopCount -= 16;
@@ -133,6 +132,7 @@ switch (currentState)
 				currentState = GameState.Menu;	
 			};
 		draw_set_halign(fa_left)
+		#endregion
 		break;
 		
 	case GameState.Menu:

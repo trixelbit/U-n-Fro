@@ -40,7 +40,7 @@ switch (currentState)
 					break;
 					
 					case SpawnObject.heart:
-						instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_item_heart);
+						instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_heart);
 					break;
 				}
 			}

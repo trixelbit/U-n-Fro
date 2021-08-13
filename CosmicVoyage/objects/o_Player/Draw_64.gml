@@ -61,16 +61,45 @@ if _lives < 1
 // Alive State
 if _lives > 0
 	{
-		if o_GameManager.levelTrans == false
+		if (o_GameManager.levelTrans == false)
 		{
 			draw_text(25,20,"SCORE: " + string(finalScore) + " PTS.")
-			for(i = 0; i < _lives; i++)
+			
+			
+			#region Draw Lives
+			var _scale = 3;
+			var _Xpos = view_wport[0]*0.2 - (23 * 3 * 1.5), _Ypos = view_hport[0]*0.9;
+			for(var i = 0; i < maxLives; i++)
 			{
-				draw_sprite(spr_Heart,0,25+(i*sprite_get_width(spr_Heart)),60);	
+				draw_sprite_ext(spr_heart_empty,0,_Xpos+(_scale*i*23), _Ypos, _scale,_scale,0,c_white,1);	
+			};
+			for(var i = 0; i < _lives; i++)
+			{
+				draw_sprite_ext(spr_Heart,0,_Xpos+(_scale*i*23), _Ypos, _scale,_scale,0,c_white,1);	
 			};
 			
+			
+			#endregion
+			
+			
+			#region Draw Bullet Gauge
+			var _scale = 3;
+			var _Xpos = view_wport[0]*0.8 - (16 * 3 * 1.5), _Ypos =view_hport[0]*0.9;
+			
+			//draw gauge background
+			for(i = 0; i < maxBullets; i++)
+			{
+				draw_sprite_ext(spr_bulletgauge_empty,0, _Xpos + (16*_scale*i), _Ypos,_scale,_scale,0,c_white,1);
+			}
+			//draw gauge bullets
+			for(i = 0; i < currentBullets; i++)
+			{
+				draw_sprite_ext(spr_bulletgauge_full,0, _Xpos + (16*_scale*i), _Ypos,_scale,_scale,0,c_white,1);
+			}
+			#endregion
+			
 			draw_set_halign(fa_center)
-			draw_text(view_wport[0]*0.5,20,string(global.scoreDist) + "M");
+			draw_text(view_wport[0]*0.5, 20, string(global.scoreDist) + "M");
 			draw_set_halign(fa_left);
 			if (oldKills != global.scoreKills)
 			{
@@ -88,15 +117,7 @@ if _lives > 0
 			};
 			flashTick --;
 			
-			//bullet gauge
-			for(i = 0; i < maxBullets; i++)
-			{
-				draw_sprite_ext(spr_bulletgauge_empty,0, 0, 200 + (i*64),4,4,0,c_white,1)
-			}
-			for(i = 0; i < currentBullets; i++)
-			{
-				draw_sprite_ext(spr_bulletgauge_full,0, 0, 200 + (i*64),4,4,0,c_white,1)
-			}
+			
 			
 		};
 	};

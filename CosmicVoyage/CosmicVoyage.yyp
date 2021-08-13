@@ -45,6 +45,7 @@
     {"id":{"name":"o_Lanes","path":"objects/o_Lanes/o_Lanes.yy",},"order":9,},
     {"id":{"name":"spr_coco","path":"sprites/spr_coco/spr_coco.yy",},"order":1,},
     {"id":{"name":"spr_intro_2","path":"sprites/spr_intro_2/spr_intro_2.yy",},"order":8,},
+    {"id":{"name":"spr_heart_empty","path":"sprites/spr_heart_empty/spr_heart_empty.yy",},"order":2,},
     {"id":{"name":"spr_Intro_9","path":"sprites/spr_Intro_9/spr_Intro_9.yy",},"order":9,},
     {"id":{"name":"spr_colors","path":"sprites/spr_colors/spr_colors.yy",},"order":5,},
     {"id":{"name":"sh_Outline","path":"shaders/sh_Outline/sh_Outline.yy",},"order":2,},
