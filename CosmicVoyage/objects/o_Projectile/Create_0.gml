@@ -2,7 +2,7 @@
 parentObject = noone;
 
 objIndex = undefined;
-	
+playerWho = -1; // zero for P1, 1 for forP2, -1 for enemy/other
 // Destination X
 destX = x;
 oldY = y;

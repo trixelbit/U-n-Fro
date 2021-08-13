@@ -26,6 +26,12 @@ projMat = matrix_build_projection_perspective_fov(60, window_get_width() / windo
 lookMat = matrix_build_lookat(targetObject.x - xD, targetObject.y - yD, -50-(o_Player.z), targetObject.x, targetObject.y, -50-(o_Player.z), currntTilt, 0, 1);
 	};
 	
+if o_GameManager.currentState == GameState.Multiplayer
+	{
+		projMat = matrix_build_projection_perspective_fov(60, window_get_width() / window_get_height(), 1, 32000);
+		lookMat = matrix_build_lookat(256 - xD, targetObject.y  - yD, -50-(0), 256, targetObject.y, -50-(0), currntTilt, 0, 1);
+	};
+	
 // Set perspective viewpoint
 camera_set_proj_mat(camera, projMat);
 

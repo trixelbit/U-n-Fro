@@ -143,7 +143,7 @@ introSlides = [ spr_intro_1, spr_intro_2, spr_intro_3, spr_intro_4, spr_intro_5,
 loopCount = 0;
 introCharacters = [ spr_jobo, spr_coco, spr_simone, spr_bunbi ];
 charCount = 0;
-charProg = browser_width;
+charProg = view_wport[0];
 // Skybox model
 skyboxBuff = LoadObj("m_plane.obj",vertex_create_buffer())
 

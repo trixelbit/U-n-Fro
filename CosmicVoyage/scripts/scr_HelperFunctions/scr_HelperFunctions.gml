@@ -168,6 +168,11 @@ function run_reset()
 		global.scoreDist = 0;
 		global.scoreKills = 0;
 		global.scoreTotal = 0;
+		global.gameOver = false;
+		o_Player.scoreP1 = 0;
+		o_Player.scoreP2 = 0;
+		o_Player.killsP1 = 0;
+		o_Player.killsP2 = 0;
 		
 		o_Player.y = room_height;
 		o_Player.x = 256;
@@ -184,7 +189,7 @@ function run_reset()
 		o_GameManager.levelTrans = false;
 		o_GameManager.canSpawn = true;
 		o_GameManager.currentState = GameState.Menu;
-		
+		instance_destroy(o_Stars)
 	
 		
 	};

@@ -49,8 +49,8 @@ switch (currentState)
 		txtCount += 0.45;
 			if introSlideInd != 1 // if not crewmate intro
 			{
-				draw_sprite_ext(introSlides[introSlideInd],0,browser_width*0.5,browser_height*0.40,4,4,0,c_white,1)
-				draw_sprite_ext(spr_textbox,0,browser_width*0.5,browser_height*0.80,4,4,0,c_white,1)
+				draw_sprite_ext(introSlides[introSlideInd],0,view_wport[0]*0.5,view_hport[0]*0.40,4,4,0,c_white,1)
+				draw_sprite_ext(spr_textbox,0,view_wport[0]*0.5,view_hport[0]*0.80,4,4,0,c_white,1)
 			};
 			if introSlideInd == 1 // if crewmate intro
 			{
@@ -58,25 +58,25 @@ switch (currentState)
 		
 				for(j = 0; j < 200; j++) // the moving bg
 				{
-					draw_sprite_ext(introSlides[introSlideInd],0,0+(((sprite_get_width(introSlides[1])*4)*j))+loopCount,browser_height*0.40,4,4,0,c_white,1)
+					draw_sprite_ext(introSlides[introSlideInd],0,0+(((sprite_get_width(introSlides[1])*4)*j))+loopCount,view_hport[0]*0.40,4,4,0,c_white,1)
 		
 				};
 				for(n = 0; n < charCount; n++) // draws the characters in order but darkened
 				{
-					draw_sprite_ext(introCharacters[n],0,-256+browser_width*0.001+((128*2)*n),browser_height*0.20,3,3,0,c_gray,1)
+					draw_sprite_ext(introCharacters[n],0,-256+view_wport[0]*0.001+((128*2)*n),view_hport[0]*0.20,3,3,0,c_gray,1)
 				};
 				if charProg > (-256+(128*2)*charCount+1)-6 // slides the characters in
 				{
 					charProg = lerp(charProg,-256+((128*2)*charCount+1),0.018); // character position
 				};
-				draw_sprite_ext(introCharacters[charCount],0,charProg,browser_height*0.20,3,3,0,c_white,1);
+				draw_sprite_ext(introCharacters[charCount],0,charProg,view_hport[0]*0.20,3,3,0,c_white,1);
 
 		
-				draw_sprite_ext(spr_textbox,0,browser_width*0.5,browser_height*0.80,4,4,0,c_white,1) // textbox	
+				draw_sprite_ext(spr_textbox,0,view_wport[0]*0.5,view_hport[0]*0.80,4,4,0,c_white,1) // textbox	
 			};
 		if introSlideInd != 1 // normal slide
 			{
-		if drawTextPart(browser_width*0.15,browser_height*0.70,string_upper(flavorText),txtCount) == true
+		if drawTextPart(view_wport[0]*0.15,view_hport[0]*0.70,string_upper(flavorText),txtCount) == true
 			{
 		slideTime ++;
 		if slideTime > 100
@@ -102,7 +102,7 @@ switch (currentState)
 		
 		if introSlideInd == 1 // the crew introduction slide
 			{
-		if drawTextPart(browser_width*0.15,browser_height*0.70,string_upper(flavorText),txtCount) == true
+		if drawTextPart(view_wport[0]*0.15,view_hport[0]*0.70,string_upper(flavorText),txtCount) == true
 			{
 		slideTime ++;
 		if slideTime > 150
@@ -113,7 +113,7 @@ switch (currentState)
 						introTextInd ++;
 								charCount++;
 								
-		charProg = browser_width;
+		charProg = view_wport[0];
 							}
 						else
 							{
@@ -142,14 +142,31 @@ switch (currentState)
 			instance_create_layer(256,room_height,"Instances",o_Camera);	
 			};
 		draw_set_halign(fa_center)
-		draw_text(browser_width*0.5,browser_height*0.5,string_upper("A Lightspeed Odyssey"))
-		draw_text(browser_width*0.5,browser_height*0.75,string_upper("Press W to launch!"))
+		draw_text(view_wport[0]*0.5,view_hport[0]*0.5,string_upper("A Lightspeed Odyssey"))
+		draw_text(view_wport[0]*0.5,view_hport[0]*0.75,string_upper("Press W to launch!"))
 		draw_set_halign(fa_left);
+		instance_destroy(o_Player)
 		if keyboard_check_pressed(ord("W"))
 			{
 				currentState = GameState.Game;	
 				if !instance_exists(o_Player) { instance_create_layer(256,room_height,"Instances",o_Player) }
 				
+			};
+		if keyboard_check_pressed(ord("D"))
+			{
+				currentState = GameState.Multiplayer;
+				if instance_number(o_Player) < 1
+				{
+				p1 = instance_create_layer(256,room_height,"Instances",o_Player)
+				p2 = instance_create_layer(256,room_height,"Instances",o_Player)
+				p2.isPlayerOne = false;
+				};
+				else
+				{
+				p2 = instance_create_layer(256,room_height,"Instances",o_Player)
+				p2.isPlayerOne = false;	
+				
+				};
 			};
 		break;
 }

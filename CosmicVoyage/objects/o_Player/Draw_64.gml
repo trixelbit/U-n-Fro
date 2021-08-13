@@ -23,7 +23,7 @@ if o_GameManager.currentState == GameState.Game
 finalScore = global.scoreTotal;
 
 // Death State
-if _lives < 1 // something in here is causing the HTML5 version to crash
+if _lives < 1 
 	{
 		var scArr = o_GameManager.scoreArray;
 		// setting the new highest score
@@ -37,19 +37,19 @@ if _lives < 1 // something in here is causing the HTML5 version to crash
 		draw_set_halign(fa_center)
 		var hOffset = 20;
 		
-		draw_text(browser_width*0.5,browser_height*0.20,"HIGH SCORES!")
+		draw_text(view_wport[0]*0.5,view_hport[0]*0.20,"HIGH SCORES!")
 		// draws the high score board
 		for(i = 0; i < array_length(scArr)-1; i++)
 			{
 				if newScore == true && i = 0 { draw_set_color(c_yellow) };
 				
-				draw_text(browser_width*0.5,browser_height*0.25+(i*hOffset),string(scArr[i])+ " POINTS");	
+				draw_text(view_wport[0]*0.5,view_hport[0]*0.25+(i*hOffset),string(scArr[i])+ " POINTS");	
 				draw_set_color(c_white)
 			};
 
 			
 		// restart text and resetting the run
-		draw_text(browser_width*0.5,browser_height*0.75,"PRESS SPACE TO RESTART")
+		draw_text(view_wport[0]*0.5,view_hport[0]*0.75,"PRESS SPACE TO RESTART")
 		if keyboard_check_pressed(vk_space)
 			{
 			newScore = false;
@@ -70,7 +70,7 @@ if _lives > 0
 			};
 			
 			draw_set_halign(fa_center)
-			draw_text(browser_width*0.5,20,string(global.scoreDist) + "M");
+			draw_text(view_wport[0]*0.5,20,string(global.scoreDist) + "M");
 			draw_set_halign(fa_left);
 			if (oldKills != global.scoreKills)
 			{
@@ -107,4 +107,18 @@ gpu_set_zwriteenable(true);
 
 oldKills = global.scoreKills
 	};
-
+	
+// MP GUI
+else if o_GameManager.currentState == GameState.Multiplayer
+	{
+		if global.gameOver == true
+			{
+				// draws winner text, winnerName is calculated in the gameManager object in step event
+				draw_text(view_wport[0]*0.5,view_hport[0]*0.5,"THE WINNER IS...\n" + string_upper(global.winnerName));
+				draw_text(view_wport[0]*0.5,view_hport[0]*0.75,"PRESS SPACE TO RESTART");
+				if keyboard_check_pressed(vk_space)
+					{
+						run_reset()	
+					};
+			};
+	};

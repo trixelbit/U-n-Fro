@@ -1,5 +1,5 @@
 
-if o_GameManager.currentState == GameState.Game
+if o_GameManager.currentState != GameState.Menu
 	{
 
 if(distance_to_point(targetX, y) > 10)

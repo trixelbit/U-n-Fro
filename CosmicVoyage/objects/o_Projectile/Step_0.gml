@@ -5,7 +5,7 @@ if (objIndex == undefined)
 };
 
 // Movement && Collision
-if(parentObject == o_Player.id)
+if(parentObject.object_index == o_Player)
 {
 	// to-do add in high speed collision checking
 	targetID = collision_circle(x,y,10,o_Entity,false,true)
@@ -19,6 +19,17 @@ if(parentObject == o_Player.id)
 				vfx.parentId = id;
 			}
 			
+			if targetID._lives == 1
+				{
+				if playerWho == 0
+					{
+					o_Player.killsP1 ++ ;
+					};
+				else if playerWho == 1
+					{
+					o_Player.killsP2 ++;	
+					};
+				}
 			targetID._lives--;
 			//matrix_set(matrix_world,matrix_build(0,0,0,90,90,90,1,1,1));
 			//part_particles_create(ps, x, y, pDeath, 5);
