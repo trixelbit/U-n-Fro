@@ -14,11 +14,12 @@ if(parentObject == o_Player.id)
 		if targetID.z == z
 		{
 			targetID._lives--;
+			matrix_set(matrix_world,matrix_build(0,0,0,90,90,90,1,1,1));
 			part_particles_create(ps, x, y, pDeath, 5);
+			matrix_set(matrix_world,matrix_build_identity());
 			instance_destroy(id);
 		}
 	}		
-	show_debug_message("bSpd: " + string(baseSpd));
 	y -= baseSpd + (baseSpd * 0.25) + 25;
 }
 else
