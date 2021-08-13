@@ -103,9 +103,15 @@ switch (currentState)
 		// this will eventually include, skyboxes, palletes, and potentially songs? 
 		switch(currentLevel)
 			{
-				case levelState.env_Space   :	break;
-				case levelState.env_Planet  :	break;
-				case levelState.env_Asteroid: 	break;
+				case levelState.env_Space:
+					
+				break;
+				
+				case levelState.env_Planet:	
+					
+				break;
+				case levelState.env_Asteroid: 	
+				break;
 				case levelState.env_Warp    :	break;
 			};
 		

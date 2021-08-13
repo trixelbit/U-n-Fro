@@ -6,7 +6,7 @@ gpu_set_zwriteenable(false)
 	//matrix_set(matrix_world,matrix_build(o_Player.x,o_Player.y,0,0,0,0,50,50,50))
 	if o_GameManager.currentState != GameState.Multiplayer
 		{
-	matrix_set(matrix_world,matrix_build(o_Player.x,o_Player.y-900,100,0,0,0,1100,1100,1100))
+	matrix_set(matrix_world,matrix_build(o_Player.x,o_Player.y-700,-300,0,0,0,1100,1100,1100))
 		};
 	else
 		{

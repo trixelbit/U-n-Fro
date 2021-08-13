@@ -37,6 +37,8 @@ levelTrans = false;
 enemy_chanceUFO = 3;
 enemy_spawnRate = 220;
 
+fadeOut = 0;
+
 #region Rand Spawner Initialization
 // @description: 
 yDisplacement = 0;

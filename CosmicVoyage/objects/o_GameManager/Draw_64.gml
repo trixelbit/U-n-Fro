@@ -6,15 +6,32 @@ switch (currentState)
 		if levelTrans == true
 		{
 			fadeOut = lerp(	fadeOut, 1.0, 0.016);
-			draw_set_alpha(fadeOut)
-			draw_rectangle_color(0,0,browser_width,browser_height,c_white, c_white, c_white, c_white ,false)
+			o_Camera.fov = lerp(o_Camera.fov, 80, 0.05);
+			draw_set_alpha(fadeOut);
+			draw_sprite_ext(spr_vfx_speedlines,image_index,0,0,4,4,0,c_white,fadeOut);
+			image_speed = .6;
+			//draw_rectangle_color(0,0,browser_width,browser_height,c_white, c_white, c_white, c_white ,false)
 			draw_set_alpha(1);
 			if fadeOut >= 0.95
 			{
 				levelTrans = false;
 				canSpawn = true;
 			}
-		};
+			
+			
+		}
+		else
+		{
+		
+			fadeOut = lerp(	fadeOut, 0, 0.016);
+			o_Camera.fov = lerp(o_Camera.fov, o_Camera.orginalFov, 0.05);
+			draw_set_alpha(fadeOut);
+			draw_sprite_ext(spr_vfx_speedlines,image_index,0,0,4,4,0,c_white,fadeOut);
+			image_speed = .6;
+			//draw_rectangle_color(0,0,browser_width,browser_height,c_white, c_white, c_white, c_white ,false)
+			draw_set_alpha(1);
+		
+		}
         break;
 	
 	// Multiplayer
@@ -137,36 +154,37 @@ switch (currentState)
 		
 	case GameState.Menu:
 	
-		if !instance_exists(o_Camera)
-			{
+		if (!instance_exists(o_Camera))
+		{
 			instance_create_layer(256,room_height,"Instances",o_Camera);	
-			};
+		};
+		
 		draw_set_halign(fa_center)
 		draw_text(view_wport[0]*0.5,view_hport[0]*0.5,string_upper("A Lightspeed Odyssey"))
 		draw_text(view_wport[0]*0.5,view_hport[0]*0.75,string_upper("Press W to launch!"))
 		draw_set_halign(fa_left);
 		instance_destroy(o_Player)
+		
 		if keyboard_check_pressed(ord("W"))
-			{
-				currentState = GameState.Game;	
-				if !instance_exists(o_Player) { instance_create_layer(256,room_height,"Instances",o_Player) }
-				
-			};
+		{
+			currentState = GameState.Game;	
+			if !instance_exists(o_Player) { instance_create_layer(256,room_height,"Instances",o_Player) }		
+		};
+		
 		if keyboard_check_pressed(ord("D"))
+		{
+			currentState = GameState.Multiplayer;
+			if (instance_number(o_Player) < 1)
 			{
-				currentState = GameState.Multiplayer;
-				if instance_number(o_Player) < 1
-				{
 				p1 = instance_create_layer(256,room_height,"Instances",o_Player)
 				p2 = instance_create_layer(256,room_height,"Instances",o_Player)
 				p2.isPlayerOne = false;
-				};
-				else
-				{
+			};
+			else
+			{
 				p2 = instance_create_layer(256,room_height,"Instances",o_Player)
 				p2.isPlayerOne = false;	
-				
-				};
 			};
+		};
 		break;
 }
