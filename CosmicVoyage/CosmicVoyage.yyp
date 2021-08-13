@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"spr_intro_3","path":"sprites/spr_intro_3/spr_intro_3.yy",},"order":1,},
+    {"id":{"name":"o_BoostPad","path":"objects/o_BoostPad/o_BoostPad.yy",},"order":13,},
     {"id":{"name":"spr_intro_6","path":"sprites/spr_intro_6/spr_intro_6.yy",},"order":4,},
     {"id":{"name":"spr_Lanes","path":"sprites/spr_Lanes/spr_Lanes.yy",},"order":2,},
     {"id":{"name":"o_Entity","path":"objects/o_Entity/o_Entity.yy",},"order":6,},

@@ -10,4 +10,8 @@ z = 0;
 
 max_player_distance = random_range(500,700 )
 movement_xspeed = random_range(2, 3.5 )
+acceleration = random_range(.15, .4)
 targetX = x;
+
+pursue = true;
+pursueAlarmSet = false;

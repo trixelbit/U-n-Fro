@@ -89,7 +89,7 @@ m_testCube = LoadObj("m_cube.obj",vertex_create_buffer());
 
 //sprite_get_texture(t_asteroid1,0); break;
 rawText = "In a time of great expansion across the cosmos, there was\na legendary team of bounty hunters... #" 
-+"There's Jobo, the arms and brawn of this well renowned team, a man\nwith an impressive phyisque and... highly dangerous 'guns'#"
++"There's Jobo, the arms and brawn of the team, with an impressive \nphyisque and... highly dangerous 'guns'#"
 +"Coco, the engineer... a brilliant mind from the halls of academia,\nnow finds refuge in the bounty hunting business.#"
 +"Simone, the accountant... Once held a prestigious job until he was\nframed in a scandal and became a criminal over night.#"
 +"Bunbi, the navigator... a veteran luxury cruiser captain. Bunbi\n became a bounty hunter not out of need, but out of sheer boredom.#"+

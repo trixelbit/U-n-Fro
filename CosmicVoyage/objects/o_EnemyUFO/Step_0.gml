@@ -1,5 +1,7 @@
 /// @description Insert description here
 // Good huntin' to ya ^^
+
+
 distance = distance_to_point(x, o_Player.id.y);
 // Move until in player range
 if(distance > max_player_distance)
@@ -18,12 +20,24 @@ else
 }*/
 if(abs(o_Player.x - x) > movement_xspeed * 1.5 )
 {
-	hspeed = x > o_Player.x ? -movement_xspeed: movement_xspeed;
+	if(pursue)
+	{
+		hspeed = x > o_Player.x ? lerp(hspeed, -movement_xspeed, acceleration): lerp(hspeed, movement_xspeed, acceleration);
+		pursueAlarmSet = false;
+	}
+	else if(!pursueAlarmSet)
+	{
+		alarm[3] = random_range(0,60)
+		pursueAlarmSet = true
+	}
+	
 }
 else
 {
 	hspeed = 0;
 	x = lerp(x, o_Player.x, .5);
+	pursue = false; 
+	
 }
 
 if(y = o_Player.id.y - max_player_distance)

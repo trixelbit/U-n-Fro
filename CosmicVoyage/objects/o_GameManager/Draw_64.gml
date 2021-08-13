@@ -48,32 +48,32 @@ switch (currentState)
 		
 		txtCount += 0.45;
 			if introSlideInd != 1 // if not crewmate intro
-				{
-		draw_sprite_ext(introSlides[introSlideInd],0,browser_width*0.5,browser_height*0.40,4,4,0,c_white,1)
-		draw_sprite_ext(spr_textbox,0,browser_width*0.5,browser_height*0.80,4,4,0,c_white,1)
-				};
+			{
+				draw_sprite_ext(introSlides[introSlideInd],0,browser_width*0.5,browser_height*0.40,4,4,0,c_white,1)
+				draw_sprite_ext(spr_textbox,0,browser_width*0.5,browser_height*0.80,4,4,0,c_white,1)
+			};
 			if introSlideInd == 1 // if crewmate intro
+			{
+				loopCount -= 16;
+		
+				for(j = 0; j < 200; j++) // the moving bg
 				{
-		loopCount -= 16;
+					draw_sprite_ext(introSlides[introSlideInd],0,0+(((sprite_get_width(introSlides[1])*4)*j))+loopCount,browser_height*0.40,4,4,0,c_white,1)
 		
-		for(j = 0; j < 200; j++) // the moving bg
-			{
-		draw_sprite_ext(introSlides[introSlideInd],0,0+(((sprite_get_width(introSlides[1])*4)*j))+loopCount,browser_height*0.40,4,4,0,c_white,1)
-		
-			};
-		for(n = 0; n < charCount; n++) // draws the characters in order but darkened
-			{
-			draw_sprite_ext(introCharacters[n],0,-256+browser_width*0.001+((128*2)*n),browser_height*0.20,3,3,0,c_gray,1)
-			};
-		if charProg > (-256+(128*2)*charCount+1)-6 // slides the characters in
-			{
-		charProg = lerp(charProg,-256+((128*2)*charCount+1),0.018); // character position
-			};
-		draw_sprite_ext(introCharacters[charCount],0,charProg,browser_height*0.20,3,3,0,c_white,1);
+				};
+				for(n = 0; n < charCount; n++) // draws the characters in order but darkened
+				{
+					draw_sprite_ext(introCharacters[n],0,-256+browser_width*0.001+((128*2)*n),browser_height*0.20,3,3,0,c_gray,1)
+				};
+				if charProg > (-256+(128*2)*charCount+1)-6 // slides the characters in
+				{
+					charProg = lerp(charProg,-256+((128*2)*charCount+1),0.018); // character position
+				};
+				draw_sprite_ext(introCharacters[charCount],0,charProg,browser_height*0.20,3,3,0,c_white,1);
 
 		
-		draw_sprite_ext(spr_textbox,0,browser_width*0.5,browser_height*0.80,4,4,0,c_white,1) // textbox	
-				};
+				draw_sprite_ext(spr_textbox,0,browser_width*0.5,browser_height*0.80,4,4,0,c_white,1) // textbox	
+			};
 		if introSlideInd != 1 // normal slide
 			{
 		if drawTextPart(browser_width*0.15,browser_height*0.70,string_upper(flavorText),txtCount) == true
