@@ -13,6 +13,12 @@ if(parentObject == o_Player.id)
 	{
 		if targetID.z == z
 		{
+			with(targetID)
+			{
+				var vfx = instance_create_layer(x, y - 10, "Instances", o_vfx_enemyhit);
+				vfx.parentId = id;
+			}
+			
 			targetID._lives--;
 			matrix_set(matrix_world,matrix_build(0,0,0,90,90,90,1,1,1));
 			part_particles_create(ps, x, y, pDeath, 5);

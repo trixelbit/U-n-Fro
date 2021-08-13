@@ -21,17 +21,21 @@ if(y = o_Player.id.y - 500)
 {
 	if fireTick <= 0
 	{
+		sprite_index = spr_enemy_shoot
 		var proj = instance_create_layer(x, y - 10, "Instances", o_Projectile);
 		proj.parentObject = id;
 		proj.baseSpd = spd/4;
 		proj.z = z;
 		fireTick = choose(50,100,350);
+		alarm[2] = image_number;
 	};	
 	fireTick --;
 }
 
 if _lives < 1
 {
+	
 	global.scoreKills ++;
+	
 	instance_destroy(id);	
 };
