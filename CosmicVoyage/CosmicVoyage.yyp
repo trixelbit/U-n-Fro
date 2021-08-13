@@ -13,6 +13,8 @@
     {"id":{"name":"spr_Intro_8","path":"sprites/spr_Intro_8/spr_Intro_8.yy",},"order":10,},
     {"id":{"name":"intro_music","path":"sounds/intro_music/intro_music.yy",},"order":0,},
     {"id":{"name":"spr_simone","path":"sprites/spr_simone/spr_simone.yy",},"order":4,},
+    {"id":{"name":"spr_1player","path":"sprites/spr_1player/spr_1player.yy",},"order":0,},
+    {"id":{"name":"spr_2player","path":"sprites/spr_2player/spr_2player.yy",},"order":1,},
     {"id":{"name":"spr_intro_7","path":"sprites/spr_intro_7/spr_intro_7.yy",},"order":5,},
     {"id":{"name":"o_EnemyUFO","path":"objects/o_EnemyUFO/o_EnemyUFO.yy",},"order":5,},
     {"id":{"name":"o_Projectile","path":"objects/o_Projectile/o_Projectile.yy",},"order":3,},
@@ -89,6 +91,7 @@
     {"folderPath":"folders/Sprites/Intro Scenes/intro 2.yy","order":6,"resourceVersion":"1.0","name":"intro 2","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/enemy.yy","order":17,"resourceVersion":"1.0","name":"enemy","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/items.yy","order":18,"resourceVersion":"1.0","name":"items","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/ui.yy","order":19,"resourceVersion":"1.0","name":"ui","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
