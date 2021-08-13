@@ -1,3 +1,4 @@
+show_debug_overlay(true)
 
 if(_lives > 0) && o_GameManager.currentState == GameState.Game
 {
