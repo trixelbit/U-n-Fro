@@ -59,6 +59,7 @@ if _lives < 1
 {
 	
 	global.scoreKills ++;
-	
+	audio_play_sound(sfx_crash,1,0);
+	var vfx = instance_create_layer(x, y - 10, "Instances", o_vfx_enemyhit);
 	instance_destroy(id);	
 };

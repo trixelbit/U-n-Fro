@@ -1,6 +1,6 @@
 {
   "compression": 0,
-  "volume": 0.84,
+  "volume": 1.0,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfx_crash.wav",
-  "duration": 0.590839,
+  "soundFile": "sfx_heartget.wav",
+  "duration": 0.737755,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sfx_crash",
+  "name": "sfx_heartget",
   "tags": [],
   "resourceType": "GMSound",
 }

@@ -17,6 +17,7 @@ if(parentObject.object_index == o_Player)
 			{
 				var vfx = instance_create_layer(x, y - 10, "Instances", o_vfx_enemyhit);
 				vfx.parentId = id;
+				audio_play_sound(sfx_enemyhit,1,0);
 			}
 			
 			if targetID._lives == 1
