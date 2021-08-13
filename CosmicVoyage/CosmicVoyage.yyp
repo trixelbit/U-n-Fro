@@ -24,6 +24,7 @@
     {"id":{"name":"spr_collision","path":"sprites/spr_collision/spr_collision.yy",},"order":22,},
     {"id":{"name":"spr_skybox_space","path":"sprites/spr_skybox_space/spr_skybox_space.yy",},"order":9,},
     {"id":{"name":"spr_intro_5","path":"sprites/spr_intro_5/spr_intro_5.yy",},"order":3,},
+    {"id":{"name":"scr_RateFunctions","path":"scripts/scr_RateFunctions/scr_RateFunctions.yy",},"order":2,},
     {"id":{"name":"t_Hangar","path":"sprites/t_Hangar/t_Hangar.yy",},"order":15,},
     {"id":{"name":"o_sky","path":"objects/o_sky/o_sky.yy",},"order":12,},
     {"id":{"name":"rm_Game","path":"rooms/rm_Game/rm_Game.yy",},"order":1,},

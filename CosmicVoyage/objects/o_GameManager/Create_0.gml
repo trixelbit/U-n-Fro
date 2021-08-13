@@ -38,10 +38,29 @@ enemy_chanceUFO = 3;
 enemy_spawnRate = 220;
 
 #region Spawn Rates
+// @description: 
+rate_empty = 90
 rate_ufo = 50;
 rate_heart = 2;
 rate_asteroid = 30;
 rate_boost = 20;
+
+rates = [rate_empty, rate_ufo, rate_heart, rate_asteroid, rate_boost];
+rate_sum = 0;
+for(i = 0; i < array_length(rates); i++)
+{
+	range_start = rate_sum;
+	rate_sum+= rates[i];
+	range_end = rate_sum;
+	rates[i] = new rate(rates[i],range_start, range_end );
+}
+
+rate = function()
+{
+	
+}
+
+
 
 
 #endregion
