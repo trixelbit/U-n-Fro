@@ -67,6 +67,7 @@
     {"id":{"name":"scr_HelperFunctions","path":"scripts/scr_HelperFunctions/scr_HelperFunctions.yy",},"order":0,},
     {"id":{"name":"t_asteroid_row","path":"sprites/t_asteroid_row/t_asteroid_row.yy",},"order":12,},
     {"id":{"name":"spr_textbox","path":"sprites/spr_textbox/spr_textbox.yy",},"order":7,},
+    {"id":{"name":"o_character","path":"objects/o_character/o_character.yy",},"order":16,},
     {"id":{"name":"rm_TestRoom","path":"rooms/rm_TestRoom/rm_TestRoom.yy",},"order":0,},
   ],
   "Options": [

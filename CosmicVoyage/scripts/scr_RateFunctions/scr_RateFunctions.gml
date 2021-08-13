@@ -19,5 +19,6 @@ enum SpawnObject
 	empty,
 	asteroid,
 	ufo,
-	heart
+	heart,
+	character
 }
