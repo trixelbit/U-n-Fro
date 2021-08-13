@@ -34,8 +34,8 @@ lvlCounter = 0
 levelTrans = false;
 
 // enemy spawning chances
-enemy_chanceUFO = 5;
-enemy_spawnRate = 300;
+enemy_chanceUFO = 3;
+enemy_spawnRate = 220;
 
 // Spawn players
 if(currentState == GameState.Game)

@@ -51,9 +51,9 @@ switch (currentState)
 				
 				switch(currentLevel) // the spawning chances for UFOs, the higher the value, the less they spawn, and the lower the value, the more they spawn
 					{
-						case levelState.env_Space:		enemy_chanceUFO = 5; enemy_spawnRate = 20; break;
-						case levelState.env_Asteroid:   enemy_chanceUFO = 8; enemy_spawnRate = 20; break;
-						case levelState.env_Planet:		enemy_chanceUFO = 2; enemy_spawnRate = 20; break;
+						case levelState.env_Space:		enemy_chanceUFO = 3; enemy_spawnRate = 220; break;
+						case levelState.env_Asteroid:   enemy_chanceUFO = 8; enemy_spawnRate = 70; break;
+						case levelState.env_Planet:		enemy_chanceUFO = 2; enemy_spawnRate = 120; break;
 						case levelState.env_Warp:		enemy_chanceUFO = 10; break;
 					};
 			};
