@@ -46,7 +46,7 @@ switch (currentState)
 			};
 		
 		
-		txtCount += 0.4;
+		txtCount += 0.45;
 			if introSlideInd != 1 // if not crewmate intro
 				{
 		draw_sprite_ext(introSlides[introSlideInd],0,browser_width*0.5,browser_height*0.40,4,4,0,c_white,1)
@@ -105,13 +105,14 @@ switch (currentState)
 		if drawTextPart(browser_width*0.15,browser_height*0.70,string_upper(flavorText),txtCount) == true
 			{
 		slideTime ++;
-		if slideTime > 200
+		if slideTime > 150
 				{
 					{
 						if introTextInd < 4
 							{
 						introTextInd ++;
 								charCount++;
+								
 		charProg = browser_width;
 							}
 						else

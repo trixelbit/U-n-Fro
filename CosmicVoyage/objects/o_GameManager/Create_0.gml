@@ -1,4 +1,5 @@
 // Current State of the Game
+audio_play_sound(intro_music,1,1)
 gpu_set_tex_filter(false)
 enum GameState
 {

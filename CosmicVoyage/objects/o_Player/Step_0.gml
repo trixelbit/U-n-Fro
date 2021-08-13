@@ -3,7 +3,7 @@ if(_lives > 0) && o_GameManager.currentState == GameState.Game
 {
 	if y > 0
 		{
-		finalSpd = lerp(finalSpd,16,0.0005);	
+		finalSpd = lerp(finalSpd,16,0.05);	
 		};
 	else
 		{

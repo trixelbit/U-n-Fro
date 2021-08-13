@@ -196,7 +196,11 @@ function drawTextBox(x,y,width,height,text)
 		for(i = 0; i < string_length(text); i++)
 			{
 		
-		draw_text(x,y,strTotal)		
+				draw_text(x,y,strTotal)	
+				audio_play_sound(sfx_text_tick,10, false)	
+				
 			}
+			
+			
 
 	};
