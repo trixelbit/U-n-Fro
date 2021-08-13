@@ -37,27 +37,57 @@ levelTrans = false;
 enemy_chanceUFO = 3;
 enemy_spawnRate = 220;
 
-#region Spawn Rates
+#region Rand Spawner Initialization
 // @description: 
-rate_empty = 90
-rate_ufo = 50;
-rate_heart = 2;
-rate_asteroid = 30;
-rate_boost = 20;
+yDisplacement = 0;
+rate_empty = new rate(100,0, 0, SpawnObject.empty );
+rate_ufo = new rate(10,0, 0, SpawnObject.ufo );
+rate_heart = new rate(5,0, 0, SpawnObject.heart );
+rate_asteroid = new rate(30,0, 0, SpawnObject.asteroid);
+//rate_boost = new rate(20,0, 0, );
 
-rates = [rate_empty, rate_ufo, rate_heart, rate_asteroid, rate_boost];
+rates = [rate_empty, rate_ufo, rate_heart, rate_asteroid];
 rate_sum = 0;
-for(i = 0; i < array_length(rates); i++)
+
+for(var i = 0; i < array_length(rates); i++)
 {
-	range_start = rate_sum;
-	rate_sum+= rates[i];
-	range_end = rate_sum;
-	rates[i] = new rate(rates[i],range_start, range_end );
+	rates[i].start = rate_sum;
+	rate_sum += rates[i].val;
+	rates[i].finish = rate_sum;	
 }
 
-rate = function()
+/*
+@description: Recalculates respawn rates
+@param: _arr An array of spawn point values in order of: {empty, ufo, heart, asteroid}
+*/
+function recalculateRates(_arr)
 {
+	rate_sum = 0;
+	for(var i = 0; i < array_length(rates); i++)
+	{
+		rates[i].val = _arr[i];
+		
+		rates[i].start = rate_sum;
+		rate_sum += rates[i].val;
+		rates[i].finish = rate_sum;	
+	}
+}
+
+/*
+@description: Generates random number from 0 to rate_sum and selects object from list. 
+@returns: SpawnObject enum of selected object to spawn
+*/
+function selectObjectToSpawn()
+{
+	var selection = random_range(0, rate_sum);
 	
+	for(i = 0; i < array_length(rates); i++)
+	{
+		if(rates[i].start <= selection and rates[i].finish > selection)
+		{
+			return rates[i].object;
+		}
+	}
 }
 
 

@@ -3,13 +3,13 @@ show_debug_overlay(true)
 if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOver == false
 {
 	if y > 0
-		{
+	{
 		finalSpd = lerp(finalSpd,16,0.05);	
-		};
+	};
 	else
-		{
-	finalSpd = 16
-		};
+	{
+		finalSpd = 16
+	};
 	
 	// If singleplayer or player one in multiplayer
 	if(isPlayerOne)

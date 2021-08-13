@@ -5,9 +5,19 @@ function scr_RateFunctions(){
 }
 
 
-function rate(_value, _start, _finish) constructor
+function rate(_value, _start, _finish, _object) constructor
 {
-	value = _value;
+	val = _value;
 	start = _start;
 	finish = _finish;
+	object = _object;
 };
+
+
+enum SpawnObject
+{
+	empty,
+	asteroid,
+	ufo,
+	heart
+}
