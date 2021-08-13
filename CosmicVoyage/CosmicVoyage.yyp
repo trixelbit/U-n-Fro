@@ -38,6 +38,7 @@
     {"id":{"name":"spr_bulletgauge_empty","path":"sprites/spr_bulletgauge_empty/spr_bulletgauge_empty.yy",},"order":3,},
     {"id":{"name":"spr_player_left","path":"sprites/spr_player_left/spr_player_left.yy",},"order":6,},
     {"id":{"name":"sh_Billboard","path":"shaders/sh_Billboard/sh_Billboard.yy",},"order":0,},
+    {"id":{"name":"o_item_heart","path":"objects/o_item_heart/o_item_heart.yy",},"order":14,},
     {"id":{"name":"o_Lanes","path":"objects/o_Lanes/o_Lanes.yy",},"order":9,},
     {"id":{"name":"spr_coco","path":"sprites/spr_coco/spr_coco.yy",},"order":1,},
     {"id":{"name":"spr_intro_2","path":"sprites/spr_intro_2/spr_intro_2.yy",},"order":8,},

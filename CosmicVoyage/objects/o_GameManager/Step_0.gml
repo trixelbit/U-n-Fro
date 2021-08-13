@@ -6,8 +6,14 @@ switch (currentState)
 
 		if o_Player.y < -200 && o_Player._lives > 0
 		{
+			
+			
+			
+			#region Old Spawn
+			/*
 	        if(!hasSpawned)
 			{
+				/*
 				var index = random(10);
 				if(index >= enemy_chanceUFO and instance_number(o_EnemyUFO) <= 3)
 				{
@@ -26,15 +32,12 @@ switch (currentState)
 					switch(eID.currentAsteroid)
 						{
 							case asteroidTypes.single: eLane = choose(1,0,-1); eRow = 0; eID.x = 256 + (128*eLane); eLen = 1; eHgt = 1 break;
-						};
-						
-
-
+						};	
 				}
 	
 				hasSpawned = true;
 				alarm[1] = enemy_spawnRate;
-			}
+			}*/#endregion
 		}
 		// level switches
 		// to-do: check in with trix about the order of levels

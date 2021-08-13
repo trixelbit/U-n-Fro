@@ -1,5 +1,6 @@
 // Player Properties
 _lives = 3;
+maxLives = 3;
 
 maxBullets = 3;
 currentBullets = 3;

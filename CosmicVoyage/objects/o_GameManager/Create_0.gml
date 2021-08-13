@@ -37,6 +37,16 @@ levelTrans = false;
 enemy_chanceUFO = 3;
 enemy_spawnRate = 220;
 
+#region Spawn Rates
+rate_ufo = 50;
+rate_heart = 2;
+rate_asteroid = 30;
+rate_boost = 20;
+
+
+#endregion
+
+
 // Spawn players
 if(currentState == GameState.Game)
 {
