@@ -62,16 +62,17 @@ if _lives < 1 // something in here is causing the HTML5 version to crash
 if _lives > 0
 	{
 		if o_GameManager.levelTrans == false
+		{
+			draw_text(25,20,"SCORE: " + string(finalScore) + " PTS.")
+			for(i = 0; i < _lives; i++)
 			{
-		draw_text(25,20,"SCORE: " + string(finalScore) + " PTS.")
-		for(i = 0; i < _lives; i++)
-			{
-			draw_sprite(spr_Heart,0,25+(i*sprite_get_width(spr_Heart)),60);	
+				draw_sprite(spr_Heart,0,25+(i*sprite_get_width(spr_Heart)),60);	
 			};
-		draw_set_halign(fa_center)
-		draw_text(browser_width*0.5,20,string(global.scoreDist) + "M");
-		draw_set_halign(fa_left);
-		if oldKills != global.scoreKills
+			
+			draw_set_halign(fa_center)
+			draw_text(browser_width*0.5,20,string(global.scoreDist) + "M");
+			draw_set_halign(fa_left);
+			if (oldKills != global.scoreKills)
 			{
 				targetY = 20
 				currentY = 60;
@@ -79,17 +80,28 @@ if _lives > 0
 				newKill = global.scoreDist * 1
 				flashTick = 100;
 			};
-		if flashTick > 0
+			if (flashTick > 0)
 			{
-		
-		draw_text_color(25,currentY,"+" + string(newKill),c_yellow,c_yellow,c_yellow,c_yellow,currentAlpha)	
-		currentY = lerp(currentY,targetY,0.01);
-		currentAlpha = lerp(currentAlpha,0,0.01);
+				draw_text_color(25,currentY,"+" + string(newKill),c_yellow,c_yellow,c_yellow,c_yellow,currentAlpha)	
+				currentY = lerp(currentY,targetY,0.01);
+				currentAlpha = lerp(currentAlpha,0,0.01);
 			};
-		flashTick --;
-			};
+			flashTick --;
+			
+			//bullet gauge
+			for(i = 0; i < maxBullets; i++)
+			{
+				draw_sprite_ext(spr_bulletgauge_empty,0, 0, 200 + (i*64),4,4,0,c_white,1)
+			}
+			for(i = 0; i < currentBullets; i++)
+			{
+				draw_sprite_ext(spr_bulletgauge_full,0, 0, 200 + (i*64),4,4,0,c_white,1)
+			}
+			
+		};
 	};
-	
+
+
 gpu_set_ztestenable(true);
 gpu_set_zwriteenable(true);
 

@@ -9,7 +9,7 @@ switch (currentState)
 	        if(!hasSpawned)
 			{
 				var index = random(10);
-				if(index >= enemy_chanceUFO)
+				if(index >= enemy_chanceUFO and instance_number(o_EnemyUFO) <= 3)
 				{
 					show_debug_message("UFO");
 					instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_EnemyUFO);

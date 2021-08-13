@@ -44,12 +44,17 @@ if(_lives > 0) && o_GameManager.currentState == GameState.Game
 		// Shoot projectile
 		if(keyboard_check_pressed(ord("W")))
 		{
-			audio_play_sound(sfx_shot, 1,0);
-			var proj = instance_create_layer(x, y - 20, "Instances", o_Projectile);
-			proj.parentObject = id;
-			proj.destX = targetX;
-			proj.z		= targetZ
-			proj.baseSpd = finalSpd
+			if(currentBullets> 0)
+			{
+				audio_play_sound(sfx_shot, 1,0);
+				var proj = instance_create_layer(x, y - 20, "Instances", o_Projectile);
+				proj.parentObject = id;
+				proj.destX = targetX;
+				proj.z		= targetZ
+				proj.baseSpd = finalSpd
+				currentBullets--;
+				alarm[0] = bulletIncrementWindow;
+			}
 		}
 	}
 	// If player two in multiplayer

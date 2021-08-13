@@ -8,4 +8,6 @@ alarm[1] = 1800;
 spd = 1;
 z = 0;
 
+max_player_distance = random_range(500,700 )
+movement_xspeed = random_range(2, 3.5 )
 targetX = x;

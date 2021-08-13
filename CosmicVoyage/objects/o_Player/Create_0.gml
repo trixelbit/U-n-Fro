@@ -1,6 +1,10 @@
 // Player Properties
 _lives = 3;
 
+maxBullets = 3;
+currentBullets = 3;
+bulletIncrementWindow = 60;
+
 // Instance camera
 camera = instance_create_layer(x, (y + 100), "Camera", o_Camera);
 camera.z = 0;

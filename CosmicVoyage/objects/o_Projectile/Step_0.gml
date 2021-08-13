@@ -46,5 +46,5 @@ else
 }
 
 // Interpolate to X
-x = lerp(x, destX, 0.1);
+//x = lerp(x, destX, 0.1);
 oldY = y;
