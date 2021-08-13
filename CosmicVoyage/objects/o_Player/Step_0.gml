@@ -18,9 +18,11 @@ if(_lives > 0) && o_GameManager.currentState == GameState.Game
 		{
 			if(currentLane > -1)
 			{
+				
 				targetX -= 128;
 				currentLane--;
 				o_Camera.targetTilt = lerp(o_Camera.targetTilt, 1.50, 0.030);
+				
 			}
 		}
 
@@ -41,6 +43,7 @@ if(_lives > 0) && o_GameManager.currentState == GameState.Game
 		// Shoot projectile
 		if(keyboard_check_pressed(ord("W")))
 		{
+			audio_play_sound(sfx_shot, 1,0);
 			var proj = instance_create_layer(x, y - 20, "Instances", o_Projectile);
 			proj.parentObject = id;
 			proj.destX = targetX;
