@@ -35,7 +35,7 @@ if(abs(targetObject.x - x) > movement_xspeed * 1.5 )
 else
 {
 	hspeed = 0;
-	x = lerp(x, o_Player.x, .5);
+	x = lerp(x, targetObject.x, .5);
 	pursue = false; 
 	
 }

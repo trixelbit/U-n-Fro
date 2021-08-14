@@ -212,17 +212,11 @@ switch (currentState)
 			else if(point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), view_wport[0]*0.625, view_hport[0]*0.75) < 100)
 			{
 				currentState = GameState.Multiplayer;
-				if (instance_number(o_Player) < 1)
-				{
+
 					p1 = instance_create_layer(256,room_height,"Instances",o_Player)
 					p2 = instance_create_layer(256,room_height,"Instances",o_Player)
 					p2.isPlayerOne = false;
-				};
-				else
-				{
-					p2 = instance_create_layer(256,room_height,"Instances",o_Player)
-					p2.isPlayerOne = false;	
-				};
+			
 			}
 		};
 		if keyboard_check_pressed(ord("A"))
@@ -234,17 +228,10 @@ switch (currentState)
 		if keyboard_check_pressed(ord("D"))
 		{
 			currentState = GameState.Multiplayer;
-			if (instance_number(o_Player) < 1)
-			{
 				p1 = instance_create_layer(256,room_height,"Instances",o_Player)
 				p2 = instance_create_layer(256,room_height,"Instances",o_Player)
 				p2.isPlayerOne = false;
-			};
-			else
-			{
-				p2 = instance_create_layer(256,room_height,"Instances",o_Player)
-				p2.isPlayerOne = false;	
-			};
+		
 		};
 		break;
 }
