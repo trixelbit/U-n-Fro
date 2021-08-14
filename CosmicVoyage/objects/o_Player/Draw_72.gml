@@ -6,8 +6,19 @@ gpu_set_zwriteenable(false)
 	//matrix_set(matrix_world,matrix_build(o_Player.x,o_Player.y,0,0,0,0,50,50,50))
 	if o_GameManager.currentState != GameState.Multiplayer
 		{
-	matrix_set(matrix_world,matrix_build(o_Player.x,o_Player.y-700,-300,0,0,0,1100,1100,1100))
-		};
+		if o_GameManager.currentSkybox = spr_skybox_asteroids
+			{
+			matrix_set(matrix_world,matrix_build(o_Player.x+650,o_Player.y-700,-300,0,0,0,1800,1100,1100))
+			}
+		if o_GameManager.currentSkybox = spr_skybox_space
+			{
+			matrix_set(matrix_world,matrix_build(o_Player.x,o_Player.y-700,-300,0,0,0,1100,1100,1100))	
+			}
+		if o_GameManager.currentSkybox = spr_skyplane_3
+			{
+			matrix_set(matrix_world,matrix_build(o_Player.x+300,o_Player.y-700,200,0,0,0,1100,1100,1100))
+			}
+		}
 	else
 		{
 	matrix_set(matrix_world,matrix_build(256,o_Player.y-700,-300,0,0,0,1100,1100,1100))	
