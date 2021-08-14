@@ -170,9 +170,15 @@ switch (currentState)
 		//draw_text(view_wport[0]*0.5,view_hport[0]*0.75,string_upper("Press W to launch!"))
 		draw_sprite_ext(spr_1player,0,view_wport[0]*0.25,view_hport[0]*0.8+(sin(current_time/700)*20),3,3,0,-1,1);
 		draw_sprite_ext(spr_2player,0,view_wport[0]*0.75,view_hport[0]*0.8+(sin(current_time/700)*-20),3,3,0,-1,1);
+		
 		draw_set_halign(fa_left);
 		instance_destroy(o_Player)
 		
+		
+		if mouse_check_button_pressed(mb_left)
+			{
+				
+			};
 		if keyboard_check_pressed(ord("W"))
 		{
 			currentState = GameState.Game;	
