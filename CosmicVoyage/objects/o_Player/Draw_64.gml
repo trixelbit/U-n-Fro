@@ -139,6 +139,47 @@ oldKills = global.scoreKills
 // MP GUI
 else if o_GameManager.currentState == GameState.Multiplayer
 	{
+		draw_set_halign(fa_center)
+		draw_text(view_wport[0]*0.5,20, string(global.scoreDist)+ "M")
+		draw_set_halign(fa_left)
+			var _scale = 3;
+			if isPlayerOne == false
+				{
+			var _Xpos = view_wport[0]*0.9 - (16 * 3 * 1.5), _Ypos =view_hport[0]*0.9;
+				};
+			else
+				{
+			var _Xpos = view_wport[0]*0.1 - (16 * 3 * 1.5), _Ypos =view_hport[0]*0.9;
+				};
+			//draw gauge background
+			for(i = 0; i < maxBullets; i++)
+			{
+				draw_sprite_ext(spr_bulletgauge_empty,0, _Xpos + (16*_scale*i), _Ypos,_scale,_scale,0,c_white,1);
+			}
+			//draw gauge bullets
+			for(i = 0; i < currentBullets; i++)
+			{
+				draw_sprite_ext(spr_bulletgauge_full,0, _Xpos + (16*_scale*i), _Ypos,_scale,_scale,0,c_white,1);
+			}
+			// draw lives 
+			_Ypos =view_hport[0]*0;
+			if isPlayerOne == false
+				{
+			var _Xpos = view_wport[0]*0.875 - (16 * 3 * 1.5)
+				};
+			else
+				{
+			var _Xpos = view_wport[0]*0.0675 - (16 * 3 * 1.5)
+				};
+			for(var i = 0; i < maxLives; i++)
+			{
+				draw_sprite_ext(spr_heart_empty,0,_Xpos+(_scale*i*23), _Ypos, _scale,_scale,0,c_white,1);	
+			};
+			for(var i = 0; i < _lives; i++)
+			{
+				draw_sprite_ext(spr_Heart,0,_Xpos+(_scale*i*23), _Ypos, _scale,_scale,0,c_white,1);	
+			};
+		
 		if global.gameOver == true
 			{
 				// draws winner text, winnerName is calculated in the gameManager object in step event

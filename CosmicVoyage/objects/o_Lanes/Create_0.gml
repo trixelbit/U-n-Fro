@@ -40,10 +40,10 @@ vertex_texcoord(testPlane,3,0)
 #macro pal0Col3 make_color_rgb(76,103,120 )
 #macro pal0Col4 make_color_rgb(37,75,73   )
 
-#macro pal1Col1 make_color_rgb(123,243,220 )
-#macro pal1Col2 make_color_rgb(255,145,255 )
-#macro pal1Col3 make_color_rgb(145,0,  255 )
-#macro pal1Col4 make_color_rgb(95,77,150   )
+#macro pal1Col1 make_color_rgb(151,250,255 )
+#macro pal1Col2 make_color_rgb(15,133,255 )
+#macro pal1Col3 make_color_rgb(56,73,184 )
+#macro pal1Col4 make_color_rgb(93,35,82   )
 
 
 // palette colors
