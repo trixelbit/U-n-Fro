@@ -137,22 +137,21 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 
 }
 
-<<<<<<< HEAD
+
 if _lives == 0
 {
 	global.gameOver = true;
 };
-=======
+
 		if _lives == 0 || keyboard_check_pressed(vk_alt)
 		{
 		global.gameOver = true;
 		if isPlayerOne == true
 			{
-		global.winnerName = "PLAYER 1!";
+		global.winnerName = "PLAYER 2!";
 			}
 		else
 			{
-		global.winnerName = "PLAYER 2!";	
+		global.winnerName = "PLAYER 1!";	
 			}
 		};
->>>>>>> 7c6e50b157d10665e500b2f7029017c8c2d40db7
