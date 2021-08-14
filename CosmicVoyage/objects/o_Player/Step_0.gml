@@ -92,6 +92,8 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 		// Shoot projectile
 		if(keyboard_check_pressed(vk_up))
 		{
+			if(currentBullets> 0)
+			{
 				audio_play_sound(sfx_shot, 1,0);
 				var proj = instance_create_layer(x, y - 20, "Instances", o_Projectile);
 				proj.parentObject = id;
@@ -100,7 +102,8 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 				proj.baseSpd = finalSpd
 				proj.playerWho = 1;
 				currentBullets--;
-				alarm[1] = bulletIncrementWindow;
+				alarm[0] = bulletIncrementWindow;
+			};
 		}
 	}
 

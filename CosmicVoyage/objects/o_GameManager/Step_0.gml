@@ -104,26 +104,29 @@ switch (currentState)
 				case levelState.env_Planet:		enemy_chanceUFO = 2; enemy_spawnRate = 120; break;
 				case levelState.env_Warp:		enemy_chanceUFO = 10; break;
 			};
-		};
-		
-		
-		
-		// changes the environment based on the level
-		// this will eventually include, skyboxes, palletes, and potentially songs? 
-		switch(currentLevel)
+			switch(currentLevel)
 			{
 				case levelState.env_Space:	
+				currentSkybox = spr_skybox_space;
 				break;
 				
 				case levelState.env_Planet:	
 				break;
 				
 				case levelState.env_Asteroid: 	
+				currentSkybox = spr_skybox_asteroids;
 				break;
 				
 				case levelState.env_Warp:	
 				break;
 			};
+		};
+		
+		
+		
+		// changes the environment based on the level
+		// this will eventually include, skyboxes, palletes, and potentially songs? 
+		
 		
 		global.scoreTotal = global.scoreDist + (500 * (global.scoreKills))
         break;

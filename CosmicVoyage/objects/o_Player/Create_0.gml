@@ -67,3 +67,4 @@ maxFade = 255;
 #macro dCol2 shader_get_uniform(sh_Palette,"u_SetCol2")
 #macro dCol3 shader_get_uniform(sh_Palette,"u_SetCol3")
 #macro dCol4 shader_get_uniform(sh_Palette,"u_SetCol4")
+

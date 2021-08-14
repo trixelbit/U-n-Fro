@@ -36,9 +36,9 @@ if _lives < 1
 				
 			};
 		draw_set_halign(fa_center)
-		var hOffset = 20;
-		
-		draw_text(view_wport[0]*0.5,view_hport[0]*0.20,"HIGH SCORES!")
+		var hOffset = 36;
+		draw_sprite_ext(spr_highscores_bg,0,view_wport[0]*0.5,view_hport[0]*0.475,4,3,0,-1,1)
+		//draw_text(view_wport[0]*0.5,view_hport[0]*0.20,"HIGH SCORES!")
 		// draws the high score board
 		for(i = 0; i < array_length(scArr)-1; i++)
 			{

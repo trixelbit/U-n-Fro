@@ -166,8 +166,10 @@ switch (currentState)
 		};
 		
 		draw_set_halign(fa_center)
-		draw_text(view_wport[0]*0.5,view_hport[0]*0.5,string_upper("A Lightspeed Odyssey"))
-		draw_text(view_wport[0]*0.5,view_hport[0]*0.75,string_upper("Press W to launch!"))
+		draw_sprite_ext(spr_TitleCard,0,view_wport[0]*0.5,view_hport[0]*0.35,2,2,(sin(current_time/700)*1),-1,1);
+		//draw_text(view_wport[0]*0.5,view_hport[0]*0.75,string_upper("Press W to launch!"))
+		draw_sprite_ext(spr_1player,0,view_wport[0]*0.25,view_hport[0]*0.8+(sin(current_time/700)*20),3,3,0,-1,1);
+		draw_sprite_ext(spr_2player,0,view_wport[0]*0.75,view_hport[0]*0.8+(sin(current_time/700)*-20),3,3,0,-1,1);
 		draw_set_halign(fa_left);
 		instance_destroy(o_Player)
 		

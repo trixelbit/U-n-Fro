@@ -30,16 +30,32 @@ vertex_color(testPlane,c_white,1)
 vertex_texcoord(testPlane,3,0)
 
 
-// palette colors
-global.keyCol1 = make_color_rgb(255,194,147);
-global.keyCol2 = make_color_rgb(255,109,132);
-global.keyCol3 = make_color_rgb(184,56,130);
-global.keyCol4 = make_color_rgb(93,35,91);
+#macro primCol1 make_color_rgb(255,194,147)
+#macro primCol2 make_color_rgb(255,109,132)
+#macro primCol3 make_color_rgb(184,56,130 )
+#macro primCol4 make_color_rgb(93,35,91   )
 
-global.dstCol1 = make_color_rgb(136,220,60);
-global.dstCol2 = make_color_rgb( 58,170,106);
-global.dstCol3 = make_color_rgb( 76,103,120);
-global.dstCol4 = make_color_rgb( 37,075,073);
+#macro pal0Col1 make_color_rgb(136,220,60 )
+#macro pal0Col2 make_color_rgb(58,170,106 )
+#macro pal0Col3 make_color_rgb(76,103,120 )
+#macro pal0Col4 make_color_rgb(37,75,73   )
+
+#macro pal1Col1 make_color_rgb(123,243,220 )
+#macro pal1Col2 make_color_rgb(255,145,255 )
+#macro pal1Col3 make_color_rgb(145,0,  255 )
+#macro pal1Col4 make_color_rgb(95,77,150   )
+
+
+// palette colors
+global.keyCol1 = primCol1;
+global.keyCol2 = primCol2;
+global.keyCol3 = primCol3;
+global.keyCol4 = primCol4;
+
+global.dstCol1 = primCol1;
+global.dstCol2 = primCol2;
+global.dstCol3 = primCol3;
+global.dstCol4 = primCol4;
 
 
 
