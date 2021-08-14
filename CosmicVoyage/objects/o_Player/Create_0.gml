@@ -7,7 +7,7 @@ currentBullets = 3;
 bulletIncrementWindow = 60;
 
 isInvincible = false;
-invincTime = 1800;
+invincTime = 900;
 
 hasJobro = false;
 hasSimone = false;
