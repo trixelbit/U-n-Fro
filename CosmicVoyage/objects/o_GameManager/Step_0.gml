@@ -42,6 +42,15 @@ switch (currentState)
 					case SpawnObject.heart:
 						instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_heart);
 					break;
+					
+					case SpawnObject.bullet:
+						instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_bullet);
+					break;
+					
+					case SpawnObject.boost:
+						instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_boostpad);
+					break;
+					
 				}
 			}
 			
@@ -103,16 +112,17 @@ switch (currentState)
 		// this will eventually include, skyboxes, palletes, and potentially songs? 
 		switch(currentLevel)
 			{
-				case levelState.env_Space:
-					
+				case levelState.env_Space:	
 				break;
 				
 				case levelState.env_Planet:	
-					
 				break;
+				
 				case levelState.env_Asteroid: 	
 				break;
-				case levelState.env_Warp    :	break;
+				
+				case levelState.env_Warp:	
+				break;
 			};
 		
 		global.scoreTotal = global.scoreDist + (500 * (global.scoreKills))
@@ -123,17 +133,17 @@ switch (currentState)
 	    // code here
 		if global.gameOver == true
 			{
-			if o_Player.scoreP1 > o_Player.scoreP2
+				if o_Player.scoreP1 > o_Player.scoreP2
 				{
-				global.winnerName = "Player 1!"	
+					global.winnerName = "Player 1!"	
 				};
-			else if o_Player.scoreP1 < o_Player.scoreP2
+				else if o_Player.scoreP1 < o_Player.scoreP2
 				{
-				global.winnerName = "Player 2!"
+					global.winnerName = "Player 2!"
 				}
-			else
+				else
 				{
-				global.winnerName = "Tie!"
+					global.winnerName = "Tie!"
 				}
 			};
 		

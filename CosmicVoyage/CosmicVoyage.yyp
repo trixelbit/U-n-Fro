@@ -11,6 +11,7 @@
     {"id":{"name":"spr_player_idle","path":"sprites/spr_player_idle/spr_player_idle.yy",},"order":3,},
     {"id":{"name":"t_asteroid1","path":"sprites/t_asteroid1/t_asteroid1.yy",},"order":7,},
     {"id":{"name":"o_GameManager","path":"objects/o_GameManager/o_GameManager.yy",},"order":8,},
+    {"id":{"name":"spr_item_bullets","path":"sprites/spr_item_bullets/spr_item_bullets.yy",},"order":3,},
     {"id":{"name":"f_Temp","path":"fonts/f_Temp/f_Temp.yy",},"order":0,},
     {"id":{"name":"spr_Intro_8","path":"sprites/spr_Intro_8/spr_Intro_8.yy",},"order":10,},
     {"id":{"name":"intro_music","path":"sounds/intro_music/intro_music.yy",},"order":0,},

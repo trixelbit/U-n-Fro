@@ -20,5 +20,7 @@ enum SpawnObject
 	asteroid,
 	ufo,
 	heart,
-	character
+	character,
+	boost,
+	bullet
 }

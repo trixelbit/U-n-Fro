@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_Heart",
-    "path": "sprites/spr_Heart/spr_Heart.yy",
+    "name": "spr_speedramp",
+    "path": "sprites/spr_speedramp/spr_speedramp.yy",
   },
   "solid": false,
   "visible": true,

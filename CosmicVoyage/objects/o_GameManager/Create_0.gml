@@ -46,9 +46,10 @@ rate_empty = new rate(100,0, 0, SpawnObject.empty );
 rate_ufo = new rate(10,0, 0, SpawnObject.ufo );
 rate_heart = new rate(5,0, 0, SpawnObject.heart );
 rate_asteroid = new rate(30,0, 0, SpawnObject.asteroid);
-//rate_boost = new rate(20,0, 0, );
+rate_boost = new rate(5,0, 0, SpawnObject.boost);
+rate_bullet = new rate(5,0, 0, SpawnObject.bullet);
 
-rates = [rate_empty, rate_ufo, rate_heart, rate_asteroid];
+rates = [rate_empty, rate_ufo, rate_heart, rate_asteroid, rate_boost, rate_bullet];
 rate_sum = 0;
 
 for(var i = 0; i < array_length(rates); i++)
