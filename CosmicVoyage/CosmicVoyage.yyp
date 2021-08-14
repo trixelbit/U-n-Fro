@@ -5,6 +5,7 @@
     {"id":{"name":"spr_intro_6","path":"sprites/spr_intro_6/spr_intro_6.yy",},"order":4,},
     {"id":{"name":"spr_Lanes","path":"sprites/spr_Lanes/spr_Lanes.yy",},"order":2,},
     {"id":{"name":"o_Entity","path":"objects/o_Entity/o_Entity.yy",},"order":3,},
+    {"id":{"name":"spr_skyplane_3","path":"sprites/spr_skyplane_3/spr_skyplane_3.yy",},"order":26,},
     {"id":{"name":"spr_bulletgauge_full","path":"sprites/spr_bulletgauge_full/spr_bulletgauge_full.yy",},"order":4,},
     {"id":{"name":"t_asteroid_col","path":"sprites/t_asteroid_col/t_asteroid_col.yy",},"order":13,},
     {"id":{"name":"spr_enemy_spike","path":"sprites/spr_enemy_spike/spr_enemy_spike.yy",},"order":2,},
