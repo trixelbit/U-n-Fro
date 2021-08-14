@@ -27,34 +27,62 @@ finalScore = global.scoreTotal;
 if _lives < 1 
 	{
 		var scArr = o_GameManager.scoreArray;
+		
 		// setting the new highest score
 		if global.scoreTotal > o_GameManager.scoreRecord && newScore != true
-			{
-				o_GameManager.scoreRecord = global.scoreTotal;
-				newScore = true;	
-				array_insert(scArr,0,o_GameManager.scoreRecord)
-				
-			};
+		{
+			o_GameManager.scoreRecord = global.scoreTotal;
+			newScore = true;	
+			array_insert(scArr,0,o_GameManager.scoreRecord)
+		};
 		draw_set_halign(fa_center)
 		var hOffset = 36;
+
+		draw_sprite_ext(spr_highscores_bg,0,view_wport[0]*0.5,view_hport[0]*0.5,4,3,0,-1,1)
+
 		draw_sprite_ext(spr_highscores_bg,0,view_wport[0]*0.5,view_hport[0]*0.450,4,3,0,-1,1)
+
 		//draw_text(view_wport[0]*0.5,view_hport[0]*0.20,"HIGH SCORES!")
 		// draws the high score board
-		for(i = 0; i < array_length(scArr)-1; i++)
+		
+		var ind = 0;
+		ini_open("scores.ini");
+		
+		if(!ini_section_exists("highscore"))
+		{
+			for(i = 0; i < array_length(scArr)-1; i++)
 			{
-				if newScore == true && i = 0 { draw_set_color(c_yellow) };
+				ini_write_real("highscore", "score" + string(i), 0);
+			}
+		}
+		
+		while(global.scoreTotal < ini_read_real("highscore", "score" + string(ind), 0))
+		{
+			ind++;
+		}
+		
+		ini_write_real("highscore", "score" + string(ind), global.scoreTotal);
+		
+		for(i = 0; i < array_length(scArr)-1; i++)
+		{
+			if newScore == true && i = 0 { draw_set_color(c_yellow) };
 				
-				draw_text(view_wport[0]*0.5,view_hport[0]*0.25+(i*hOffset),string(scArr[i])+ " POINTS");	
-				draw_set_color(c_white)
-			};
+			draw_text(view_wport[0]*0.5,view_hport[0]*0.3+(i*hOffset),string(ini_read_real("highscore", "score" + string(i), 0)) + " POINTS");	
+			draw_set_color(c_white)
+		};
+		
+		ini_close();
+		
+		
+		
 			
 		// restart text and resetting the run
-		draw_text(view_wport[0]*0.5,view_hport[0]*0.75,"PRESS SPACE TO RESTART")
+		draw_text(view_wport[0]*0.5,view_hport[0]*0.85,"PRESS SPACE TO RESTART")
 		if keyboard_check_pressed(vk_space)
-			{
+		{
 			newScore = false;
 			run_reset();
-			};
+		};
 		draw_set_halign(fa_left)
 	};
 	

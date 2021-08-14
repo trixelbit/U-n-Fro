@@ -179,6 +179,10 @@ function run_reset()
 		o_Player._lives = 3;
 		o_Player.targetX = 256;
 		o_Player.currentLane = 0;
+		o_Player.hasJobro = false;
+		o_Player.hasSimone = false;
+		o_Player.hasBunbi = false;
+		o_Player.isInvincible = false;
 		
 		instance_destroy(o_Asteroid);
 		instance_destroy(o_EnemyUFO);
