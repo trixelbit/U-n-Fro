@@ -53,6 +53,12 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 				proj.z		= targetZ
 				proj.baseSpd = finalSpd
 				proj.playerWho = 0;
+				
+				if(hasJobro)
+				{
+					proj.dmg = 3;
+				}
+				
 				currentBullets--;
 				alarm[0] = bulletIncrementWindow;
 			}

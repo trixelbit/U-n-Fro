@@ -31,7 +31,7 @@ if(parentObject.object_index == o_Player)
 					o_Player.killsP2 ++;	
 					};
 				}
-			targetID._lives--;
+			targetID._lives -= dmg;
 			//matrix_set(matrix_world,matrix_build(0,0,0,90,90,90,1,1,1));
 			//part_particles_create(ps, x, y, pDeath, 5);
 			//matrix_set(matrix_world,matrix_build_identity());
@@ -49,7 +49,7 @@ else
 		{
 			if targetID.targetZ == z
 			{
-				targetID._lives--;
+				targetID._lives -= dmg;
 				instance_destroy(id);
 			}
 		}

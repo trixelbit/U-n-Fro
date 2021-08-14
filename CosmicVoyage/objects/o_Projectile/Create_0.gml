@@ -12,6 +12,7 @@ alarm[0] = 120;
 
 baseSpd = 0;
 z = 0;
+dmg = 1;
 
 // Placeholder particle system
 ps = part_system_create_layer("Instances", false);

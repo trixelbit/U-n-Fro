@@ -46,7 +46,6 @@ if _lives < 1
 				draw_text(view_wport[0]*0.5,view_hport[0]*0.25+(i*hOffset),string(scArr[i])+ " POINTS");	
 				draw_set_color(c_white)
 			};
-
 			
 		// restart text and resetting the run
 		draw_text(view_wport[0]*0.5,view_hport[0]*0.75,"PRESS SPACE TO RESTART")
@@ -117,7 +116,14 @@ if _lives > 0
 			};
 			flashTick --;
 			
-			
+			if(isInvincible)
+			{
+				o_Camera.fov = lerp(o_Camera.fov, 80, 0.05);
+			}
+			else
+			{
+				o_Camera.fov = lerp(o_Camera.fov, 60, 0.05);
+			}
 			
 		};
 	};

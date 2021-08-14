@@ -6,6 +6,13 @@ maxBullets = 3;
 currentBullets = 3;
 bulletIncrementWindow = 60;
 
+isInvincible = false;
+invincTime = 1800;
+
+hasJobro = false;
+hasSimone = false;
+hasBunbi = false;
+
 // Instance camera
 camera = instance_create_layer(x, (y + 100), "Camera", o_Camera);
 camera.z = 0;
@@ -17,6 +24,7 @@ currentLane = 0;
 finalSpd = 0;
 z = 0;
 targetZ = z;
+
 // For Multiplayer
 isPlayerOne = true;
 moveSize = 128-16;
