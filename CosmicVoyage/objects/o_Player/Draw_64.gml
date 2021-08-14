@@ -40,8 +40,6 @@ if _lives < 1
 
 		draw_sprite_ext(spr_highscores_bg,0,view_wport[0]*0.5,view_hport[0]*0.5,4,3,0,-1,1)
 
-		draw_sprite_ext(spr_highscores_bg,0,view_wport[0]*0.5,view_hport[0]*0.450,4,3,0,-1,1)
-
 		//draw_text(view_wport[0]*0.5,view_hport[0]*0.20,"HIGH SCORES!")
 		// draws the high score board
 		
