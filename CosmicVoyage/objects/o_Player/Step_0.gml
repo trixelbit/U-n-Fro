@@ -140,4 +140,12 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 		if _lives == 0 || keyboard_check_pressed(vk_alt)
 		{
 		global.gameOver = true;
+		if isPlayerOne == true
+			{
+		global.winnerName = "PLAYER 1!";
+			}
+		else
+			{
+		global.winnerName = "PLAYER 2!";	
+			}
 		};

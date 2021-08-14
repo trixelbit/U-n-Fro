@@ -218,21 +218,8 @@ switch (currentState)
 		
 		}
 			};
-		if global.gameOver == true
-			{
-				if o_Player.scoreP1 > o_Player.scoreP2
-				{
-					global.winnerName = "Player 1!"	
-				};
-				else if o_Player.scoreP1 < o_Player.scoreP2
-				{
-					global.winnerName = "Player 2!"
-				}
-				else
-				{
-					global.winnerName = "Tie!"
-				}
-			};
+
+
 		
 	    break;
 }

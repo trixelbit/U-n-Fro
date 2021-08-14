@@ -184,9 +184,11 @@ else if o_GameManager.currentState == GameState.Multiplayer
 			};
 		if global.gameOver == true
 			{
+				draw_set_halign(fa_center)
 				// draws winner text, winnerName is calculated in the gameManager object in step event
 				draw_text(view_wport[0]*0.5,view_hport[0]*0.5,"THE WINNER IS...\n" + string_upper(global.winnerName));
 				draw_text(view_wport[0]*0.5,view_hport[0]*0.75,"PRESS SPACE TO RESTART");
+				draw_set_halign(fa_left)
 				if keyboard_check_pressed(vk_space)
 					{
 						run_reset()	
