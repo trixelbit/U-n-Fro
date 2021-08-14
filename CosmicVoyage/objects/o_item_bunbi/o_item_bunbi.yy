@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_Heart",
-    "path": "sprites/spr_Heart/spr_Heart.yy",
+    "name": "spr_char_bumbi",
+    "path": "sprites/spr_char_bumbi/spr_char_bumbi.yy",
   },
   "solid": false,
   "visible": true,

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_Heart",
-    "path": "sprites/spr_Heart/spr_Heart.yy",
+    "name": "spr_char_simone",
+    "path": "sprites/spr_char_simone/spr_char_simone.yy",
   },
   "solid": false,
   "visible": true,
