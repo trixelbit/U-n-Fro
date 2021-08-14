@@ -2,15 +2,15 @@
 // Good huntin' to ya ^^
 
 
-distance = distance_to_point(x, o_Player.id.y);
+distance = distance_to_point(x, targetObject.y);
 // Move until in player range
 if(distance > max_player_distance)
 {
-	y = lerp(y, o_Player.id.y - max_player_distance, 0.05);
+	y = lerp(y, targetObject.y - max_player_distance, 0.05);
 }
 else
 {
-	y = o_Player.id.y - max_player_distance;
+	y = targetObject.y - max_player_distance;
 }
 
 // Lerp to player X
@@ -18,11 +18,11 @@ else
 {
 	x = lerp(x, targetX, 0.05);
 }*/
-if(abs(o_Player.x - x) > movement_xspeed * 1.5 )
+if(abs(targetObject.x - x) > movement_xspeed * 1.5 )
 {
 	if(pursue)
 	{
-		hspeed = x > o_Player.x ? lerp(hspeed, -movement_xspeed, acceleration): lerp(hspeed, movement_xspeed, acceleration);
+		hspeed = x > targetObject.x ? lerp(hspeed, -movement_xspeed, acceleration): lerp(hspeed, movement_xspeed, acceleration);
 		pursueAlarmSet = false;
 	}
 	else if(!pursueAlarmSet)
@@ -40,7 +40,7 @@ else
 	
 }
 
-if(y = o_Player.id.y - max_player_distance)
+if(y = targetObject.y - max_player_distance)
 {
 	if fireTick <= 0
 	{
@@ -57,7 +57,7 @@ if(y = o_Player.id.y - max_player_distance)
 
 if _lives < 1
 {
-	if(o_Player.id.hasSimone)
+	if(targetObject.hasSimone)
 	{
 		global.scoreKills += 2;
 	}

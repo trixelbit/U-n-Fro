@@ -119,6 +119,7 @@ switch (currentState)
 				break;
 				
 				case levelState.env_Warp:	
+				currentSkybox = spr_skyplane_3;
 				break;
 			};
 		};
@@ -135,6 +136,72 @@ switch (currentState)
 	// Multiplayer
 	case GameState.Multiplayer:
 	    // code here
+		if global.gameOver == false
+			{
+		if o_Player.y < -200 && o_Player._lives > 0
+		{
+			space_increment = 200;
+			yDisplacement += o_Player.finalSpd;
+			
+			
+			if(yDisplacement > space_increment)
+			{
+				yDisplacement = 0;
+				var spawnObject = selectObjectToSpawn();
+				
+				
+				switch(spawnObject)
+				{
+					case SpawnObject.ufo:
+						if(instance_number(o_EnemyUFO) < 3)
+						{
+							instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_EnemyUFO);
+						}
+					break;
+					
+					case SpawnObject.asteroid:
+						var eID = instance_create_layer(256, o_Player.y - spawnDist, "Instances", o_Asteroid);
+						eID.currentAsteroid = asteroidTypes.single
+						var eLane = eID.currentLane;
+						var eRow = eID.currentRow;
+						var eLen = eID.laneLength;
+						var eHgt = eID.rowHeight;
+						// the asteroid property assignment 'table'
+						if currentState == GameState.Game
+							{
+								switch(eID.currentAsteroid)
+									{
+										case asteroidTypes.single: eLane = choose(1,0,-1); eRow = 0; eID.x = 256 + (128*eLane); eLen = 1; eHgt = 1 break;
+									};	
+							};
+							
+						if currentState == GameState.Multiplayer
+							{
+								switch(eID.currentAsteroid)
+									{
+										case asteroidTypes.single: eLane = choose(1,0,-1); eRow = 0; eID.x = 256 + (64*eLane); eLen = 1; eHgt = 1 break;
+									};	
+							};
+
+					break;
+					
+					case SpawnObject.heart:
+						instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_heart);
+					break;
+					
+					case SpawnObject.bullet:
+						instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_bullet);
+					break;
+					
+					case SpawnObject.boost:
+						instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_boostpad);
+					break;
+					
+				}
+			}
+		
+		}
+			};
 		if global.gameOver == true
 			{
 				if o_Player.scoreP1 > o_Player.scoreP2

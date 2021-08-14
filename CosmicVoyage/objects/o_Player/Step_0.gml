@@ -1,4 +1,3 @@
-show_debug_overlay(true)
 
 if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOver == false
 {
@@ -128,13 +127,17 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 			};
 	}
 	
-	if _lives <= 0 || keyboard_check_pressed(vk_alt)
-		{
-		global.gameOver = true;
-		};
+
 	
 	if(y < -150000)
 	{
 		y = -500;
 	}
+	
+
 }
+
+		if _lives == 0 || keyboard_check_pressed(vk_alt)
+		{
+		global.gameOver = true;
+		};

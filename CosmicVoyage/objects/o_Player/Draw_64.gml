@@ -139,6 +139,8 @@ oldKills = global.scoreKills
 // MP GUI
 else if o_GameManager.currentState == GameState.Multiplayer
 	{
+		if global.gameOver == false
+			{
 		draw_set_halign(fa_center)
 		draw_text(view_wport[0]*0.5,20, string(global.scoreDist)+ "M")
 		draw_set_halign(fa_left)
@@ -179,7 +181,7 @@ else if o_GameManager.currentState == GameState.Multiplayer
 			{
 				draw_sprite_ext(spr_Heart,0,_Xpos+(_scale*i*23), _Ypos, _scale,_scale,0,c_white,1);	
 			};
-		
+			};
 		if global.gameOver == true
 			{
 				// draws winner text, winnerName is calculated in the gameManager object in step event
