@@ -1,3 +1,6 @@
+
+shader_set(sh_Palette)
+
 switch (currentState) 
 {
 	// Singleplayer
@@ -25,11 +28,14 @@ switch (currentState)
 		
 			fadeOut = lerp(	fadeOut, 0, 0.016);
 			o_Camera.fov = lerp(o_Camera.fov, o_Camera.orginalFov, 0.05);
-			draw_set_alpha(fadeOut);
-			draw_sprite_ext(spr_vfx_speedlines,image_index,0,0,4,4,0,c_white,fadeOut);
+			if fadeOut < 0.7
+				{
+			//draw_set_alpha(fadeOut);
+			draw_sprite_ext(spr_vfx_speedlines,image_index,0,0,4,4,0,c_white,1);
 			image_speed = .6;
+				};
 			//draw_rectangle_color(0,0,browser_width,browser_height,c_white, c_white, c_white, c_white ,false)
-			draw_set_alpha(1);
+			//draw_set_alpha(1);
 		
 		}
         break;
@@ -188,3 +194,16 @@ switch (currentState)
 		};
 		break;
 }
+
+shader_set_uniform_f(sCol1,color_get_red(global.keyCol1)/255,color_get_green(global.keyCol1)/255,color_get_blue(global.keyCol1)/255);
+shader_set_uniform_f(sCol2,color_get_red(global.keyCol2)/255,color_get_green(global.keyCol2)/255,color_get_blue(global.keyCol2)/255);
+shader_set_uniform_f(sCol3,color_get_red(global.keyCol3)/255,color_get_green(global.keyCol3)/255,color_get_blue(global.keyCol3)/255);
+shader_set_uniform_f(sCol4,color_get_red(global.keyCol4)/255,color_get_green(global.keyCol4)/255,color_get_blue(global.keyCol4)/255);
+
+shader_set_uniform_f(dCol1,color_get_red(global.dstCol1)/255,color_get_green(global.dstCol1)/255,color_get_blue(global.dstCol1)/255);
+shader_set_uniform_f(dCol2,color_get_red(global.dstCol2)/255,color_get_green(global.dstCol2)/255,color_get_blue(global.dstCol2)/255);
+shader_set_uniform_f(dCol3,color_get_red(global.dstCol3)/255,color_get_green(global.dstCol3)/255,color_get_blue(global.dstCol3)/255);
+shader_set_uniform_f(dCol3,color_get_red(global.dstCol4)/255,color_get_green(global.dstCol4)/255,color_get_blue(global.dstCol4)/255);
+
+
+shader_reset();
