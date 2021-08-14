@@ -27,5 +27,5 @@ void main()
 	if(pixel.rgb == u_KeyCol4.rgb)
 		pixel.rgb = u_SetCol4.rgb;
 		
-    gl_FragColor = v_vColor * pixel;
+    gl_FragColor = v_vColour * pixel;
 }

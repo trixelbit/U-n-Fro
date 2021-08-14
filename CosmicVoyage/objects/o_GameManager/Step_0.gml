@@ -110,7 +110,8 @@ switch (currentState)
 				currentSkybox = spr_skybox_space;
 				break;
 				
-				case levelState.env_Planet:	
+				case levelState.env_Planet:
+				currentSkybox = spr_skyplane_3;
 				break;
 				
 				case levelState.env_Asteroid: 	

@@ -150,7 +150,7 @@ switch (currentState)
 			}
 			};
 		
-		if keyboard_check_pressed(vk_anykey)
+		if keyboard_check_pressed(vk_anykey) or mouse_check_button(mb_any)
 			{
 				currentState = GameState.Menu;	
 			};
@@ -166,20 +166,45 @@ switch (currentState)
 		};
 		
 		draw_set_halign(fa_center)
-		draw_sprite_ext(spr_TitleCard,0,view_wport[0]*0.5,view_hport[0]*0.35,2,2,(sin(current_time/700)*1),-1,1);
+		draw_sprite_ext(spr_TitleCard,0,view_wport[0]*0.5,view_hport[0]*0.125,2,2,(sin(current_time/700)*1),-1,1);
 		//draw_text(view_wport[0]*0.5,view_hport[0]*0.75,string_upper("Press W to launch!"))
-		draw_sprite_ext(spr_1player,0,view_wport[0]*0.25,view_hport[0]*0.8+(sin(current_time/700)*20),3,3,0,-1,1);
-		draw_sprite_ext(spr_2player,0,view_wport[0]*0.75,view_hport[0]*0.8+(sin(current_time/700)*-20),3,3,0,-1,1);
+		draw_sprite_ext(spr_1player,0,view_wport[0]*0.375,view_hport[0]*0.75+(sin(current_time/700)*10),3,3,0,-1,1);
+		draw_sprite_ext(spr_2player,0,view_wport[0]*0.625,view_hport[0]*0.75+(sin(current_time/700)*-10),3,3,0,-1,1);
 		
 		draw_set_halign(fa_left);
+		draw_set_valign(fa_bottom);
+		draw_text_color(view_wport[0] * 0.01, view_hport[0] * 0.99, "TRIXELBIT ARCADE", c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
+		draw_set_halign(fa_right);
+		draw_text_color(view_wport[0] * 0.99, view_hport[0] * 0.99, "NO INTERNET", c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
+		
+		draw_set_valign(fa_center);
 		instance_destroy(o_Player)
 		
 		
 		if mouse_check_button_pressed(mb_left)
+		{
+			if(point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), view_wport[0]*0.375, view_hport[0]*0.75) < 100)
 			{
-				
-			};
-		if keyboard_check_pressed(ord("W"))
+				currentState = GameState.Game;	
+				if !instance_exists(o_Player) { instance_create_layer(256,room_height,"Instances",o_Player) }	
+			}
+			else if(point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), view_wport[0]*0.625, view_hport[0]*0.75) < 100)
+			{
+				currentState = GameState.Multiplayer;
+				if (instance_number(o_Player) < 1)
+				{
+					p1 = instance_create_layer(256,room_height,"Instances",o_Player)
+					p2 = instance_create_layer(256,room_height,"Instances",o_Player)
+					p2.isPlayerOne = false;
+				};
+				else
+				{
+					p2 = instance_create_layer(256,room_height,"Instances",o_Player)
+					p2.isPlayerOne = false;	
+				};
+			}
+		};
+		if keyboard_check_pressed(ord("A"))
 		{
 			currentState = GameState.Game;	
 			if !instance_exists(o_Player) { instance_create_layer(256,room_height,"Instances",o_Player) }		
