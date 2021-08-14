@@ -108,18 +108,34 @@ switch (currentState)
 			{
 				case levelState.env_Space:	
 				currentSkybox = spr_skybox_space;
+				global.dstCol1 = primCol1;
+				global.dstCol2 = primCol2;
+				global.dstCol3 = primCol3;
+				global.dstCol4 = primCol4;
 				break;
 				
 				case levelState.env_Planet:
 				currentSkybox = spr_skyplane_3;
+				global.dstCol1 = pal1Col1;
+				global.dstCol2 = pal1Col2;
+				global.dstCol3 = pal1Col3;
+				global.dstCol4 = pal1Col4;
 				break;
 				
 				case levelState.env_Asteroid: 	
 				currentSkybox = spr_skybox_asteroids;
+				global.dstCol1 = pal0Col1;
+				global.dstCol2 = pal0Col2;
+				global.dstCol3 = pal0Col3;
+				global.dstCol4 = pal0Col4;
 				break;
 				
 				case levelState.env_Warp:	
 				currentSkybox = spr_skyplane_3;
+				global.dstCol1 = pal0Col1;
+				global.dstCol2 = pal0Col2;
+				global.dstCol3 = pal0Col3;
+				global.dstCol4 = pal0Col4;
 				break;
 			};
 		};
