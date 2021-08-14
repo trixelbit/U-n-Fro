@@ -28,7 +28,7 @@ switch (currentState)
 		
 			fadeOut = lerp(	fadeOut, 0, 0.016);
 			o_Camera.fov = lerp(o_Camera.fov, o_Camera.orginalFov, 0.05);
-			if fadeOut < 0.7
+			if fadeOut >= 0.95
 				{
 			//draw_set_alpha(fadeOut);
 			draw_sprite_ext(spr_vfx_speedlines,image_index,0,0,4,4,0,c_white,1);
