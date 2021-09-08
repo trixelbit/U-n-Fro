@@ -56,15 +56,4 @@ maxFade = 255;
 
 
 
-// uniforms
-
-#macro sCol1 shader_get_uniform(sh_Palette,"u_KeyCol1")
-#macro sCol2 shader_get_uniform(sh_Palette,"u_KeyCol2")
-#macro sCol3 shader_get_uniform(sh_Palette,"u_KeyCol3")
-#macro sCol4 shader_get_uniform(sh_Palette,"u_KeyCol4")
-
-#macro dCol1 shader_get_uniform(sh_Palette,"u_SetCol1")
-#macro dCol2 shader_get_uniform(sh_Palette,"u_SetCol2")
-#macro dCol3 shader_get_uniform(sh_Palette,"u_SetCol3")
-#macro dCol4 shader_get_uniform(sh_Palette,"u_SetCol4")
 

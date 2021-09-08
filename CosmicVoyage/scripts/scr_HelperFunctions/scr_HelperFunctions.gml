@@ -163,7 +163,7 @@ function wrap(val, min, max)
 	return val;
 	}
 	
-function run_reset()
+function run_reset() // used to reset the run back to the main menu state
 	{
 		global.scoreDist = 0;
 		global.scoreKills = 0;
@@ -198,7 +198,7 @@ function run_reset()
 		
 	};
 
-function drawTextBox(x,y,width,height,text)
+function drawTextBox(x,y,width,height,text) // not used currently
 	{
 		var textSpeed = 0.25;
 		var strTotal = "";
@@ -213,3 +213,49 @@ function drawTextBox(x,y,width,height,text)
 			
 
 	};
+
+
+// palette functions
+
+/// @function palette_SetUniforms()
+/// @desc sets the shader uniforms for the palette shader.
+function palette_SetUniforms()
+	{
+		shader_set_uniform_f(sCol1,color_get_red(global.keyCol1)/255,color_get_green(global.keyCol1)/255,color_get_blue(global.keyCol1)/255);
+		shader_set_uniform_f(sCol2,color_get_red(global.keyCol2)/255,color_get_green(global.keyCol2)/255,color_get_blue(global.keyCol2)/255);
+		shader_set_uniform_f(sCol3,color_get_red(global.keyCol3)/255,color_get_green(global.keyCol3)/255,color_get_blue(global.keyCol3)/255);
+		shader_set_uniform_f(sCol4,color_get_red(global.keyCol4)/255,color_get_green(global.keyCol4)/255,color_get_blue(global.keyCol4)/255);
+		
+		shader_set_uniform_f(dCol1,color_get_red(global.dstCol1)/255,color_get_green(global.dstCol1)/255,color_get_blue(global.dstCol1)/255);
+		shader_set_uniform_f(dCol2,color_get_red(global.dstCol2)/255,color_get_green(global.dstCol2)/255,color_get_blue(global.dstCol2)/255);
+		shader_set_uniform_f(dCol3,color_get_red(global.dstCol3)/255,color_get_green(global.dstCol3)/255,color_get_blue(global.dstCol3)/255);
+		shader_set_uniform_f(dCol4,color_get_red(global.dstCol4)/255,color_get_green(global.dstCol4)/255,color_get_blue(global.dstCol4)/255);
+	}
+	
+/// @function						palette_Swap(dstCols)
+/// @param {array} dstCols			array to get the new palette colors 
+function palette_Swap(dstCols)
+	{
+				global.dstCol1 = dstCols[0];
+				global.dstCol2 = dstCols[1];
+				global.dstCol3 = dstCols[2];
+				global.dstCol4 = dstCols[3];
+	}
+
+/// @function						palette_Create(col_0,col_1,col_2,col_3)
+/// @param {color} col_0			color 1
+/// @param {color} col_1			color 2
+/// @param {color} col_2			color 3
+/// @param {color} col_3			color 4
+function palette_Create(col_0,col_1,col_2,col_3)
+	{
+		var palArr = array_create(4,0);
+		
+		palArr[0] = col_0;
+		palArr[1] = col_1;
+		palArr[2] = col_2;
+		palArr[3] = col_3;
+		
+		// returns an array containg all the newly made colors
+		return palArr;
+	}

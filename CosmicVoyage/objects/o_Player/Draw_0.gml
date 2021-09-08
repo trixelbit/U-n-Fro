@@ -1,36 +1,37 @@
 
 if o_GameManager.currentState != GameState.Menu
 	{
+	// player sprites
 
-if(distance_to_point(targetX, y) > 10)
-{
-	if isPlayerOne == true
+	if(distance_to_point(targetX, y) > 10) // changing the player sprites to the turning sprites when moving
 		{
-	sprite_index = spr_player_left;
+		if isPlayerOne == true
+			{
+				sprite_index = spr_player_left;
+			}
+		else
+			{
+				sprite_index = spr_player2_left;
+			}
+		if(targetX > x)
+			{
+				DrawSpriteBillboard(sprite_index, image_index, x, y, sin(current_time/700)*5, true);
+			}
+		else if(targetX < x)
+			{
+				DrawSpriteBillboard(sprite_index, image_index, x, y, sin(current_time/700)*5, false);
+			}
 		}
-	else
+	else // swtiches the player sprite to the idle one when not moving between lanes
 		{
-	sprite_index = spr_player2_left;
+			if isPlayerOne == true
+				{
+					sprite_index = spr_player_idle;
+				}
+			else
+				{
+					sprite_index = spr_player2_idle;	
+				}
+			DrawSpriteBillboard(sprite_index, image_index, x, y, sin(current_time/700)*5, false);
 		}
-	if(targetX > x)
-	{
-		DrawSpriteBillboard(sprite_index, image_index, x, y, sin(current_time/700)*5, true);
 	}
-	else if(targetX < x)
-	{
-		DrawSpriteBillboard(sprite_index, image_index, x, y, sin(current_time/700)*5, false);
-	}
-}
-else
-{
-	if isPlayerOne == true
-		{
-	sprite_index = spr_player_idle;
-		}
-	else
-		{
-	sprite_index = spr_player2_idle;	
-		}
-	DrawSpriteBillboard(sprite_index, image_index, x, y, sin(current_time/700)*5, false);
-}
-	};

@@ -108,37 +108,25 @@ switch (currentState)
 			{
 				case levelState.env_Space:	
 				currentSkybox = spr_skybox_space;
-				global.dstCol1 = primCol1;
-				global.dstCol2 = primCol2;
-				global.dstCol3 = primCol3;
-				global.dstCol4 = primCol4;
+				palette_Swap(pal_Main)
 				break;
 				
 				case levelState.env_Planet:
 				currentSkybox = spr_skyplane_3;
-				global.dstCol1 = pal1Col1;
-				global.dstCol2 = pal1Col2;
-				global.dstCol3 = pal1Col3;
-				global.dstCol4 = pal1Col4;
+				palette_Swap(pal_Frost)
 				break;
 				
 				case levelState.env_Asteroid: 	
 				currentSkybox = spr_skybox_asteroids;
-				global.dstCol1 = pal0Col1;
-				global.dstCol2 = pal0Col2;
-				global.dstCol3 = pal0Col3;
-				global.dstCol4 = pal0Col4;
+				palette_Swap(pal_Frost)
 				break;
 				
 				case levelState.env_Warp:	
 				currentSkybox = spr_skyplane_3;
-				global.dstCol1 = pal0Col1;
-				global.dstCol2 = pal0Col2;
-				global.dstCol3 = pal0Col3;
-				global.dstCol4 = pal0Col4;
+				palette_Swap(pal_GameBoy)
 				break;
-			};
-		};
+			}
+		}
 		
 		
 		
@@ -161,59 +149,59 @@ switch (currentState)
 			
 			
 			if(yDisplacement > space_increment)
-			{
-				yDisplacement = 0;
-				var spawnObject = selectObjectToSpawn();
-				
-				
-				switch(spawnObject)
 				{
-					case SpawnObject.ufo:
-						if(instance_number(o_EnemyUFO) < 3)
+					yDisplacement = 0;
+					var spawnObject = selectObjectToSpawn();
+					
+					
+					switch(spawnObject)
 						{
-							instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_EnemyUFO);
-						}
-					break;
-					
-					case SpawnObject.asteroid:
-						var eID = instance_create_layer(256, o_Player.y - spawnDist, "Instances", o_Asteroid);
-						eID.currentAsteroid = asteroidTypes.single
-						var eLane = eID.currentLane;
-						var eRow = eID.currentRow;
-						var eLen = eID.laneLength;
-						var eHgt = eID.rowHeight;
-						// the asteroid property assignment 'table'
-						if currentState == GameState.Game
-							{
-								switch(eID.currentAsteroid)
+							case SpawnObject.ufo:
+								if(instance_number(o_EnemyUFO) < 3)
 									{
-										case asteroidTypes.single: eLane = choose(1,0,-1); eRow = 0; eID.x = 256 + (128*eLane); eLen = 1; eHgt = 1 break;
-									};	
-							};
+										instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_EnemyUFO);
+									}
+							break;
 							
-						if currentState == GameState.Multiplayer
-							{
-								switch(eID.currentAsteroid)
+							case SpawnObject.asteroid:
+								var eID = instance_create_layer(256, o_Player.y - spawnDist, "Instances", o_Asteroid);
+								eID.currentAsteroid = asteroidTypes.single
+								var eLane = eID.currentLane;
+								var eRow = eID.currentRow;
+								var eLen = eID.laneLength;
+								var eHgt = eID.rowHeight;
+								// the asteroid property assignment 'table'
+								if currentState == GameState.Game
 									{
-										case asteroidTypes.single: eLane = choose(1,0,-1); eRow = 0; eID.x = 256 + (64*eLane); eLen = 1; eHgt = 1 break;
-									};	
-							};
-
-					break;
-					
-					case SpawnObject.heart:
-						instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_heart);
-					break;
-					
-					case SpawnObject.bullet:
-						instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_bullet);
-					break;
-					
-					case SpawnObject.boost:
-						instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_boostpad);
-					break;
-					
-				}
+										switch(eID.currentAsteroid)
+											{
+												case asteroidTypes.single: eLane = choose(1,0,-1); eRow = 0; eID.x = 256 + (128*eLane); eLen = 1; eHgt = 1 break;
+											}
+									}
+									
+								if currentState == GameState.Multiplayer
+									{
+										switch(eID.currentAsteroid)
+											{
+												case asteroidTypes.single: eLane = choose(1,0,-1); eRow = 0; eID.x = 256 + (64*eLane); eLen = 1; eHgt = 1 break;
+											}
+									}
+							
+							break;
+							
+							case SpawnObject.heart:
+								instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_heart);
+							break;
+							
+							case SpawnObject.bullet:
+								instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_bullet);
+							break;
+							
+							case SpawnObject.boost:
+								instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_boostpad);
+							break;
+							
+						}
 			}
 		
 		}

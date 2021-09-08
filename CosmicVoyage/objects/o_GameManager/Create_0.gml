@@ -100,16 +100,17 @@ function selectObjectToSpawn()
 
 
 // Spawn players
+
 if(currentState == GameState.Game)
-{
-	instance_create_layer(room_width/2, room_height, "Instances", o_Player);
-}
+	{
+		instance_create_layer(room_width/2, room_height, "Instances", o_Player);
+	}
 else if currentState == GameState.Multiplayer
-{
-	var pOne = instance_create_layer(room_width/2, room_height, "Instances", o_Player);
-	var pTwo = instance_create_layer(room_width/2, room_height, "Instances", o_Player);
-	pTwo.isPlayerOne = false;
-}
+	{
+		var pOne = instance_create_layer(room_width/2, room_height, "Instances", o_Player);
+		var pTwo = instance_create_layer(room_width/2, room_height, "Instances", o_Player);
+		pTwo.isPlayerOne = false;
+	}
 
 // Global variables
 global.scoreKills = 0;
@@ -149,7 +150,7 @@ m_AstCol = LoadObj("m_asteroid_column.obj",vertex_create_buffer());
 // test model
 m_testCube = LoadObj("m_cube.obj",vertex_create_buffer());
 
-//sprite_get_texture(t_asteroid1,0); break;
+// the intro text
 rawText = "In a time of great expansion across the cosmos, there was\na legendary team of bounty hunters... #" 
 +"There's Jobo, the arms and brawn of the team, with an impressive \nphyisque and... highly dangerous 'guns'#"
 +"Coco, the engineer... a brilliant mind from the halls of academia,\nnow finds refuge in the bounty hunting business.#"
@@ -177,9 +178,55 @@ loopCount = 0;
 introCharacters = [ spr_jobo, spr_coco, spr_simone, spr_bunbi ];
 charCount = 0;
 charProg = view_wport[0];
+
 // Skybox model
 skyboxBuff = LoadObj("m_plane.obj",vertex_create_buffer())
 
 // hanger model
 m_Hangar = LoadObj("m_hanger.obj",vertex_create_buffer());
 t_skybox = sprite_get_texture(spr_skybox_space,0);
+
+// palettes
+
+pal_Main = palette_Create(make_color_rgb(255,194,147),
+						  make_color_rgb(255,109,132),
+						  make_color_rgb(184,56,130 ),
+						  make_color_rgb(93,35,91   ));
+							  
+pal_GameBoy = palette_Create(make_color_rgb(136,220,60 ),
+			   				 make_color_rgb(58,170,106 ),
+							 make_color_rgb(76,103,120 ),
+							 make_color_rgb(37,75,73   ));
+				
+pal_Frost = palette_Create(make_color_rgb(151,250,255), 			
+						   make_color_rgb(15,133,255 ),
+						   make_color_rgb(56,73,184  ),
+						   make_color_rgb(0,35,82   ));
+						   
+	
+
+// palette colors
+global.keyCol1 = pal_Main[0];
+global.keyCol2 = pal_Main[1];
+global.keyCol3 = pal_Main[2];
+global.keyCol4 = pal_Main[3];
+
+global.dstCol1 = pal_Main[0];
+global.dstCol2 = pal_Main[1];
+global.dstCol3 = pal_Main[2];
+global.dstCol4 = pal_Main[3];
+
+// shader uniforms
+
+#macro sCol1 shader_get_uniform(sh_Palette,"u_KeyCol1")
+#macro sCol2 shader_get_uniform(sh_Palette,"u_KeyCol2")
+#macro sCol3 shader_get_uniform(sh_Palette,"u_KeyCol3")
+#macro sCol4 shader_get_uniform(sh_Palette,"u_KeyCol4")
+
+#macro dCol1 shader_get_uniform(sh_Palette,"u_SetCol1")
+#macro dCol2 shader_get_uniform(sh_Palette,"u_SetCol2")
+#macro dCol3 shader_get_uniform(sh_Palette,"u_SetCol3")
+#macro dCol4 shader_get_uniform(sh_Palette,"u_SetCol4")
+
+
+palette_Swap(pal_Frost) // the palette to start the game with
