@@ -30,7 +30,7 @@ isPlayerOne = true;
 moveSize = 128-16;
 if o_GameManager.currentState == GameState.Multiplayer
 	{
-	moveSize = 64;	
+		moveSize = 64;	
 	};
 
 // For Debug

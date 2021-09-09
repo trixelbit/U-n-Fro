@@ -7,7 +7,7 @@ enum asteroidTypes
 		row,
 		column,
 		cwasant
-	};
+	}
 currentAsteroid = asteroidTypes.single;
 currentLane = 0;
 currentRow = 0;

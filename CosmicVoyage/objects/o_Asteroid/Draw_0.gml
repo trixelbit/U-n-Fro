@@ -10,7 +10,7 @@ scale2= scale1+5.5;
 if o_GameManager.currentState == GameState.Multiplayer
 	{
 		mOffset = currentLane*32
-	};
+	}
 
 	curTex = t_AstSng; curModel = o_GameManager.m_AstSng;
 	mat = matrix_build(x+mOffset,y,sin(current_time/700)*20,xSpin,ySpin,0,50,50,50);

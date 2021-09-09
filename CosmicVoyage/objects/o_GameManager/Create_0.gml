@@ -2,12 +2,12 @@
 audio_play_sound(intro_music,1,1)
 gpu_set_tex_filter(false)
 enum GameState
-{
-	Intro,
-	Game,
-	Menu,
-	Multiplayer,
-}
+	{
+		Intro,
+		Game,
+		Menu,
+		Multiplayer,
+	}
 currentState = GameState.Intro;
 
 // setup for different enviroments/levels
@@ -53,45 +53,45 @@ rates = [rate_empty, rate_ufo, rate_heart, rate_asteroid, rate_boost, rate_bulle
 rate_sum = 0;
 
 for(var i = 0; i < array_length(rates); i++)
-{
-	rates[i].start = rate_sum;
-	rate_sum += rates[i].val;
-	rates[i].finish = rate_sum;	
-}
+	{
+		rates[i].start = rate_sum;
+		rate_sum += rates[i].val;
+		rates[i].finish = rate_sum;	
+	}
 
 /*
 @description: Recalculates respawn rates
 @param: _arr An array of spawn point values in order of: {empty, ufo, heart, asteroid}
 */
 function recalculateRates(_arr)
-{
-	rate_sum = 0;
-	for(var i = 0; i < array_length(rates); i++)
 	{
-		rates[i].val = _arr[i];
-		
-		rates[i].start = rate_sum;
-		rate_sum += rates[i].val;
-		rates[i].finish = rate_sum;	
+		rate_sum = 0;
+		for(var i = 0; i < array_length(rates); i++)
+			{
+				rates[i].val = _arr[i];
+				
+				rates[i].start = rate_sum;
+				rate_sum += rates[i].val;
+				rates[i].finish = rate_sum;	
+			}
 	}
-}
 
 /*
 @description: Generates random number from 0 to rate_sum and selects object from list. 
 @returns: SpawnObject enum of selected object to spawn
 */
 function selectObjectToSpawn()
-{
-	var selection = random_range(0, rate_sum);
-	
-	for(i = 0; i < array_length(rates); i++)
 	{
-		if(rates[i].start <= selection and rates[i].finish > selection)
-		{
-			return rates[i].object;
-		}
+		var selection = random_range(0, rate_sum);
+		
+		for(i = 0; i < array_length(rates); i++)
+			{
+				if(rates[i].start <= selection and rates[i].finish > selection)
+					{
+						return rates[i].object;
+					}
+			}
 	}
-}
 
 
 
@@ -145,8 +145,7 @@ spawnDist = 4096;
 // Asteroids
 m_AstSng = LoadObj("m_asteroid.obj",vertex_create_buffer());
 m_AstRow = LoadObj("m_asteroid_row.obj",vertex_create_buffer());
-m_AstCaw = LoadObj("m_asteroid_cwasant.obj",vertex_create_buffer());
-m_AstCol = LoadObj("m_asteroid_column.obj",vertex_create_buffer());
+
 // test model
 m_testCube = LoadObj("m_cube.obj",vertex_create_buffer());
 
@@ -205,16 +204,11 @@ pal_Frost = palette_Create(make_color_rgb(151,250,255),
 						   
 	
 
-// palette colors
+// the source colors 
 global.keyCol1 = pal_Main[0];
 global.keyCol2 = pal_Main[1];
 global.keyCol3 = pal_Main[2];
 global.keyCol4 = pal_Main[3];
-
-global.dstCol1 = pal_Main[0];
-global.dstCol2 = pal_Main[1];
-global.dstCol3 = pal_Main[2];
-global.dstCol4 = pal_Main[3];
 
 // shader uniforms
 
@@ -229,4 +223,4 @@ global.dstCol4 = pal_Main[3];
 #macro dCol4 shader_get_uniform(sh_Palette,"u_SetCol4")
 
 
-palette_Swap(pal_Frost) // the palette to start the game with
+palette_Swap(pal_Main) // the palette to start the game with
