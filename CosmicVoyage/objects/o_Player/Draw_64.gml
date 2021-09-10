@@ -7,22 +7,22 @@ palette_SetUniforms();
 
 
 if(isDebug)
-	{
-		draw_set_color(c_white);
-		
-		if(isPlayerOne)
-			{
-				draw_text_ext_transformed(25, 50, "Player One", 10, 300, 0.75, 0.75, 0);
-			}
-		else
-			{
-				draw_text_ext_transformed(25, 50, "Player Two", 10, 300, 0.75, 0.75, 0);
-			}
-		
-		draw_text_ext_transformed(25, 70, "X: " + string(x), 10, 300, 0.75, 0.75, 0);
-		draw_text_ext_transformed(25, 90, "Y: " + string(y), 10, 300, 0.75, 0.75, 0);
-		draw_text_ext_transformed(25, 110, "Z: " + string(z), 10, 300, 0.75, 0.75, 0);
-	}
+{
+	draw_set_color(c_white);
+	
+	if(isPlayerOne)
+		{
+			draw_text_ext_transformed(25, 50, "Player One", 10, 300, 0.75, 0.75, 0);
+		}
+	else
+		{
+			draw_text_ext_transformed(25, 50, "Player Two", 10, 300, 0.75, 0.75, 0);
+		}
+	
+	draw_text_ext_transformed(25, 70, "X: " + string(x), 10, 300, 0.75, 0.75, 0);
+	draw_text_ext_transformed(25, 90, "Y: " + string(y), 10, 300, 0.75, 0.75, 0);
+	draw_text_ext_transformed(25, 110, "Z: " + string(z), 10, 300, 0.75, 0.75, 0);
+}
 
 // SP GUI
 if o_GameManager.currentState == GameState.Game 
@@ -174,7 +174,6 @@ if o_GameManager.currentState == GameState.Game
 // MP GUI
 else if o_GameManager.currentState == GameState.Multiplayer
 	{
-		#region DEPRECATED MULTIPLAYER
 		// note that this is drawing GUI for the two players within the same object
 		if global.gameOver == false // deals with the UI for gameplay in 2P
 			{
@@ -241,7 +240,6 @@ else if o_GameManager.currentState == GameState.Multiplayer
 						run_reset();
 					}
 			}
-		#endregion
 	}
 	
 shader_reset();

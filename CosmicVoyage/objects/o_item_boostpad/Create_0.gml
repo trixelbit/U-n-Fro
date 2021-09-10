@@ -3,4 +3,4 @@
 depth = 56;
 image_xscale = 2;
 image_yscale = image_xscale;
-x -= 24;
+//x += 24;
