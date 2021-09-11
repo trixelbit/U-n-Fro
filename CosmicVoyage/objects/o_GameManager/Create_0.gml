@@ -223,4 +223,4 @@ global.keyCol4 = pal_Main[3];
 #macro dCol4 shader_get_uniform(sh_Palette,"u_SetCol4")
 
 
-palette_Swap(pal_Main) // the palette to start the game with
+palette_Swap(pal_Frost) // the palette to start the game with

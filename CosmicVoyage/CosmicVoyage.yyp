@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"t_SurfacePlanet","path":"sprites/t_SurfacePlanet/t_SurfacePlanet.yy",},"order":32,},
     {"id":{"name":"spr_intro_3","path":"sprites/spr_intro_3/spr_intro_3.yy",},"order":1,},
     {"id":{"name":"o_BoostPad","path":"objects/o_BoostPad/o_BoostPad.yy",},"order":10,},
     {"id":{"name":"spr_intro_6","path":"sprites/spr_intro_6/spr_intro_6.yy",},"order":4,},
@@ -26,6 +27,7 @@
     {"id":{"name":"spr_intro_7","path":"sprites/spr_intro_7/spr_intro_7.yy",},"order":5,},
     {"id":{"name":"o_EnemyUFO","path":"objects/o_EnemyUFO/o_EnemyUFO.yy",},"order":2,},
     {"id":{"name":"spr_char_bumbi","path":"sprites/spr_char_bumbi/spr_char_bumbi.yy",},"order":4,},
+    {"id":{"name":"sh_Scrolling","path":"shaders/sh_Scrolling/sh_Scrolling.yy",},"order":4,},
     {"id":{"name":"o_vfx_enemyhit","path":"objects/o_vfx_enemyhit/o_vfx_enemyhit.yy",},"order":7,},
     {"id":{"name":"o_Projectile","path":"objects/o_Projectile/o_Projectile.yy",},"order":20,},
     {"id":{"name":"spr_collision","path":"sprites/spr_collision/spr_collision.yy",},"order":22,},
@@ -33,6 +35,7 @@
     {"id":{"name":"spr_intro_5","path":"sprites/spr_intro_5/spr_intro_5.yy",},"order":3,},
     {"id":{"name":"o_Stars","path":"objects/o_Stars/o_Stars.yy",},"order":12,},
     {"id":{"name":"scr_RateFunctions","path":"scripts/scr_RateFunctions/scr_RateFunctions.yy",},"order":2,},
+    {"id":{"name":"t_Clouds","path":"sprites/t_Clouds/t_Clouds.yy",},"order":31,},
     {"id":{"name":"t_Hangar","path":"sprites/t_Hangar/t_Hangar.yy",},"order":15,},
     {"id":{"name":"o_sky","path":"objects/o_sky/o_sky.yy",},"order":9,},
     {"id":{"name":"rm_Game","path":"rooms/rm_Game/rm_Game.yy",},"order":1,},
