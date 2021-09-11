@@ -121,17 +121,17 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 			// score calculation
 			if o_GameManager.currentState == GameState.Multiplayer
 				{
-					scoreP1 = global.scoreDist + (500 * killsP1);
-					scoreP2 = global.scoreDist + (500 + killsP2);
+					scoreP1 = global.scoreDist + (500 * killsP1)
+					scoreP2 = global.scoreDist + (500 + killsP2)
 				}
 		}
 	
 
 	
 	if(y < -150000) // resets the y position to back to y -500 (for looping) 
-		{
-			y = -500;
-		}
+	{
+		y = -500;
+	}
 	
 
 }
