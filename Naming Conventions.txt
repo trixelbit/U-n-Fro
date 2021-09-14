@@ -1,0 +1,14 @@
+Naming conventions below:
+
+spr_ = sprite
+o_   = objects
+scr_ = scripts
+sfx_ = sound effects
+m_   = music
+ts_  = tilesets
+f_   = fonts
+tl_  = timelines
+sh_  = shaders
+r_   = rooms
+sq_  = sequences
+ac_  = animated curves
