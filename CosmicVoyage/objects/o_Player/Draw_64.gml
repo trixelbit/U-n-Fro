@@ -2,9 +2,9 @@ gpu_set_ztestenable(false);
 gpu_set_zwriteenable(false);
 draw_set_font(f_Temp);
 
-shader_set(sh_Palette) // the shader has to be called for every GUI event.
-palette_SetUniforms();
-
+shader_set(sh_Palette)
+palette_SetUniforms()
+palette_TextureOverride(false)
 
 if(isDebug)
 {
@@ -241,5 +241,4 @@ else if o_GameManager.currentState == GameState.Multiplayer
 					}
 			}
 	}
-	
-shader_reset();
+shader_reset()

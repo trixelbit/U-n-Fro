@@ -12,11 +12,14 @@ uniform vec3 u_SetCol1;
 uniform vec3 u_SetCol2;
 uniform vec3 u_SetCol3;
 uniform vec3 u_SetCol4;
+uniform sampler2D u_AppTex;
+uniform bool u_texBase; // Whetever to use gm_BaseTexture or u_AppTex;
+
 
 
 void main()
 {
-	vec4 pixel = texture2D(gm_BaseTexture, v_vTexcoord.xy);
+	vec4 pixel = texture2D(gm_BaseTexture,v_vTexcoord.xy);
 	
 	if(pixel.rgb == u_KeyCol1.rgb)
 		pixel.rgb = u_SetCol1.rgb;

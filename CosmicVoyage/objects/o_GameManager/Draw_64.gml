@@ -1,6 +1,8 @@
 
-shader_set(sh_Palette) // the shader has to be called for every GUI event.
-palette_SetUniforms();
+shader_set(sh_Palette)
+palette_SetUniforms()
+palette_TextureOverride(false)
+
 switch (currentState) 
 {
 	// Singleplayer
@@ -180,18 +182,6 @@ switch (currentState)
 				draw_sprite_ext(spr_controls, 0, view_wport[0]*0.325,view_hport[0]*0.9+(sin(current_time/100)*1), 2, 2, 0, c_grey, 1);
 			}
 		
-		if(point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), view_wport[0]*0.675, view_hport[0]*0.8) < 150)
-			{
-				draw_sprite_ext(spr_2player,0,view_wport[0]*0.675,view_hport[0]*0.75+(sin(current_time/100)*-1),3,3,0,c_white,1);	
-				draw_sprite_ext(spr_controls, 0, view_wport[0]*0.6,view_hport[0]*0.9+(sin(current_time/100)*-1), 2, 2, 0, c_white, 1);
-				draw_sprite_ext(spr_controls_2, 0, view_wport[0]*0.75,view_hport[0]*0.9+(sin(current_time/100)*-1), 2, 2, 0, c_white, 1);
-			}
-		else
-			{
-				draw_sprite_ext(spr_2player,0,view_wport[0]*0.675,view_hport[0]*0.75+(sin(current_time/100)*-1),3,3,0,c_grey,1);
-				draw_sprite_ext(spr_controls, 0, view_wport[0]*0.6,view_hport[0]*0.9+(sin(current_time/100)*-1), 2, 2, 0, c_grey, 1);
-				draw_sprite_ext(spr_controls_2, 0, view_wport[0]*0.75,view_hport[0]*0.9+(sin(current_time/100)*-1), 2, 2, 0, c_grey, 1);
-			}
 		// drawing the misc text
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_bottom);
@@ -212,18 +202,10 @@ switch (currentState)
 						if !instance_exists(o_Player) { instance_create_layer(256,room_height,"Instances",o_Player) }	
 					}
 				// player 1 + 2 mode 
-				else if(point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), view_wport[0]*0.625, view_hport[0]*0.75) < 100)
-					{
-						currentState = GameState.Multiplayer;
-				
-						p1 = instance_create_layer(256,room_height,"Instances",o_Player);
-						p2 = instance_create_layer(256,room_height,"Instances",o_Player);
-						p2.isPlayerOne = false;
-				
-					}
+				//else if(point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), view_wport[0]*0.625, view_hport[0]*0.75) < 100)
+
 			}
 
 		break;
 }
-
-shader_reset();
+shader_reset()

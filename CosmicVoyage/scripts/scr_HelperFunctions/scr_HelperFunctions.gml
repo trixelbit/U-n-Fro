@@ -236,10 +236,10 @@ function palette_SetUniforms()
 /// @param {array} dstCols			array to get the new palette colors 
 function palette_Swap(dstCols)
 	{
-				global.dstCol1 = dstCols[0];
-				global.dstCol2 = dstCols[1];
-				global.dstCol3 = dstCols[2];
-				global.dstCol4 = dstCols[3];
+		global.dstCol1 = dstCols[0];
+		global.dstCol2 = dstCols[1];
+		global.dstCol3 = dstCols[2];
+		global.dstCol4 = dstCols[3];
 	}
 
 /// @function						palette_Create(col_0,col_1,col_2,col_3)
@@ -258,4 +258,20 @@ function palette_Create(col_0,col_1,col_2,col_3)
 		
 		// returns an array containg all the newly made colors
 		return palArr;
+	}
+	
+/// @function						palette_TextureOverride(overrideState)
+/// @param {bool} overrideState		overrideState
+function palette_TextureOverride(overrideState)
+	{
+		if overrideState == false // use baseTex 
+			{
+				shader_set_uniform_f(shader_get_uniform(sh_Palette,"u_texBase"),true)
+			}
+			
+		if overrideState == true // use appTex
+			{
+				shader_set_uniform_f(shader_get_uniform(sh_Palette,"u_texBase"),false)
+				texture_set_stage(shader_get_sampler_index(sh_Palette,"u_AppTex"),surface_get_texture(application_surface))
+			}
 	}
