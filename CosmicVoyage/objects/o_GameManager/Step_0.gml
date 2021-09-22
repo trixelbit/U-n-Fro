@@ -9,7 +9,7 @@ switch (currentState)
 			space_increment = 200;
 			yDisplacement += o_Player.finalSpd;
 			
-			
+			/*
 			if(yDisplacement > space_increment)
 			{
 				yDisplacement = 0;
@@ -53,7 +53,7 @@ switch (currentState)
 					
 				}
 			}
-			
+			*/
 			#region Old Spawn
 			/*
 	        if(!hasSpawned)

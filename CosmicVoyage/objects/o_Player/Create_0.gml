@@ -55,5 +55,6 @@ fadeIn = 0;
 maxFade = 255;
 
 
-
+laneDegree = 360/12
+currentRot = 0;
 

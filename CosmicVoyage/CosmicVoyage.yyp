@@ -47,6 +47,7 @@
     {"id":{"name":"sfx_crash","path":"sounds/sfx_crash/sfx_crash.yy",},"order":3,},
     {"id":{"name":"sfx_text_tick","path":"sounds/sfx_text_tick/sfx_text_tick.yy",},"order":1,},
     {"id":{"name":"sfx_playerhit","path":"sounds/sfx_playerhit/sfx_playerhit.yy",},"order":5,},
+    {"id":{"name":"spr_TestLane","path":"sprites/spr_TestLane/spr_TestLane.yy",},"order":33,},
     {"id":{"name":"o_Asteroid","path":"objects/o_Asteroid/o_Asteroid.yy",},"order":4,},
     {"id":{"name":"spr_enemy_bullet","path":"sprites/spr_enemy_bullet/spr_enemy_bullet.yy",},"order":3,},
     {"id":{"name":"spr_intro_1","path":"sprites/spr_intro_1/spr_intro_1.yy",},"order":0,},

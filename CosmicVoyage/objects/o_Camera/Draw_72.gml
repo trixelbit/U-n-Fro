@@ -17,13 +17,13 @@ gpu_set_zwriteenable(true);
 if o_GameManager.currentState == GameState.Menu
 	{
 		projMat = matrix_build_projection_perspective_fov(fov, window_get_width() / window_get_height(), 1, 32000);
-		lookMat = matrix_build_lookat(256 - xD, room_height - yD, -50-(0), 256, 300, -50-(0), currntTilt, 0, 1);
+		lookMat = matrix_build_lookat(256 - xD, room_height - yD, -50-(0), 256, 300, -50-(0), 0, 0, 1);
 	};
 else if o_GameManager.currentState == GameState.Game
 	{
 		
 projMat = matrix_build_projection_perspective_fov(fov, window_get_width() / window_get_height(), 1, 32000);
-lookMat = matrix_build_lookat(targetObject.x - xD, targetObject.y - yD, -50-(o_Player.z), targetObject.x, targetObject.y, -50-(o_Player.z), currntTilt, 0, 1);
+lookMat = matrix_build_lookat(targetObject.x - xD, targetObject.y - yD, -50-(o_Player.z), targetObject.x, targetObject.y, -50-(o_Player.z), 0, 0, 1);
 	};
 	
 if o_GameManager.currentState == GameState.Multiplayer

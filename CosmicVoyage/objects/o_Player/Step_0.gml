@@ -15,13 +15,17 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 	// If singleplayer or player one in multiplayer
 	if(isPlayerOne)
 	{
+		currentRot = (currentLane)*laneDegree;
 		// Move Left
 		if(keyboard_check_pressed(ord("A")))
 			{
-				if(currentLane > -1)
 					{
-						targetX -= moveSize;
+						
+						//targetZ = lengthdir_y(256,currentRot)+256;
 						currentLane--;
+						currentLane = wrap(currentLane,0,11);
+						targetX = 256+lengthdir_x(256,currentLane*laneDegree)
+						targetZ = 256+lengthdir_y(256,currentLane*laneDegree)
 						o_Camera.targetTilt = lerp(o_Camera.targetTilt, 1.50, 0.030);
 					}
 			}
@@ -29,16 +33,18 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 		// Move Right
 		if(keyboard_check_pressed(ord("D")))
 			{
-				if(currentLane < 1)
 					{
-						targetX += moveSize
+						
+						//targetZ = lengthdir_y(256,currentRot)+256;
 						currentLane++;
+						currentLane = wrap(currentLane,0,11);
+						targetX = 256+lengthdir_x(256,currentLane*laneDegree)
+						targetZ = 256+lengthdir_y(256,currentLane*laneDegree)
 						o_Camera.targetTilt = lerp(o_Camera.targetTilt, -1.50, 0.030);
 					}
 			}
 		
 
-		targetZ = currentRow*64;
 
 		// Shoot projectile
 		if(keyboard_check_pressed(ord("W")))
