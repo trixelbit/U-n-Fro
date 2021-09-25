@@ -35,17 +35,17 @@ if o_GameManager.currentState != GameState.Menu
 			DrawSpriteBillboardRot(sprite_index, image_index, x, y, -z, currentRot-90,false);
 		}
 	}
-for(a = 0; a < 5; a++)
+for(a = 0; a < 30; a++)
 	{
 for(i = 0; i < 12; i++)
 	{
 		if currentLane*laneDegree == i*laneDegree
 			{
-		DrawSpriteBillboardRot(spr_TestLane,1,256+lengthdir_x(256+32,i*laneDegree),y-a*512,-256-lengthdir_y(256+32,i*laneDegree),(laneDegree*i)+90,0)	
+		DrawSpriteBillboardRot(spr_TestLane,1,256+lengthdir_x(256+32,i*laneDegree),a*-1024,-256-lengthdir_y(256+32,i*laneDegree),(laneDegree*i)+90,0)	
 			};
 		else
 			{
-		DrawSpriteBillboardRot(spr_TestLane,0,256+lengthdir_x(256+32,i*laneDegree),y-a*512,-256-lengthdir_y(256+32,i*laneDegree),(laneDegree*i)+90,0)	
+		DrawSpriteBillboardRot(spr_TestLane,0,256+lengthdir_x(256+32,i*laneDegree),a*-1024,-256-lengthdir_y(256+32,i*laneDegree),(laneDegree*i)+90,0)	
 			};
 	};
 	};

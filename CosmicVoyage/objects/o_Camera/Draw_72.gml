@@ -21,16 +21,22 @@ if o_GameManager.currentState == GameState.Menu
 	};
 else if o_GameManager.currentState == GameState.Game
 	{
+		if instance_exists(o_Player)
+			{
+				// Camera tilting code
+				zUP = cos((o_Player.currentLane-3) / 12 * 2 * pi );
+				xUP = cos((o_Player.currentLane) / 12 * 2 * pi );
+				
+				cZUP = lerp(cZUP,zUP,0.075);
+				cXUP = lerp(cXUP,xUP,0.075);
+				// the distance to track the player from
+				camDist = 60;
+			};
 		
-projMat = matrix_build_projection_perspective_fov(fov, window_get_width() / window_get_height(), 1, 32000);
-lookMat = matrix_build_lookat(targetObject.x - xD, targetObject.y - yD, -50-(o_Player.z), targetObject.x, targetObject.y, -50-(o_Player.z), 0, 0, 1);
-	};
-	
-if o_GameManager.currentState == GameState.Multiplayer
-	{
 		projMat = matrix_build_projection_perspective_fov(fov, window_get_width() / window_get_height(), 1, 32000);
-		lookMat = matrix_build_lookat(256 - xD, targetObject.y  - yD, -50-(0), 256, targetObject.y, -50-(0), currntTilt, 0, 1);
+		lookMat = matrix_build_lookat((cXUP*-camDist)+targetObject.x - xD, targetObject.y - yD, ((cZUP*camDist)*-1)-(o_Player.z), (cXUP*-camDist)+targetObject.x, targetObject.y, ((cZUP*camDist)*-1)-(o_Player.z), cXUP, 0, cZUP);
 	};
+
 	
 // Set perspective viewpoint
 camera_set_proj_mat(camera, projMat);

@@ -56,5 +56,7 @@ maxFade = 255;
 
 
 laneDegree = 360/12
-currentRot = 0;
+currentLane = 3;
+currentRot = currentLane*laneDegree;
+currentMROT =  currentLane*laneDegree;
 

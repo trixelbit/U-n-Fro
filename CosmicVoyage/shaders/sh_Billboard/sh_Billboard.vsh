@@ -11,17 +11,11 @@ void main()
     vec4 object_space_pos = vec4(in_Position, 1.0);
 	mat4 worldView = gm_Matrices[MATRIX_WORLD_VIEW];
 	
-	worldView[0][0] = 1.0;
-	worldView[0][1] = 0.0;
-	worldView[0][2] = 0.0;
 	
 	worldView[1][0] = -worldView[2][0];
 	worldView[1][1] = -worldView[2][1];
 	worldView[1][2] = -worldView[2][2];
-	
-	worldView[2][0] = 0.0;
-	worldView[2][1] = 0.0;
-	worldView[2][2] = 1.0;
+
 	
     gl_Position = gm_Matrices[MATRIX_PROJECTION] * (worldView * object_space_pos);
     
