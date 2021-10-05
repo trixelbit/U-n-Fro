@@ -13,8 +13,9 @@ if o_GameManager.currentState == GameState.Multiplayer
 	};
 
 	curTex = t_AstSng; curModel = o_GameManager.m_AstSng;
-	mat = matrix_build(x+mOffset,y,sin(current_time/700)*20,xSpin,ySpin,0,50,50,50);
-	mat2 = matrix_build(x,y,sin(current_time/700)*20,-90,0,0,scale2,scale2,scale2);
+	mat = matrix_build(x+mOffset,y,-z,xSpin,ySpin,0,50,50,50);
+	mat2 = matrix_build(x,y,-z,-90,0,0,scale2,scale2,scale2);
+
 
 
 //matrix_set(matrix_world,mat2)

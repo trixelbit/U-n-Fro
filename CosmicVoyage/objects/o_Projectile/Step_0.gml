@@ -1,43 +1,44 @@
 // Collision
-if (objIndex == undefined)
-{
+
 	objIndex = parentObject.object_index;	
-};
+
 
 // Movement && Collision
 if(parentObject.object_index == o_Player)
 {
 	// to-do add in high speed collision checking
-	targetID = collision_circle(x,y,10,o_Entity,false,true)
-	if targetID != noone && targetID.object_index != objIndex
+	targetID = collision_sphere(x,y,z,10,o_Entity,true)
+	if targetID != noone && targetID != undefined
 	{
-		if targetID.z == z
-		{
-			with(targetID)
+		if targetID != parentObject.id
 			{
-				var vfx = instance_create_layer(x, y - 10, "Instances", o_vfx_enemyhit);
-				vfx.parentId = id;
-				audio_play_sound(sfx_enemyhit,1,0);
-			}
-			
-			if targetID._lives == 1
+				with(targetID)
 				{
-				if playerWho == 0
-					{
-					o_Player.killsP1 ++ ;
-					};
-				else if playerWho == 1
-					{
-					o_Player.killsP2 ++;	
-					};
+					var vfx = instance_create_layer(x, y - 10, "Instances", o_vfx_enemyhit);
+					vfx.parentId = id;
+					vfx.z = z;
+					audio_play_sound(sfx_enemyhit,1,0);
 				}
-			targetID._lives -= dmg;
-			//matrix_set(matrix_world,matrix_build(0,0,0,90,90,90,1,1,1));
-			//part_particles_create(ps, x, y, pDeath, 5);
-			//matrix_set(matrix_world,matrix_build_identity());
-			instance_destroy(id);
-		}
-	}		
+			
+				if targetID._lives == 1
+					{
+					if playerWho == 0
+						{
+						o_Player.killsP1 ++ ;
+						};
+					else if playerWho == 1
+						{
+						o_Player.killsP2 ++;	
+						};
+					}
+				targetID._lives -= dmg;
+				//matrix_set(matrix_world,matrix_build(0,0,0,90,90,90,1,1,1));
+				//part_particles_create(ps, x, y, pDeath, 5);
+				//matrix_set(matrix_world,matrix_build_identity());
+				instance_destroy(id);
+			}
+	}
+		
 	y -= baseSpd + (baseSpd * 0.25) + 25;
 }
 

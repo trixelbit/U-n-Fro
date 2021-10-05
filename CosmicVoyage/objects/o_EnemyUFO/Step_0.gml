@@ -13,11 +13,10 @@ else
 	y = targetObject.y - max_player_distance;
 }
 
-// Lerp to player X
-/*if(targetX != x)
-{
-	x = lerp(x, targetX, 0.05);
-}*/
+
+
+
+
 if(abs(targetObject.x - x) > movement_xspeed * 1.5 )
 {
 	if(pursue)
@@ -36,14 +35,17 @@ else
 {
 	hspeed = 0;
 	x = lerp(x, targetObject.x, .5);
+	z = lerp(z, o_Player.z, 0.5);
+	
 	pursue = false; 
 	
 }
-
-if(y = targetObject.y - max_player_distance)
+currentRot = point_direction(256,256,x,z)
+//if(y = targetObject.y - max_player_distance)
 {
 	if fireTick <= 0
 	{
+		
 		sprite_index = spr_enemy_shoot
 		var proj = instance_create_layer(x, y - 10, "Instances", o_EnemyBullet);
 		//proj.parentObject = id;
@@ -67,5 +69,6 @@ if _lives < 1
 	}
 	audio_play_sound(sfx_crash,1,0);
 	var vfx = instance_create_layer(x, y - 10, "Instances", o_vfx_enemyhit);
+	vfx.z = z;
 	instance_destroy(id);	
 };

@@ -152,22 +152,39 @@ function DrawSpriteBillboard(sprite, subimage, xx, yy, zz, flip)
 	shader_reset();
 }
 
+function DrawSpriteBillboardRotExt(sprite, subimage, xx, yy, zz, rot, flip, xscale, yscale)
+	{
+		shader_set(sh_Billboard);
+		if flip == true
+			{
+				xScale = -1*xscale;
+			}
+		else
+			{
+				xScale = 1*xscale;	
+			}
+		matrix_set(matrix_world, matrix_build(xx, yy, zz, 0, 0, 0, 1, 1, 1));
+		draw_sprite_ext(sprite, subimage, 0, 0, xScale, yscale, rot, c_white, 1);
+		matrix_set(matrix_world, matrix_build_identity());
+		shader_reset();
+	}
+
 function DrawSpriteBillboardRot(sprite, subimage, xx, yy, zz, rot, flip)
-{
-	shader_set(sh_Billboard);
-	if flip == true
-		{
-			xScale = -1;
-		}
-	else
-		{
-			xScale = 1;	
-		}
-	matrix_set(matrix_world, matrix_build(xx, yy, zz, 0, 0, 0, 1, 1, 1));
-	draw_sprite_ext(sprite, subimage, 0, 0, xScale, 1, rot, c_white, 1);
-	matrix_set(matrix_world, matrix_build_identity());
-	shader_reset();
-}
+	{
+		shader_set(sh_Billboard);
+		if flip == true
+			{
+				xScale = -1;
+			}
+		else
+			{
+				xScale = 1;	
+			}
+		matrix_set(matrix_world, matrix_build(xx, yy, zz, 0, 0, 0, 1, 1, 1));
+		draw_sprite_ext(sprite, subimage, 0, 0, xScale, 1, rot, c_white, 1);
+		matrix_set(matrix_world, matrix_build_identity());
+		shader_reset();
+	}
 
 /// @function						wrap(val, min, max)
 /// @param {real} val				value to wrap
@@ -214,6 +231,29 @@ function run_reset() // used to reset the run back to the main menu state
 	
 		
 	};
+
+/// @function						collision_sphere(x,y,z,radius,obj,notme)
+/// @param {real} x					x position to check
+/// @param {real} y					y position to check
+/// @param {real} z					z position to check
+/// @param {real} radius			radius to check within
+/// @param {object} obj				object to check for
+/// @param {boolean} notme			to include the object calling this function in the collision
+function collision_sphere(x,y,z,radius,obj,notme)
+	{
+		var col = collision_circle(x,y,10,obj,false,notme) 
+		if col != noone
+			{
+				if col.z > z - radius && col.z < z + radius 
+					{
+					return col;
+					}
+			}
+		else
+			{
+				return noone;	
+			}
+	}
 
 function drawTextBox(x,y,width,height,text) // not used currently
 	{

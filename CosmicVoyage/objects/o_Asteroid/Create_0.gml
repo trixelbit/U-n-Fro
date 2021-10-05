@@ -9,15 +9,19 @@ enum asteroidTypes
 		cwasant
 	}
 currentAsteroid = asteroidTypes.single;
-currentLane = 0;
+currentLane = irandom(11);
 currentRow = 0;
 laneLength = 1;
 rowHeight = 1;
 
+laneDegree = 360/12;
+
+x = 256+lengthdir_x(256,currentLane*laneDegree)
+z = 256+lengthdir_y(256,currentLane*laneDegree)
 
 _lives = 1;
 alarm[0] = 500;
-z = 0;
+
 
 xSpin = 0;
 ySpin = 0;

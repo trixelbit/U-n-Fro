@@ -1,3 +1,3 @@
 /// @description Insert description here
 // Good huntin' to ya ^^
-DrawSpriteBillboardRotation(sprite_index, image_index, x, y, z, true, image_angle, 2,2);
+DrawSpriteBillboardRotExt(sprite_index, image_index, x, y, -z, currentRot-90, 0,2,2);

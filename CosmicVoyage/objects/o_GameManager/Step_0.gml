@@ -9,7 +9,7 @@ switch (currentState)
 			space_increment = 200;
 			yDisplacement += o_Player.finalSpd;
 			
-			/*
+
 			if(yDisplacement > space_increment)
 			{
 				yDisplacement = 0;
@@ -21,39 +21,35 @@ switch (currentState)
 					case SpawnObject.ufo:
 						if(instance_number(o_EnemyUFO) < 3)
 						{
-							instance_create_layer(256 + choose(-128,128,0), o_Player.y - spawnDist, "Instances", o_EnemyUFO);
+							eID = instance_create_layer(0, o_Player.y - spawnDist, "Instances", o_EnemyUFO);
+							eID.currentLane = irandom(11);
+							
 						}
 					break;
 					
 					case SpawnObject.asteroid:
-						var eID = instance_create_layer(256, o_Player.y - spawnDist, "Instances", o_Asteroid);
+						var eID = instance_create_layer(0, o_Player.y - spawnDist, "Instances", o_Asteroid);
 						eID.currentAsteroid = asteroidTypes.single
-						var eLane = eID.currentLane;
-						var eRow = eID.currentRow;
-						var eLen = eID.laneLength;
-						var eHgt = eID.rowHeight;
+						eID.currentLane = irandom(11);
 						// the asteroid property assignment 'table'
-						switch(eID.currentAsteroid)
-						{
-							case asteroidTypes.single: eLane = choose(1,0,-1); eRow = 0; eID.x = 256 + (128*eLane); eLen = 1; eHgt = 1 break;
-						};	
+
 					break;
 					
 					case SpawnObject.heart:
-						instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_heart);
+						//instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_heart);
 					break;
 					
 					case SpawnObject.bullet:
-						instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_bullet);
+						//instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_bullet);
 					break;
 					
 					case SpawnObject.boost:
-						instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_boostpad);
+						//instance_create_layer(256 + choose(-120,120,0), o_Player.y - spawnDist, "Instances", o_item_boostpad);
 					break;
 					
 				}
 			}
-			*/
+
 			#region Old Spawn
 			/*
 	        if(!hasSpawned)
