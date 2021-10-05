@@ -17,11 +17,18 @@ else
 
 
 
-if(abs(targetObject.x - x) > movement_xspeed * 1.5 )
+if(currentLane != o_Player.currentLane)
 {
 	if(pursue)
 	{
-		hspeed = x > targetObject.x ? lerp(hspeed, -movement_xspeed, acceleration): lerp(hspeed, movement_xspeed, acceleration);
+	currentTROT = o_Player.currentLane*laneDegree;
+	if currentMROT > 359 || currentMROT < 0	
+		{
+			currentMROT = wrap(currentMROT,0,359);
+			currentTROT = o_Player.currentLane*laneDegree;
+		}
+	
+	
 		pursueAlarmSet = false;
 	}
 	else if(!pursueAlarmSet)
@@ -33,14 +40,17 @@ if(abs(targetObject.x - x) > movement_xspeed * 1.5 )
 }
 else
 {
-	hspeed = 0;
-	x = lerp(x, targetObject.x, .5);
-	z = lerp(z, o_Player.z, 0.5);
-	
+
+
 	pursue = false; 
 	
 }
 currentRot = point_direction(256,256,x,z)
+currentMROT = lerp(currentMROT,currentTROT,0.075);
+	
+	z = 256+lengthdir_y(256,currentMROT);
+	x = 256+lengthdir_x(256,currentMROT);
+	
 //if(y = targetObject.y - max_player_distance)
 {
 	if fireTick <= 0

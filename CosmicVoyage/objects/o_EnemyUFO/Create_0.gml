@@ -11,6 +11,7 @@ currentLane = irandom(11);
 laneDegree = 360/12
 currentRot = currentLane*laneDegree;
 currentMROT =  currentLane*laneDegree;
+currentTROT = currentMROT;
 
 
 

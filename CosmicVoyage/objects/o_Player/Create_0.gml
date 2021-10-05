@@ -59,4 +59,6 @@ laneDegree = 360/12
 currentLane = 3;
 currentRot = currentLane*laneDegree;
 currentMROT =  currentLane*laneDegree;
+currentTROT = currentMROT;
+
 

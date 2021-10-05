@@ -23,8 +23,7 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 					{
 						currentLane++;
 						currentLane = wrap(currentLane,0,11);
-						targetX = 256+lengthdir_x(256,currentLane*laneDegree)
-						targetZ = 256+lengthdir_y(256,currentLane*laneDegree)
+						currentTROT += laneDegree;
 					}
 			}
 
@@ -34,8 +33,7 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 					{
 						currentLane--;
 						currentLane = wrap(currentLane,0,11);
-						targetX = 256+lengthdir_x(256,currentLane*laneDegree)
-						targetZ = 256+lengthdir_y(256,currentLane*laneDegree)
+						currentTROT -= laneDegree;
 					}
 			}
 		
@@ -50,7 +48,7 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 						var proj = instance_create_layer(x, y - 20, "Instances", o_Projectile);
 						proj.parentObject = id;
 						proj.destX = targetX;
-						proj.z		= targetZ;
+						proj.z		= z;
 						proj.baseSpd = finalSpd;
 						proj.playerWho = 0;
 						
@@ -63,15 +61,37 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 						alarm[0] = bulletIncrementWindow;
 					}
 			}
+			
+		if(!isInvincible)
+			{
+				var col = collision_sphere(x,y,z,16,o_EnemyBullet,true)
+				if col != noone && col != undefined
+					{
+						if col.object_index == o_EnemyBullet
+							{
+								_lives--;
+								audio_play_sound(sfx_playerhit,1,false);
+								var vfx = instance_create_layer(x, y - 10, "Instances", o_vfx_enemyhit);
+								with(col)
+								{
+									instance_destroy();
+								}
+							}
+					}
+			}
 	}
 
 	
 	// movement smoothing (the movement in between lanes)
-	currentMROT = lerp(currentMROT,currentLane*laneDegree,0.075)
+	if currentMROT > 359 || currentMROT < 0	
+		{
+			currentMROT = wrap(currentMROT,0,359);
+			currentTROT = currentLane*laneDegree;
+		}
+	currentMROT = lerp(currentMROT,currentTROT,0.075);
 	
 	z = 256+lengthdir_y(256,currentMROT);
 	x = 256+lengthdir_x(256,currentMROT);
-	show_debug_message(currentLane)
 	// advance the player's y position by the final spd
 	y -= finalSpd;
 	#endregion

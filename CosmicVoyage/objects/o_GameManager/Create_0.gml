@@ -21,6 +21,8 @@ enum levelState
 
 currentLevel = levelState.env_Space;
 currentSkybox = spr_skybox_space;
+#macro LANE_RADIUS 256
+
 
 goalInc = 2500; // the incerement to set the goal dist to 
 goalDist = goalInc;
