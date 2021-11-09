@@ -46,6 +46,7 @@
     {"id":{"name":"spr_intro_4","path":"sprites/spr_intro_4/spr_intro_4.yy",},"order":2,},
     {"id":{"name":"sfx_crash","path":"sounds/sfx_crash/sfx_crash.yy",},"order":3,},
     {"id":{"name":"sfx_text_tick","path":"sounds/sfx_text_tick/sfx_text_tick.yy",},"order":1,},
+    {"id":{"name":"spr_Ship3D","path":"sprites/spr_Ship3D/spr_Ship3D.yy",},"order":35,},
     {"id":{"name":"sfx_playerhit","path":"sounds/sfx_playerhit/sfx_playerhit.yy",},"order":5,},
     {"id":{"name":"spr_TestLane","path":"sprites/spr_TestLane/spr_TestLane.yy",},"order":33,},
     {"id":{"name":"o_Asteroid","path":"objects/o_Asteroid/o_Asteroid.yy",},"order":4,},
@@ -68,6 +69,7 @@
     {"id":{"name":"spr_colors","path":"sprites/spr_colors/spr_colors.yy",},"order":5,},
     {"id":{"name":"sh_Outline","path":"shaders/sh_Outline/sh_Outline.yy",},"order":2,},
     {"id":{"name":"spr_controls_2","path":"sprites/spr_controls_2/spr_controls_2.yy",},"order":28,},
+    {"id":{"name":"spr_skybox_sky","path":"sprites/spr_skybox_sky/spr_skybox_sky.yy",},"order":34,},
     {"id":{"name":"o_Camera","path":"objects/o_Camera/o_Camera.yy",},"order":0,},
     {"id":{"name":"sh_Depth","path":"shaders/sh_Depth/sh_Depth.yy",},"order":1,},
     {"id":{"name":"o_item_coco","path":"objects/o_item_coco/o_item_coco.yy",},"order":3,},
@@ -119,8 +121,8 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"rm_Game","path":"rooms/rm_Game/rm_Game.yy",},},
-    {"roomId":{"name":"rm_TestRoom","path":"rooms/rm_TestRoom/rm_TestRoom.yy",},},
     {"roomId":{"name":"TouchInputTest","path":"rooms/TouchInputTest/TouchInputTest.yy",},},
+    {"roomId":{"name":"rm_TestRoom","path":"rooms/rm_TestRoom/rm_TestRoom.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":8,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
@@ -162,6 +164,7 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_hanger.obj","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_plane.obj","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"scores.ini","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"ship.obj","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.3.574",

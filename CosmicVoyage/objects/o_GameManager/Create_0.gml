@@ -20,7 +20,7 @@ enum levelState
 	}
 
 currentLevel = levelState.env_Space;
-currentSkybox = spr_skybox_space;
+currentSkybox = spr_skybox_sky;
 #macro LANE_RADIUS 256
 
 
@@ -149,6 +149,8 @@ m_AstSng = LoadObj("m_asteroid.obj",vertex_create_buffer());
 m_AstRow = LoadObj("m_asteroid_row.obj",vertex_create_buffer());
 m_AstCaw = LoadObj("m_asteroid_cwasant.obj",vertex_create_buffer());
 m_AstCol = LoadObj("m_asteroid_column.obj",vertex_create_buffer());
+m_PlayerShip = LoadObj("ship.obj",vertex_create_buffer());
+
 // test model
 m_testCube = LoadObj("m_cube.obj",vertex_create_buffer());
 
@@ -205,6 +207,10 @@ pal_Frost = palette_Create(make_color_rgb(151,250,255),
 						   make_color_rgb(56,73,184  ),
 						   make_color_rgb(0,35,82   ));
 						   
+pal_Main2 = palette_Create(make_color_rgb(255,194,147),
+						   make_color_rgb(190,120,147),
+						   make_color_rgb(154,93,146),
+						   make_color_rgb(36,35,93))
 	
 
 // palette colors
@@ -231,4 +237,4 @@ global.dstCol4 = pal_Main[3];
 #macro dCol4 shader_get_uniform(sh_Palette,"u_SetCol4")
 
 
-palette_Swap(pal_Frost) // the palette to start the game with
+palette_Swap(pal_Main2) // the palette to start the game with

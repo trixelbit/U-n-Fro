@@ -34,7 +34,12 @@ if o_GameManager.currentState != GameState.Menu
 				}
 			DrawSpriteBillboardRot(sprite_index, image_index, x, y, -z, currentRot-90,false);
 		}
+		matrix_set(matrix_world,matrix_build(x,y,-z,-currentRot+180,0,90,15,15,15))
+		vertex_submit(m_PlayerShip,pr_trianglelist,sprite_get_texture(spr_Ship3D,0))
+		matrix_set(matrix_world,matrix_build_identity())
+		
 	}
+	
 for(a = 0; a < 30; a++)
 	{
 for(i = 0; i < 12; i++)

@@ -81,7 +81,6 @@ switch (currentState)
 			}*/#endregion
 		}
 		// level switches
-		// to-do: check in with trix about the order of levels
 		
 		if global.scoreDist >= goalDist
 		{
@@ -103,18 +102,18 @@ switch (currentState)
 			switch(currentLevel)
 			{
 				case levelState.env_Space:	
-				currentSkybox = spr_skybox_space;
-				palette_Swap(pal_Main)
+				currentSkybox = spr_skybox_sky;
+				palette_Swap(pal_Main2)
 				break;
 				
 				case levelState.env_Planet:
-				currentSkybox = spr_skyplane_3;
-				palette_Swap(pal_Frost)
+				currentSkybox = spr_skybox_sky;
+				palette_Swap(pal_Main2)
 				break;
 				
 				case levelState.env_Asteroid: 	
 				currentSkybox = spr_skybox_asteroids;
-				palette_Swap(pal_Frost)
+				palette_Swap(pal_Main2)
 				break;
 				
 				case levelState.env_Warp:	

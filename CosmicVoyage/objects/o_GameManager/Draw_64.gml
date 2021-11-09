@@ -187,7 +187,7 @@ switch (currentState)
 		draw_set_valign(fa_bottom);
 		draw_text_color(view_wport[0] * 0.01, view_hport[0] * 0.99, "TRIXELBIT ARCADE", c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
 		draw_set_halign(fa_right);
-		draw_text_color(view_wport[0] * 0.99, view_hport[0] * 0.99, "NO INTERNET", c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
+		//draw_text_color(view_wport[0] * 0.99, view_hport[0] * 0.99, "NO INTERNET", c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
 		
 		draw_set_valign(fa_center);
 		instance_destroy(o_Player);

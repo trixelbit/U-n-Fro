@@ -27,8 +27,8 @@ else if o_GameManager.currentState == GameState.Game
 				zUP = cos((o_Player.currentLane-3) / 12 * 2 * pi );
 				xUP = cos((o_Player.currentLane) / 12 * 2 * pi );
 				
-				cZUP = lerp(cZUP,zUP,0.075);
-				cXUP = lerp(cXUP,xUP,0.075);
+				cZUP = lerp(cZUP,zUP,0.035);
+				cXUP = lerp(cXUP,xUP,0.035);
 				// the distance to track the player from
 				camDist = 60;
 			};

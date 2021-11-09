@@ -1,4 +1,6 @@
 // Player Properties
+m_PlayerShip = o_GameManager.m_PlayerShip
+
 _lives = 3;
 maxLives = 3;
 
@@ -24,7 +26,8 @@ currentLane = 0;
 finalSpd = 0;
 z = 0;
 targetZ = z;
-
+playerJumping = false
+currentJumpCounter = 0;
 // For Multiplayer
 isPlayerOne = true;
 moveSize = 128-16;

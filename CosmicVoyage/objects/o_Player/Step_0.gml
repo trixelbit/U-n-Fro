@@ -12,6 +12,14 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 			finalSpd = 16;
 		}
 		
+	if o_GameManager.levelTrans == true
+		{
+			finalSpd = lerp(finalSpd,64,0.5)	
+		}
+	else
+		{
+			finalSpd = 16;	
+		}
 	#region movement controls
 	// If singleplayer or player one in multiplayer
 	if(isPlayerOne)
@@ -62,6 +70,20 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 					}
 			}
 			
+		if keyboard_check_pressed(ord("S"))
+			{
+				playerJumping = true;
+				currentLane -= 6;
+				if currentLane < 0
+					{
+						currentLane = 12+currentLane;	
+					}
+				
+				currentTROT = currentLane*laneDegree;
+				currentJumpCounter = 100;
+			}
+			
+		currentJumpCounter --;
 		if(!isInvincible)
 			{
 				var col = collision_sphere(x,y,z,16,o_EnemyBullet,true)
@@ -88,10 +110,24 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 			currentMROT = wrap(currentMROT,0,359);
 			currentTROT = currentLane*laneDegree;
 		}
+		
+	if currentJumpCounter < 0
+		{
+			playerJumping = false;	
+		};
 	currentMROT = lerp(currentMROT,currentTROT,0.075);
 	
-	z = 256+lengthdir_y(256,currentMROT);
-	x = 256+lengthdir_x(256,currentMROT);
+	if playerJumping == true
+		{
+			x = lerp(x,256+lengthdir_x(256,currentMROT),0.05)
+			z = lerp(z,256+lengthdir_y(256,currentMROT),0.05)
+			
+		}			   
+	else
+		{
+			z = 256+lengthdir_y(256,currentMROT);
+			x = 256+lengthdir_x(256,currentMROT);
+		}
 	// advance the player's y position by the final spd
 	y -= finalSpd;
 	#endregion
