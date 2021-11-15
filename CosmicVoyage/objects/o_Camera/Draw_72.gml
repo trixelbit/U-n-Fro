@@ -26,9 +26,9 @@ else if o_GameManager.currentState == GameState.Game
 				// Camera tilting code
 				zUP = cos((o_Player.currentLane-3) / 12 * 2 * pi );
 				xUP = cos((o_Player.currentLane) / 12 * 2 * pi );
-				
-				cZUP = lerp(cZUP,zUP,0.035);
-				cXUP = lerp(cXUP,xUP,0.035);
+				// 0.035 is default
+				cZUP = lerp(cZUP,zUP,0.015);
+				cXUP = lerp(cXUP,xUP,0.015);
 				// the distance to track the player from
 				camDist = 60;
 			};
