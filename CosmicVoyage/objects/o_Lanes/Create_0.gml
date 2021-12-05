@@ -37,15 +37,15 @@ vertex_end(testPlane);
 
 vertex_begin(vertexQuad,testFormat)
 
-vertex_position_3d(vertexQuad,0,0,0)
+vertex_position_3d(vertexQuad,-1,0,0)
 vertex_color(vertexQuad,c_white,1)
 vertex_texcoord(vertexQuad,0,0)
 
-vertex_position_3d(vertexQuad,1,0,0)
+vertex_position_3d(vertexQuad,0,0,0)
 vertex_color(vertexQuad,c_white,1)
 vertex_texcoord(vertexQuad,1,0)
 
-vertex_position_3d(vertexQuad,0,1,0)
+vertex_position_3d(vertexQuad,-1,1,0)
 vertex_color(vertexQuad,c_white,1)
 vertex_texcoord(vertexQuad,0,1)
 
@@ -63,8 +63,8 @@ vertex_texcoord(vertexQuad,1,1)
 
 vertex_end(vertexQuad)
 
+objFormat = o_GameManager.objFormat
 
-
-
+mPlane = LoadObj("m_ground_plane.obj",vertex_create_buffer())
 
 

@@ -26,7 +26,7 @@ else if o_GameManager.currentState == GameState.Game
 				// Camera tilting code
 				zUP = cos((o_Player.currentLane-3) / 12 * 2 * pi );
 				xUP = cos((o_Player.currentLane) / 12 * 2 * pi );
-				// 0.035 is default
+				// this is the speed that the camera tilts at, 0.035 is default
 				cZUP = lerp(cZUP,zUP,0.015);
 				cXUP = lerp(cXUP,xUP,0.015);
 				// the distance to track the player from

@@ -64,4 +64,7 @@ currentRot = currentLane*laneDegree;
 currentMROT =  currentLane*laneDegree;
 currentTROT = currentMROT;
 
+// lane codery
+laneOffset = 0;
+
 

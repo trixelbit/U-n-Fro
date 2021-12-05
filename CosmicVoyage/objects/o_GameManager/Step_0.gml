@@ -102,7 +102,7 @@ switch (currentState)
 			switch(currentLevel)
 			{
 				case levelState.env_Space:	
-				currentSkybox = spr_skybox_sky;
+				currentSkybox = spr_skybox_space;
 				palette_Swap(pal_Main2)
 				break;
 				
@@ -117,7 +117,7 @@ switch (currentState)
 				break;
 				
 				case levelState.env_Warp:	
-				currentSkybox = spr_skyplane_3;
+				currentSkybox = spr_skybox_sky;
 				palette_Swap(pal_GameBoy)
 				break;
 			}

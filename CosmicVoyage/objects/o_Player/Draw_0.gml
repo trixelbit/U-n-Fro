@@ -13,13 +13,20 @@ for(a = 0; a < 1; a++)
 	{
 for(i = 0; i < 12; i++)
 	{
+		laneOffset -= 2
+		laneOffset = wrap(laneOffset,0,2048)
+		laneAlpha = 1.0 - laneOffset/2048 
+		
 		if currentLane*laneDegree == i*laneDegree
 			{
-		DrawSpriteBillboardRot(spr_TestLane,1,256+lengthdir_x(256+32,i*laneDegree),y-512,-256-lengthdir_y(256+32,i*laneDegree),(laneDegree*i)+90,0)	
+		DrawSpriteBillboardRotA(spr_TestLane,1,256+lengthdir_x(256+32,i*laneDegree),y-512,-256-lengthdir_y(256+32,i*laneDegree),(laneDegree*i)+90,0,0.7)	
+		DrawSpriteBillboardRotA(spr_TestLane,1,256+lengthdir_x(256+32,i*laneDegree),y-512-laneOffset,-256-lengthdir_y(256+32,i*laneDegree),(laneDegree*i)+90,0,laneAlpha)	
+		DrawSpriteBillboardRotA(spr_TestLane,1,256+lengthdir_x(256+32,i*laneDegree),y-512-(laneOffset*2),-256-lengthdir_y(256+32,i*laneDegree),(laneDegree*i)+90,0,laneAlpha/2)	
 			};
 		else
 			{
-		DrawSpriteBillboardRot(spr_TestLane,0,256+lengthdir_x(256+32,i*laneDegree),y-512,-256-lengthdir_y(256+32,i*laneDegree),(laneDegree*i)+90,0)	
+		DrawSpriteBillboardRotA(spr_TestLane,0,256+lengthdir_x(256+32,i*laneDegree),y-512-laneOffset,-256-lengthdir_y(256+32,i*laneDegree),(laneDegree*i)+90,0,laneAlpha)	
+		DrawSpriteBillboardRotA(spr_TestLane,0,256+lengthdir_x(256+32,i*laneDegree),y-512,-256-lengthdir_y(256+32,i*laneDegree),(laneDegree*i)+90,0,0.7)	
 			};
 	};
 	};

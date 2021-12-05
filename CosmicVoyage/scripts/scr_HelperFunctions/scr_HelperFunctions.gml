@@ -168,7 +168,22 @@ function DrawSpriteBillboardRotExt(sprite, subimage, xx, yy, zz, rot, flip, xsca
 		matrix_set(matrix_world, matrix_build_identity());
 		shader_reset();
 	}
-
+function DrawSpriteBillboardRotA(sprite, subimage, xx, yy, zz, rot, flip, alpha)
+	{
+		shader_set(sh_Billboard);
+		if flip == true
+			{
+				xScale = -1;
+			}
+		else
+			{
+				xScale = 1;	
+			}
+		matrix_set(matrix_world, matrix_build(xx, yy, zz, 0, 0, 0, 1, 1, 1));
+		draw_sprite_ext(sprite, subimage, 0, 0, xScale, 1, rot, c_white, alpha);
+		matrix_set(matrix_world, matrix_build_identity());
+		shader_reset();
+	}
 function DrawSpriteBillboardRot(sprite, subimage, xx, yy, zz, rot, flip)
 	{
 		shader_set(sh_Billboard);

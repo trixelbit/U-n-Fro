@@ -20,11 +20,11 @@ enum levelState
 	}
 
 currentLevel = levelState.env_Space;
-currentSkybox = spr_skybox_sky;
+currentSkybox = spr_skybox_space;
 #macro LANE_RADIUS 256
 
 
-goalInc = 2500; // the incerement to set the goal dist to 
+goalInc = 1000; // the incerement to set the goal dist to 
 goalDist = goalInc;
 
 
@@ -184,7 +184,7 @@ charCount = 0;
 charProg = view_wport[0];
 
 // Skybox model
-skyboxBuff = LoadObj("m_plane.obj",vertex_create_buffer())
+skyboxBuff = LoadObj("m_sky_plane.obj",vertex_create_buffer())
 
 // hanger model
 m_Hangar = LoadObj("m_hanger.obj",vertex_create_buffer());
