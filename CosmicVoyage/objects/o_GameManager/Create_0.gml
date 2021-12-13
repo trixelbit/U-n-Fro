@@ -19,17 +19,17 @@ enum levelState
 		env_Asteroid
 	}
 
-currentLevel = levelState.env_Space;
-currentSkybox = spr_skybox_space;
+currentLevel = levelState.env_Planet;
+currentSkybox = spr_skybox_sky;
 #macro LANE_RADIUS 256
 
 
-goalInc = 1000; // the incerement to set the goal dist to 
+goalInc = 5000; // the incerement to set the goal dist to 
 goalDist = goalInc;
 
 
 // level order (array)
-levelArray = [ levelState.env_Space, levelState.env_Asteroid, levelState.env_Space, levelState.env_Warp ]
+levelArray = [ levelState.env_Space, levelState.env_Asteroid, levelState.env_Planet, levelState.env_Planet ]
 lvlCounter = 0
 
 // transitions
@@ -146,13 +146,12 @@ spawnDist = 4096;
 
 // Asteroids
 m_AstSng = LoadObj("m_asteroid.obj",vertex_create_buffer());
-m_AstRow = LoadObj("m_asteroid_row.obj",vertex_create_buffer());
-m_AstCaw = LoadObj("m_asteroid_cwasant.obj",vertex_create_buffer());
-m_AstCol = LoadObj("m_asteroid_column.obj",vertex_create_buffer());
-m_PlayerShip = LoadObj("ship.obj",vertex_create_buffer());
+m_PlayerShip = LoadObj("m_player_ship.obj",vertex_create_buffer());
+m_EnemyDrone = LoadObj("m_enemy_drone.obj",vertex_create_buffer());
 
 // test model
 m_testCube = LoadObj("m_cube.obj",vertex_create_buffer());
+m_testBeam = LoadObj("m_beam.obj",vertex_create_buffer());
 
 // the intro text
 rawText = "In a time of great expansion across the cosmos, there was\na legendary team of bounty hunters... #" 
@@ -187,7 +186,7 @@ charProg = view_wport[0];
 skyboxBuff = LoadObj("m_sky_plane.obj",vertex_create_buffer())
 
 // hanger model
-m_Hangar = LoadObj("m_hanger.obj",vertex_create_buffer());
+m_Hangar = LoadObj("m_hangar.obj",vertex_create_buffer());
 t_skybox = sprite_get_texture(spr_skybox_space,0);
 
 // palettes

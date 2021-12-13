@@ -51,6 +51,11 @@ currentMROT = lerp(currentMROT,currentTROT,0.075);
 	z = 256+lengthdir_y(256,currentMROT);
 	x = 256+lengthdir_x(256,currentMROT);
 	
+var col = instance_place3D(x,y,z,height_,o_Blocker)
+if col != noone && col != undefined
+	{
+		_lives -= 1000
+	}
 //if(y = targetObject.y - max_player_distance)
 {
 	if fireTick <= 0
@@ -62,6 +67,7 @@ currentMROT = lerp(currentMROT,currentTROT,0.075);
 		//proj.baseSpd = spd/4;
 		proj.z = z;
 		fireTick = choose(50,100,350);
+		maxTick = fireTick
 		alarm[2] = image_number;
 	};	
 	fireTick --;
@@ -82,4 +88,5 @@ if _lives < 1
 	vfx.z = z;
 	
 	instance_destroy(id);	
+	
 };

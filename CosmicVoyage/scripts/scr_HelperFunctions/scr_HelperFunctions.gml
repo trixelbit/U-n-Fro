@@ -269,7 +269,190 @@ function collision_sphere(x,y,z,radius,obj,notme)
 				return noone;	
 			}
 	}
-
+function draw_bbox_3D(x,y,z,height)
+	{
+		var boxBuff = vertex_create_buffer()
+		var col = c_red
+		vertex_begin(boxBuff,o_GameManager.objFormat)
+		
+		// x length
+		vertex_position_3d(boxBuff,x,y,-z);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		vertex_position_3d(boxBuff,x+sprite_width,y,-z);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		// x+y length
+		vertex_position_3d(boxBuff,x,y+sprite_height,-z);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		vertex_position_3d(boxBuff,x+sprite_width,y+sprite_height,-z);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		// x+z length
+		vertex_position_3d(boxBuff,x,y,-z-height);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		vertex_position_3d(boxBuff,x+sprite_width,y,-z-height);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		// x+y+z length
+		vertex_position_3d(boxBuff,x,y+sprite_height,-z-height);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		vertex_position_3d(boxBuff,x+sprite_width,y+sprite_height,-z-height);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		// y width
+		vertex_position_3d(boxBuff,x,y,-z);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		vertex_position_3d(boxBuff,x,y+sprite_height,-z);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		// y+x width
+		vertex_position_3d(boxBuff,x+sprite_width,y,-z);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		vertex_position_3d(boxBuff,x+sprite_width,y+sprite_height,-z);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		// y+z width
+		vertex_position_3d(boxBuff,x,y,-z-height);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		vertex_position_3d(boxBuff,x,y+sprite_height,-z-height);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		// y+x+z width
+		vertex_position_3d(boxBuff,x+sprite_width,y,-z-height);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		vertex_position_3d(boxBuff,x+sprite_width,y+sprite_height,-z-height);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		// z height
+		vertex_position_3d(boxBuff,x,y,-z);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		vertex_position_3d(boxBuff,x,y,-z-height);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		// z+x height
+		vertex_position_3d(boxBuff,x+sprite_width,y,-z);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		vertex_position_3d(boxBuff,x+sprite_width,y,-z-height);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		// z+y height
+		vertex_position_3d(boxBuff,x,y+sprite_height,-z);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		vertex_position_3d(boxBuff,x,y+sprite_height,-z-height);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		// z+x+y height
+		vertex_position_3d(boxBuff,x+sprite_width,y+sprite_height,-z);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		vertex_position_3d(boxBuff,x+sprite_width,y+sprite_height,-z-height);
+		vertex_color(boxBuff,col,1);
+		vertex_texcoord(boxBuff,0,0);
+		vertex_normal(boxBuff,0,0,0);
+		
+		
+		
+		vertex_end(boxBuff)
+		var iBuff = buffer_create_from_vertex_buffer(boxBuff,buffer_vbuffer,1)
+		vertex_delete_buffer(boxBuff)
+		var fBuff = vertex_create_buffer_from_buffer(iBuff,o_GameManager.objFormat)
+		buffer_delete(iBuff)
+		vertex_freeze(fBuff)
+		return fBuff;
+	}
+function render_BBOX(m_bbox)
+	{
+		matrix_set(matrix_world,matrix_build(x-(sprite_width/2),y-(sprite_height/2),-z,0,0,0,1,1,1))
+		shader_set(sh_BBOX)
+		vertex_submit(m_bbox,pr_linelist,-1)
+		matrix_set(matrix_world,matrix_build_identity())
+		shader_reset()
+	}	
+function instance_place3D(x,y,z,height,obj)
+	{
+		var cz = 0
+		var ch = 0
+		var col_id = instance_place(x,y,obj)
+		if col_id != noone
+			{
+				cz = col_id.z;
+				ch = col_id.height_;
+				if z > cz || z+height > cz
+					{
+						
+						if z < ch+cz
+							{
+						return col_id
+							}
+						
+					}
+				else
+					{
+						return noone	
+					}
+			}
+		else
+			{
+				return noone	
+			}
+	}
 function drawTextBox(x,y,width,height,text) // not used currently
 	{
 		var textSpeed = 0.25;

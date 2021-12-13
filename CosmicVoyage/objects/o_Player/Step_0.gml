@@ -100,6 +100,11 @@ if(_lives > 0) && o_GameManager.currentState != GameState.Menu && global.gameOve
 								}
 							}
 					}
+				var col = instance_place3D(x,y,z,height_,o_Blocker)
+				if col != noone && col != undefined
+					{
+						_lives -= 1000
+					}
 			}
 	}
 

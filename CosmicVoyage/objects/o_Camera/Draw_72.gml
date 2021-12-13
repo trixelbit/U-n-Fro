@@ -17,8 +17,8 @@ gpu_set_zwriteenable(true);
 if o_GameManager.currentState == GameState.Menu
 	{
 		projMat = matrix_build_projection_perspective_fov(fov, window_get_width() / window_get_height(), 1, 32000);
-		lookMat = matrix_build_lookat(256 - xD, room_height - yD, -50-(0), 256, 300, -50-(0), 0, 0, 1);
-	};
+		lookMat = matrix_build_lookat(256 - xD, room_height - yD, -250-(0), 256, 300, 0, 0, 0, 1);
+	}
 else if o_GameManager.currentState == GameState.Game
 	{
 		if instance_exists(o_Player)
@@ -36,6 +36,11 @@ else if o_GameManager.currentState == GameState.Game
 		projMat = matrix_build_projection_perspective_fov(fov, window_get_width() / window_get_height(), 1, 32000);
 		lookMat = matrix_build_lookat((cXUP*-camDist)+targetObject.x - xD, targetObject.y - yD, ((cZUP*camDist)*-1)-(o_Player.z), (cXUP*-camDist)+targetObject.x, targetObject.y, ((cZUP*camDist)*-1)-(o_Player.z), cXUP, 0, cZUP);
 	};
+else
+	{
+		projMat = matrix_build_projection_perspective_fov(fov, window_get_width() / window_get_height(), 1, 32000);
+		lookMat = matrix_build_lookat(256 - xD, room_height - yD, -50-(0), 256, 300, -0-(0), 0, 0, 1);
+	}
 
 	
 // Set perspective viewpoint
@@ -45,7 +50,7 @@ camera_set_proj_mat(camera, projMat);
 camera_set_view_mat(camera, lookMat);
 
 // Clear buffer
-draw_clear(c_black);
+draw_clear(c_BG3);
 
 // Apply camera settings
 camera_apply(camera);

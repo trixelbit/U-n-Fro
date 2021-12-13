@@ -16,9 +16,9 @@ hasSimone = false;
 hasBunbi = false;
 
 // Instance camera
-camera = instance_create_layer(x, (y + 100), "Camera", o_Camera);
-camera.z = 0;
-camera.targetObject = self;
+//camera = instance_create_layer(x, (y + 100), "Camera", o_Camera);
+//camera.z = 0;
+//camera.targetObject = self;
 
 // Movement
 targetX = x;
@@ -66,5 +66,6 @@ currentTROT = currentMROT;
 
 // lane codery
 laneOffset = 0;
-
+height_ = 16
+bbox = draw_bbox_3D(0,0,0,height_)
 

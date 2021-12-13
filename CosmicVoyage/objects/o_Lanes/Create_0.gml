@@ -1,5 +1,5 @@
 testPlane = vertex_create_buffer()
-
+laneOffset = 0
 vertexQuad = vertex_create_buffer();
 
 vertex_format_begin()
