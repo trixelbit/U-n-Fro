@@ -65,6 +65,7 @@
     {"id":{"name":"o_item_heart","path":"objects/o_item_heart/o_item_heart.yy",},"order":4,},
     {"id":{"name":"o_Lanes","path":"objects/o_Lanes/o_Lanes.yy",},"order":6,},
     {"id":{"name":"spr_coco","path":"sprites/spr_coco/spr_coco.yy",},"order":1,},
+    {"id":{"name":"f_Screen","path":"fonts/f_Screen/f_Screen.yy",},"order":1,},
     {"id":{"name":"spr_intro_2","path":"sprites/spr_intro_2/spr_intro_2.yy",},"order":8,},
     {"id":{"name":"spr_player2_left","path":"sprites/spr_player2_left/spr_player2_left.yy",},"order":29,},
     {"id":{"name":"spr_heart_empty","path":"sprites/spr_heart_empty/spr_heart_empty.yy",},"order":2,},
@@ -164,6 +165,7 @@
   "TextureGroups": [
     {"isScaled":true,"autocrop":true,"border":8,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Default","resourceType":"GMTextureGroup",},
     {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Fonts","resourceType":"GMTextureGroup",},
+    {"isScaled":true,"autocrop":false,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Fonts1","resourceType":"GMTextureGroup",},
   ],
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_asteroid.obj","resourceType":"GMIncludedFile",},
@@ -182,6 +184,9 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_player_ship.obj","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_hangar.obj","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_beam.obj","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_hangar_screen.obj","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_tube.obj","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"m_strut.obj","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.7.603",

@@ -19,10 +19,10 @@ enum levelState
 		env_Asteroid
 	}
 
-currentLevel = levelState.env_Planet;
-currentSkybox = spr_skybox_sky;
+currentLevel = levelState.env_Asteroid;
+currentSkybox = spr_skybox_asteroids;
 #macro LANE_RADIUS 256
-
+global.count = 0;
 
 goalInc = 5000; // the incerement to set the goal dist to 
 goalDist = goalInc;
@@ -34,6 +34,8 @@ lvlCounter = 0
 
 // transitions
 levelTrans = false;
+gameStart = false;
+gameCountdown = 0;
 
 // enemy spawning chances
 enemy_chanceUFO = 3;
@@ -134,6 +136,8 @@ alarm[0] = 300;
 // Enemy Spawning Distance
 spawnDist = 4096;
 
+
+
 // Model Loading
 
 
@@ -152,6 +156,8 @@ m_EnemyDrone = LoadObj("m_enemy_drone.obj",vertex_create_buffer());
 // test model
 m_testCube = LoadObj("m_cube.obj",vertex_create_buffer());
 m_testBeam = LoadObj("m_beam.obj",vertex_create_buffer());
+m_testTube = LoadObj("m_tube.obj",vertex_create_buffer());
+m_testStrut = LoadObj("m_strut.obj",vertex_create_buffer());
 
 // the intro text
 rawText = "In a time of great expansion across the cosmos, there was\na legendary team of bounty hunters... #" 
@@ -187,8 +193,9 @@ skyboxBuff = LoadObj("m_sky_plane.obj",vertex_create_buffer())
 
 // hanger model
 m_Hangar = LoadObj("m_hangar.obj",vertex_create_buffer());
+m_HangarScreen = LoadObj("m_hangar_screen.obj",vertex_create_buffer())
 t_skybox = sprite_get_texture(spr_skybox_space,0);
-
+s_screen = surface_create(1024,512)
 // palettes
 
 pal_Main = palette_Create(make_color_rgb(255,194,147),

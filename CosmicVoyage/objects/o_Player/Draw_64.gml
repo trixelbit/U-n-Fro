@@ -98,7 +98,7 @@ if o_GameManager.currentState == GameState.Game
 				if (o_GameManager.levelTrans == false)
 					{
 						draw_text(25,20,"SCORE: " + string(finalScore) + " PTS.") // draw the total score text
-						draw_text(25,400,"[" + string(x) + ", " + string(z) + "]")
+						draw_text(25,400,"[" + string(currentLane) + "]")
 						#region Draw Lives
 						var _scale = 3;
 						var _Xpos = view_wport[0]*0.2 - (23 * 3 * 1.5), _Ypos = view_hport[0]*0.9;

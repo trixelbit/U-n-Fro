@@ -233,6 +233,8 @@ function run_reset() // used to reset the run back to the main menu state
 		o_Player.hasBunbi = false;
 		o_Player.isInvincible = false;
 		
+		
+		
 		instance_destroy(o_Asteroid);
 		instance_destroy(o_EnemyUFO);
 		instance_destroy(o_Projectile);
@@ -242,6 +244,7 @@ function run_reset() // used to reset the run back to the main menu state
 		o_GameManager.levelTrans = false;
 		o_GameManager.canSpawn = true;
 		o_GameManager.currentState = GameState.Menu;
+		o_GameManager.gameStart = false;
 		instance_destroy(o_Stars)
 	
 		
@@ -269,10 +272,19 @@ function collision_sphere(x,y,z,radius,obj,notme)
 				return noone;	
 			}
 	}
+	
+function cWrap(val,min,max)
+	{
+		var cVal = val;
+		if val > max { cVal = min + (max-val) } 
+		if val < min { cVal = max + (val-min) + 1 } 
+		return cVal;
+	}
+
 function draw_bbox_3D(x,y,z,height)
 	{
 		var boxBuff = vertex_create_buffer()
-		var col = c_red
+		var col = draw_get_color()
 		vertex_begin(boxBuff,o_GameManager.objFormat)
 		
 		// x length

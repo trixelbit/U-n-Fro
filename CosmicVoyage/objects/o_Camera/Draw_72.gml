@@ -18,6 +18,16 @@ if o_GameManager.currentState == GameState.Menu
 	{
 		projMat = matrix_build_projection_perspective_fov(fov, window_get_width() / window_get_height(), 1, 32000);
 		lookMat = matrix_build_lookat(256 - xD, room_height - yD, -250-(0), 256, 300, 0, 0, 0, 1);
+		if transCam == true
+			{
+				cuX = lerp(cuX,tgX,tSpeed)
+				cuY = lerp(cuY,tgY,tSpeed)
+				cuZ = lerp(cuZ,tgZ,tSpeed)
+				cu2X = lerp(cu2X,tg2X,tSpeed)
+				cu2Y = lerp(cu2Y,tg2Y,tSpeed)
+				cu2Z = lerp(cu2Z,tg2Z,tSpeed)
+				lookMat = matrix_build_lookat(cuX, cuY, cuZ, cu2X, cu2Y, cu2Z, 0, 0, 1);
+			}
 	}
 else if o_GameManager.currentState == GameState.Game
 	{

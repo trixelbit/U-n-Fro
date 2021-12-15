@@ -168,9 +168,19 @@ switch (currentState)
 				instance_create_layer(256,room_height,"Instances",o_Camera);	
 			}
 		
-		draw_set_halign(fa_center)
-		draw_sprite_ext(spr_TitleCard,0,view_wport[0]*0.5,view_hport[0]*0.125,2,2,(sin(current_time/700)*1),-1,1);
+
 		
+		draw_set_halign(fa_center)
+		if gameStart == false
+			{
+		s_y = (view_hport[0]*0.125);
+		draw_sprite_ext(spr_TitleCard,0,view_wport[0]*0.5,s_y,2,2,(sin(current_time/700)*1),-1,1);
+			}
+		else
+			{
+				s_y = lerp(s_y,-(view_hport[0]*0.125),0.025)
+				draw_sprite_ext(spr_TitleCard,0,view_wport[0]*0.5,s_y,2,2,(sin(current_time/700)*1),-1,1);
+			}
 		if(point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), view_wport[0]*0.325, view_hport[0]*0.8) < 150)
 			{
 				draw_sprite_ext(spr_1player,0,view_wport[0]*0.325,view_hport[0]*0.75+(sin(current_time/100)*1),3,3,0,c_white,1);
@@ -187,10 +197,20 @@ switch (currentState)
 		draw_set_valign(fa_bottom);
 		draw_text_color(view_wport[0] * 0.01, view_hport[0] * 0.99, "TRIXELBIT ARCADE", c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
 		draw_set_halign(fa_right);
-		//draw_text_color(view_wport[0] * 0.99, view_hport[0] * 0.99, "NO INTERNET", c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
+		draw_text_color(view_wport[0] * 0.99, view_hport[0] * 0.99, "INTERNAL TEST 1", c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
 		
 		draw_set_valign(fa_center);
 		instance_destroy(o_Player);
+		
+		if gameStart == true
+			{
+			gameCountdown -= 2;
+				if gameCountdown <= 0
+					{
+				currentState = GameState.Game;	
+				if !instance_exists(o_Player) { instance_create_layer(256,room_height,"Instances",o_Player) }		
+					}
+			}
 		
 		
 		if mouse_check_button_pressed(mb_left) // button checking
@@ -198,8 +218,35 @@ switch (currentState)
 				// player 1 mode
 				if(point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), view_wport[0]*0.375, view_hport[0]*0.75) < 100)
 					{
-						currentState = GameState.Game;	
-						if !instance_exists(o_Player) { instance_create_layer(256,room_height,"Instances",o_Player) }	
+						if gameStart == false
+							{
+								gameCountdown = 500;
+								o_Camera.transCam = true
+								//256 - xD, room_height - yD, -250-(0), 256, 300
+								o_Camera.stX = 256 - o_Camera.xD
+								o_Camera.stY = room_height - o_Camera.yD
+								o_Camera.stZ = -250
+								o_Camera.st2X = 256
+								o_Camera.st2Y = 300
+								o_Camera.st2Z = 0
+								// 256 - xD, room_height - yD, -50-(0), 256, 300, -0-(0)
+								o_Camera.tgX = 256 - o_Camera.xD
+								o_Camera.tgY = room_height/1.25 - (o_Camera.yD)
+								o_Camera.tgZ = -50
+								o_Camera.tg2X= 256
+								o_Camera.tg2Y= room_height/1.5
+								o_Camera.tg2Z= 0
+								
+								o_Camera.cuX = o_Camera.stX 
+								o_Camera.cuY = o_Camera.stY 
+								o_Camera.cuZ = o_Camera.stZ 
+								o_Camera.cu2X= o_Camera.st2X
+								o_Camera.cu2Y= o_Camera.st2Y
+								o_Camera.cu2Z= o_Camera.st2Z
+								o_Camera.tSpeed = 0.025;
+							}
+						gameStart = true
+						
 					}
 				// player 1 + 2 mode 
 				//else if(point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), view_wport[0]*0.625, view_hport[0]*0.75) < 100)
